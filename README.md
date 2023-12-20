@@ -36,6 +36,9 @@ Below is a comprehensive list of features that AuthLogParser can analyze:
 - User Added To A Group Activity
 - User Removed From A Group Activity
 - Session Opened For User root
+#### Feature Requests:
+If you wish to propose the addition of a new feature, kindly submit your request by creating an issue here:
+https://github.com/YosfanEilay/AuthLogParser/issues/new
 
 ## How To Use ?
 ![howto use](https://github.com/YosfanEilay/AuthLogParser/assets/132997318/2d663c04-88a3-412b-aa5c-99ad48d45ba1)
