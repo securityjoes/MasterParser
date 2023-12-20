@@ -12,7 +12,7 @@ effectiveness of incident response efforts, enabling practitioners to quickly an
 While it proves indispensable for Incident Responders, its utility extends beyond DFIR teams, making it a valuable asset for the entire
 InfoSec and IT community.
 
-## What The Toll Can Do ?
+## What The Tool Can Do ?
 Below is a comprehensive list of features that AuthLogParser can analyze:
 #### Summary Report features
 - Hostname
