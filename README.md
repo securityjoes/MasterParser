@@ -28,7 +28,7 @@ PS C:\> cd "C:\Users\{UserName}\Desktop\AuthLogParser\"
 # Example without path
 PS C:\Users\{UserName}\Desktop\AuthLogParser> ".\AuthLogParser.ps1 PATH\TO\YOUR\AUTH.LOG"
 
-# Real Example
+# Real example
 PS C:\Users\EilayYosfan\Desktop\AuthLogParser> .\AuthLogParser.ps1 "C:\Users\EilayYosfan\Desktop\Auth.Logs\auth.log.10"
 ```
 5. Thats it, enjoy the tool :]
