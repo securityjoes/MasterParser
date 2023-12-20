@@ -14,12 +14,28 @@ InfoSec and IT community.
 
 ## What The Toll Can Do ?
 Below is a comprehensive list of features that AuthLogParser can analyze:
-#### s
+#### Summary Report features
 - Hostname
 - Log Size
 - Start Time
 - End Time
 - Duration
+#### Statistics Table
+- Event Names Table
+- IP Addresses Table
+- Failed SSH Table
+- Not Found Elements Table
+#### Raw Event Categorizing
+- Successful SSH Password Authentication
+- Successful SSH Public key Authentication
+- New User Creation Activity
+- User Deletion Activity
+- User Password Change Activity
+- New Group Creation Activity
+- Group Deletion Activity
+- User Added To A Group Activity
+- User Removed From A Group Activity
+- Session Opened For User root
 
 ## How To Use ?
 ![howto use](https://github.com/YosfanEilay/AuthLogParser/assets/132997318/2d663c04-88a3-412b-aa5c-99ad48d45ba1)
