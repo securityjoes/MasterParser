@@ -12,6 +12,15 @@ effectiveness of incident response efforts, enabling practitioners to quickly an
 While it proves indispensable for Incident Responders, its utility extends beyond DFIR teams, making it a valuable asset for the entire
 InfoSec and IT community.
 
+## What The Toll Can Do ?
+Below is a comprehensive list of features that AuthLogParser can analyze:
+##### s
+- Hostname
+- Log Size
+- Start Time
+- End Time
+- Duration
+
 ## How To Use ?
 ![howto use](https://github.com/YosfanEilay/AuthLogParser/assets/132997318/2d663c04-88a3-412b-aa5c-99ad48d45ba1)
 
