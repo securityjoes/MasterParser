@@ -17,4 +17,15 @@ InfoSec and IT community.
 
 ### How To Use - Text Guide
 1. From this GitHub repository press on "<> Code" and then press on "Download ZIP".
-2. 
+2. From "ALP.zip" export the folder "AuthLogParser" to you Desktop.
+3. Open a PowerSehll terminal and navigate to the "AuthLogParser" folder.
+```
+PS C:\> cd "C:\Users\{UserName}\Desktop\AuthLogParser\"
+```
+4. From the "AuthLogParser" path, execute the tool on your Auth.Log file like this:
+```
+PS C:\Users\{UserName}\Desktop\AuthLogParser> ".\AuthLogParser.ps1 PATH\TO\YOUR\AUTH.LOG"
+# For Example
+PS C:\Users\EilayYosfan\Desktop\AuthLogParser> .\AuthLogParser.ps1 "C:\Users\EilayYosfan\Desktop\Auth.Logs\auth.log.10"
+```
+5. Thats it, enjoy the tool :]
