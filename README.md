@@ -3,7 +3,7 @@
 ![Untitled design](https://github.com/YosfanEilay/AuthLogParser/assets/132997318/2121356e-d6e3-4ee8-9ebc-b54b895c0020)
 
 ## What is AuthLogParser ?
-AuthLogParser is a powerful Digital Forensics and Incident Response (DFIR) tool designed specifically for analyzing Linux authentication logs,
+AuthLogParser is a powerful Digital Forensics and Incident Response tool designed specifically for analyzing Linux authentication logs,
 commonly known as auth.log. This tool serves as an invaluable asset for Incident Responders, streamlining the process of investigating security
 incidents on Linux systems. AuthLogParser meticulously scans the auth.log log file, extracting key information such as SSH logins, user creations,
 event names, IP addresses, and more. The generated summary provides a clear and concise overview of the activities recorded in the authentication
