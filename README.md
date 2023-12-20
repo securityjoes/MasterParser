@@ -26,7 +26,7 @@ PS C:\> cd "C:\Users\{UserName}\Desktop\AuthLogParser\"
 4. From the "AuthLogParser" path, execute the tool on your Auth.Log file like this:
 ```
 # Example without path
-PS C:\Users\{UserName}\Desktop\AuthLogParser> ".\AuthLogParser.ps1 PATH\TO\YOUR\AUTH.LOG"
+PS C:\Users\{UserName}\Desktop\AuthLogParser> .\AuthLogParser.ps1 "PATH\TO\YOUR\AUTH.LOG"
 
 # Real example
 PS C:\Users\EilayYosfan\Desktop\AuthLogParser> .\AuthLogParser.ps1 "C:\Users\EilayYosfan\Desktop\Auth.Logs\auth.log.10"
