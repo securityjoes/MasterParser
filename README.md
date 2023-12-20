@@ -14,3 +14,7 @@ InfoSec and IT community.
 
 ## How To Use ?
 ![howto use](https://github.com/YosfanEilay/AuthLogParser/assets/132997318/2d663c04-88a3-412b-aa5c-99ad48d45ba1)
+
+### How To Use - Text Guide
+1. From this GitHub repository press on "<> Code" and then press on "Download ZIP".
+2. 
