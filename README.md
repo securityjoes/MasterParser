@@ -34,3 +34,5 @@ PS C:\Users\EilayYosfan\Desktop\AuthLogParser> .\AuthLogParser.ps1 "C:\Users\Eil
 5. Thats it, enjoy the tool :]
 
 ### How To Use - Video Guide
+https://github.com/YosfanEilay/AuthLogParser/assets/132997318/9d974902-ce04-4e15-a8c2-c31a48f57efa
+
