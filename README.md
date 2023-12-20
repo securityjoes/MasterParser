@@ -14,7 +14,7 @@ InfoSec and IT community.
 
 ## What The Toll Can Do ?
 Below is a comprehensive list of features that AuthLogParser can analyze:
-##### s
+#### s
 - Hostname
 - Log Size
 - Start Time
