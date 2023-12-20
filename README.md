@@ -10,4 +10,4 @@ event names, IP addresses, and more. The generated summary provides a clear and 
 logs, presenting the data in an easily readable format. By enhancing efficiency and accessibility, AuthLogParser significantly contributes to the
 effectiveness of incident response efforts, enabling practitioners to quickly and comprehensively assess security events on Linux platforms.
 While it proves indispensable for Incident Responders, its utility extends beyond DFIR teams, making it a valuable asset for the entire
-Information Security (InfoSec) and IT community.
+(InfoSec) and IT community.
