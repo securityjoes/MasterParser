@@ -32,3 +32,5 @@ PS C:\Users\{UserName}\Desktop\AuthLogParser> ".\AuthLogParser.ps1 PATH\TO\YOUR\
 PS C:\Users\EilayYosfan\Desktop\AuthLogParser> .\AuthLogParser.ps1 "C:\Users\EilayYosfan\Desktop\Auth.Logs\auth.log.10"
 ```
 5. Thats it, enjoy the tool :]
+
+### How To Use - Video Guide
