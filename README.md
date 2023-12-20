@@ -11,3 +11,5 @@ logs, presenting the data in an easily readable format. By enhancing efficiency 
 effectiveness of incident response efforts, enabling practitioners to quickly and comprehensively assess security events on Linux platforms.
 While it proves indispensable for Incident Responders, its utility extends beyond DFIR teams, making it a valuable asset for the entire
 InfoSec and IT community.
+
+## How To Use ?
