@@ -45,19 +45,19 @@ https://github.com/YosfanEilay/AuthLogParser/issues/new
 
 ### How To Use - Text Guide
 1. From this GitHub repository press on "<> Code" and then press on "Download ZIP".
-2. From "ALP.zip" export the folder "AuthLogParser" to you Desktop.
-3. Open a PowerSehll terminal and navigate to the "AuthLogParser" folder.
+2. From "AuthLogParser-main.zip" export the folder "AuthLogParser-main" to you Desktop.
+3. Open a PowerSehll terminal and navigate to the "AuthLogParser-main" folder.
 ```
-# How to navigate to "AuthLogParser" folder from the PS terminal
-PS C:\> cd "C:\Users\{UserName}\Desktop\AuthLogParser\"
+# How to navigate to "AuthLogParser-main" folder from the PS terminal
+PS C:\> cd "C:\Users\{UserName}\Desktop\AuthLogParser-main\"
 ```
 4. From the "AuthLogParser" path, execute the tool on your Auth.Log file like this:
 ```
 # Example without path
-PS C:\Users\{UserName}\Desktop\AuthLogParser> .\AuthLogParser.ps1 "PATH\TO\YOUR\AUTH.LOG"
+PS C:\Users\{UserName}\Desktop\AuthLogParser-main> .\AuthLogParser.ps1 "PATH\TO\YOUR\AUTH.LOG"
 
 # Real example
-PS C:\Users\EilayYosfan\Desktop\AuthLogParser> .\AuthLogParser.ps1 "C:\Users\EilayYosfan\Desktop\Auth.Logs\auth.log.10"
+PS C:\Users\EilayYosfan\Desktop\AuthLogParser-main> .\AuthLogParser.ps1 "C:\Users\EilayYosfan\Desktop\Auth.Logs\auth.log.10"
 ```
 5. Thats it, enjoy the tool!
 
