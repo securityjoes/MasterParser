@@ -51,7 +51,7 @@ https://github.com/YosfanEilay/AuthLogParser/issues/new
 # How to navigate to "AuthLogParser-main" folder from the PS terminal
 PS C:\> cd "C:\Users\{UserName}\Desktop\AuthLogParser-main\"
 ```
-4. From the "AuthLogParser" path, execute the tool on your Auth.Log file like this:
+4. From the "AuthLogParser-main" path, execute the tool on your Auth.Log file like this:
 ```
 # Example
 PS C:\Users\{UserName}\Desktop\AuthLogParser-main> .\AuthLogParser.ps1 "PATH\TO\YOUR\AUTH.LOG"
