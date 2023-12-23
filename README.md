@@ -59,5 +59,4 @@ PS C:\Users\{UserName}\Desktop\AuthLogParser-main> .\AuthLogParser.ps1 "PATH\TO\
 5. Thats it, enjoy the tool!
 
 ### How To Use - Video Guide
-
-
+https://github.com/YosfanEilay/AuthLogParser/assets/132997318/43649759-8f47-40c6-a340-69c74c8af536
