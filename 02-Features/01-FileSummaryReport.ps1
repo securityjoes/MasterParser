@@ -1,4 +1,7 @@
-﻿# flag number 1
+# variable is 0
+$LineCount = 0
+
+# flag number 1
 $Flag1 = "True"
 
 # variable to get auth.log copy content.
@@ -6,7 +9,10 @@ $AuthLogCopyContent = Get-Content $AuthLogCopyLocation
 
 # foreach loop to iterate through lines of the auth.log file.
 foreach ($SingleLine in $AuthLogCopyContent) {
-
+  
+  # foreach time a line pass, $LineCount gets 1+
+  $LineCount++  
+  
   # Split each line into words
   $Words = $SingleLine -split ' '
 
@@ -62,6 +68,7 @@ $FullDuration = Write-Output "$($Duration.Days) Days $($Duration.Hours) Hours $(
 Write-Output "Auth.Log File Summary Report"
 Write-Output "+--------------------------+"
 Write-Output "Hostname:   $Hostname"
+Write-Output "Log Lines:  $LineCount"
 Write-Output "Log Size:   $FileSizeInMB MB"
 Write-Output "Start Time: $Start_Time"
 Write-Output "End Time:   $End_Time"
