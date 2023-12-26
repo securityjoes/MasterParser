@@ -1,4 +1,4 @@
-# variable is 0
+﻿# variable is 0
 $LineCount = 0
 
 # flag number 1

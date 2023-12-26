@@ -62,8 +62,11 @@ if ($CreateLogCopy_Flag -eq "True") {
 # Dot Sourcing -> 04-SSHTable.ps1
 . "$RunningPath\02-Features\04-SSHTable.ps1"
 
-# Dot Sourcing -> 01-04-UsersGroupsActivity.ps1
+# Dot Sourcing -> 05-UsersGroupsActivity.ps1
 . "$RunningPath\02-Features\05-UsersGroupsActivity.ps1"
+
+# Dot Sourcing -> 06-GeneralActivity.ps1
+. "$RunningPath\02-Features\06-GeneralActivity.ps1"
 
 if ($NotFoundHashTable.Values.Count -ge 1) {
 # Element That Does Not Exist in This auth.log File
