@@ -68,7 +68,7 @@ $FullDuration = Write-Output "$($Duration.Days) Days $($Duration.Hours) Hours $(
 Write-Output "Auth.Log File Summary Report"
 Write-Output "+--------------------------+"
 Write-Output "Hostname:   $Hostname"
-Write-Output "Log Lines:  $LineCount"
+Write-Output "Line Count: $LineCount"
 Write-Output "Log Size:   $FileSizeInMB MB"
 Write-Output "Start Time: $Start_Time"
 Write-Output "End Time:   $End_Time"
