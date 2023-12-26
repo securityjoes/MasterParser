@@ -16,6 +16,7 @@ InfoSec and IT community.
 Below is a comprehensive list of features that AuthLogParser can analyze:
 #### Summary Report features
 - Hostname
+- Line Count
 - Log Size
 - Start Time
 - End Time
