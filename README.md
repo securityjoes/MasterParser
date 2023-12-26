@@ -62,6 +62,6 @@ PS C:\Users\{UserName}\Desktop\AuthLogParser-main> .\AuthLogParser.ps1 "PATH\TO\
 https://github.com/YosfanEilay/AuthLogParser/assets/132997318/43649759-8f47-40c6-a340-69c74c8af536
 
 ### Top AuthLogParser Posts
-|Social Media Posts                                                                     |
----------------------------------------------------------------------------
-|https://www.linkedin.com/feed/update/urn:li:activity:7144214785243492352/|
+|Social Media Posts                                                         |
+----------------------------------------------------------------------------
+| https://www.linkedin.com/feed/update/urn:li:activity:7144214785243492352/ |
