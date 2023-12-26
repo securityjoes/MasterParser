@@ -26,7 +26,7 @@ Below is a comprehensive list of features that AuthLogParser can analyze:
 - IP Addresses Table
 - Failed SSH Table
 - Not Found Elements Table
-#### Raw Event Categorizing
+#### Users Groups Activity Events
 - Successful SSH Password Authentication
 - Successful SSH Public key Authentication
 - New User Creation Activity
@@ -37,6 +37,9 @@ Below is a comprehensive list of features that AuthLogParser can analyze:
 - User Added To A Group Activity
 - User Removed From A Group Activity
 - Session Opened For User root
+#### General Activity Events
+- Machine Shutdown By Power Button
+
 #### Feature Requests:
 If you wish to propose the addition of a new feature, kindly submit your request by creating an issue here:
 https://github.com/YosfanEilay/AuthLogParser/issues/new
