@@ -120,6 +120,6 @@ Remove-Item -Path $RunningPath\MasterParser.zip -Force -ErrorAction SilentlyCont
 }
 
 # check if there is MasterParser-main under the $RunningPath, if yes, delete it.
-if (Test-Path -Path $RunningPath\MasterParser-main) {
+if (Test-Path -Type Leaf -Path $RunningPath\MasterParser-main) {
 Remove-Item -Path $RunningPath\MasterParser-main -Force -ErrorAction SilentlyContinue
 }
