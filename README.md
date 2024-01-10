@@ -2,15 +2,12 @@
 #### Stop wasting time, let MasterParser do the work!
 ![MasterParserBanner](https://github.com/YosfanEilay/MasterParser/assets/132997318/c6cbcc3f-e966-4329-aec0-c6fe8bc80bb2)
 
-## What is AuthLogParser ?
-AuthLogParser is a powerful Digital Forensics and Incident Response tool designed specifically for analyzing Linux authentication logs,
-commonly known as auth.log. This tool serves as an invaluable asset for Incident Responders, streamlining the process of investigating security
-incidents on Linux systems. AuthLogParser meticulously scans the auth.log log file, extracting key information such as SSH logins, user creations,
-event names, IP addresses, and more. The generated summary provides a clear and concise overview of the activities recorded in the authentication
-logs, presenting the data in an easily readable format. By enhancing efficiency and accessibility, AuthLogParser significantly contributes to the
-effectiveness of incident response efforts, enabling practitioners to quickly and comprehensively assess security events on Linux platforms.
-While it proves indispensable for Incident Responders, its utility extends beyond DFIR teams, making it a valuable asset for the entire
-InfoSec and IT community.
+## What is MasterParser ?
+MasterParser stands as a robust Digital Forensics and Incident Response tool meticulously crafted for the analysis of Linux logs within the var/log directory.
+Specifically designed to expedite the investigative process for security incidents on Linux systems, MasterParser adeptly scans supported logs, such as auth.log for example,
+extract critical details including SSH logins, user creations, event names, IP addresses and much more. The tool's generated summary presents this information in a clear
+and concise format, enhancing efficiency and accessibility for Incident Responders. Beyond its immediate utility for DFIR teams, MasterParser proves invaluable to
+the broader InfoSec and IT community, contributing significantly to the swift and comprehensive assessment of security events on Linux platforms.
 
 ## What The Tool Can Do ?
 Below is a comprehensive list of features that AuthLogParser can analyze:
