@@ -1,6 +1,6 @@
 # MasterParser V2.0
 #### Stop wasting time, let MasterParser do the work!
-![Untitled design](https://github.com/YosfanEilay/AuthLogParser/assets/132997318/2121356e-d6e3-4ee8-9ebc-b54b895c0020)
+![MasterParserBanner](https://github.com/YosfanEilay/MasterParser/assets/132997318/c6cbcc3f-e966-4329-aec0-c6fe8bc80bb2)
 
 ## What is AuthLogParser ?
 AuthLogParser is a powerful Digital Forensics and Incident Response tool designed specifically for analyzing Linux authentication logs,
