@@ -10,7 +10,7 @@ and concise format, enhancing efficiency and accessibility for Incident Responde
 the broader InfoSec and IT community, contributing significantly to the swift and comprehensive assessment of security events on Linux platforms.
 
 ## Supported Logs Format
-This is the list of supported log formats within the 'var/log' directory that MasterParser can analyze. </br>
+This is the list of supported log formats within the var/log directory that MasterParser can analyze. </br>
 In future updates, MasterParser will support additional log formats for analysis.
 |Supported Log Formats List|
 | --- |
@@ -46,7 +46,7 @@ Below is a comprehensive list of features that MasterParser can analyze within t
 
 ## Feature & Log Format Requests:
 If you wish to propose the addition of a new feature, kindly submit your request by creating an issue here:
-https://github.com/YosfanEilay/MasterParser/issues/new
+[Click here to create a request](https://github.com/YosfanEilay/MasterParser/issues/new)
 
 ## How To Use ?
 ![howto use](https://github.com/YosfanEilay/AuthLogParser/assets/132997318/2d663c04-88a3-412b-aa5c-99ad48d45ba1)
