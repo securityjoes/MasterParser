@@ -14,7 +14,7 @@ This is the list of supported log formats within the 'var/log' directory that Ma
 In future updates, MasterParser will support additional log formats for analysis.
 - auth.log
 
-### auth.log Analysis Features
+## auth.log Analysis Features
 Below is a comprehensive list of features that MasterParser can analyze within the auth.log log file:
 #### Summary Report features
 - Hostname
