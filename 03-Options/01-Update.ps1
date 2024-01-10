@@ -97,6 +97,7 @@ exit
 
 # transfer all files\folders from AuthLogParser-main to MasterParser folder
 Move-Item -Path "$RunningPath\MasterParser-main\*" -Destination $RunningPath
+Remove-Item -Path "$RunningPath\MasterParser-main" -Force -ErrorAction SilentlyContinue
 
 # check if the extraction of all files\folders from MasterParser-main folder was successfull, print this if it was successfull.
 if (Test-Path -Path "$RunningPath\MasterParser.ps1") {
@@ -119,4 +120,3 @@ if (Test-Path -Path $RunningPath\MasterParser.zip) {
 Remove-Item -Path $RunningPath\MasterParser.zip -Force -ErrorAction SilentlyContinue
 }
 
-Remove-Item -Path $RunningPath\MasterParser-main -Force -ErrorAction SilentlyContinue | out-null
