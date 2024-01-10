@@ -2,7 +2,7 @@
 $5th_word_table = @{}
 
 # variable to get auth.log copy content.
-$AuthLogCopyContent = Get-Content $AuthLogCopyLocation
+$AuthLogCopyContent = Get-Content "$RunningPath\02-LogModules\Auth.Log\01-LogCopy\Auth.Log.Parser.Copy.txt"
 
 # foreach loop to iterate through lines of the auth.log file.
 foreach ($SingleLine in $AuthLogCopyContent) {
@@ -25,14 +25,12 @@ foreach ($SingleLine in $AuthLogCopyContent) {
 
 # change the property name of the Keys and Values of $5th_word_table
 $5th_word_table_Fixed = foreach ($entry in $5th_word_table.GetEnumerator() | Sort-Object Value -Descending) {
-  [pscustomobject]@{
-    "Event Name" = $entry.Key
-    "Count" = $entry.Value
-  }
+    [pscustomobject]@{
+        "Event Name" = $entry.Key
+        "Count" = $entry.Value
+    }
 }
 
-# show the event names and counts found in the auth.log file
-$5th_word_table_Fixed
-
-# show total events
-Write-Output "[Total: $($5th_word_table.Keys.Count)]"
+# Explicitly set the property names for consistent output
+Write-Output ""
+$5th_word_table_Fixed | Format-Table -Property "Event Name", "Count" | Out-String -Width 50 | ForEach-Object { $_.Trim() }

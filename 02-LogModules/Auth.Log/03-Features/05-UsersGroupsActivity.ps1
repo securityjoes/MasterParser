@@ -1,5 +1,5 @@
-# Variable to get auth.log copy content.
-$AuthLogCopyContent = Get-Content $AuthLogCopyLocation
+# variable to get auth.log copy content.
+$AuthLogCopyContent = Get-Content "$RunningPath\02-LogModules\Auth.Log\01-LogCopy\Auth.Log.Parser.Copy.txt"
 
 # Hashtable for successful SSH
 $UsersGroupActivity_HT = @{
@@ -193,3 +193,13 @@ $UsersGroupActivity_HT["RootSession"]
 else {
 $NotFoundHashTable['NoRootSession'] = "[*] Not Found: Session Opened For User root."
 }
+
+# reset
+$useradd_Count = $null
+$userdel_Count = $null
+$ChangePassword_Count = $null
+$groupadd_Count = $null
+$groudel_Count = $null
+$AddUserToGroup_Count = $null
+$RemoveUserFromGroup_Count = $null
+$RootSession_Count = $null

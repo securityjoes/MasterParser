@@ -1,5 +1,5 @@
-# Variable to get auth.log copy content.
-$AuthLogCopyContent = Get-Content $AuthLogCopyLocation
+# variable to get auth.log copy content.
+$AuthLogCopyContent = Get-Content "$RunningPath\02-LogModules\Auth.Log\01-LogCopy\Auth.Log.Parser.Copy.txt"
 
 # Hashtable for successful SSH
 $Successful_SSH_HashTable = @{
@@ -7,7 +7,11 @@ $Successful_SSH_HashTable = @{
     "format_2" = @()
 }
 
+# create a hashtable for failed ssh.
 $Failed_SSH_Login_HT = @{}
+
+# flag for the failed ssh table to print nothing if its empty.
+$UsernameFlag = "False"
 
 # Foreach loop to iterate through lines of the auth.log file.
 foreach ($SingleLine in $AuthLogCopyContent) {
@@ -69,8 +73,9 @@ if ($UsernameFlag -eq "True") {
 # show the Failed SSH Login table
 Write-Output ""
 $Failed_SSH_Login_HT_Fix | Format-Table Username, "SSH Failures" | Out-String -Width 50 | ForEach-Object { $_.Trim() }
-# show total events
-Write-Output "[Total: $($Failed_SSH_Login_HT.Keys.Count)]"
+}
+
+elseif ($UsernameFlag -eq "False") {
 }
 
 if ($Format_1_Count -ge 1) {
@@ -98,3 +103,9 @@ $NotFoundHashTable['NoSuccessfulSSHPublicKeyAuthentication'] = "[*] Not Found: S
 if ($Failed_SSH_Login_HT_Fix.Username.Count -eq 0) {
 $NotFoundHashTable['NoFailedSSHLogins'] = "[*] Not Found: Failed SSH Authentication."
 }
+
+# reset 1
+$Format_1_Count = $null
+
+# reset 2
+$Format_2_Count = $null

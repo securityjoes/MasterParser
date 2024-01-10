@@ -2,7 +2,7 @@
 $IPHashTable = @{}
 
 # variable to get auth.log copy content.
-$AuthLogCopyContent = Get-Content $AuthLogCopyLocation
+$AuthLogCopyContent = Get-Content "$RunningPath\02-LogModules\Auth.Log\01-LogCopy\Auth.Log.Parser.Copy.txt"
 
 # foreach loop to iterate through lines of the auth.log file.
 foreach ($SingleLine in $AuthLogCopyContent) {
@@ -46,10 +46,8 @@ $IPHashTableFlag = "True"
 # show the IP address table
 Write-Output ""
 $IPHashTableFix | Format-Table "IP Address",Count | Out-String -Width 50 | ForEach-Object { $_.Trim() }
-
-# show total events
-Write-Output "[Total: $($IPHashTableFix.Keys.Count)]"
 }
+
 else {
 # If the IPHashTable.Count is 0.
 $IPHashTableFlag = "False"

@@ -5,7 +5,7 @@ $LineCount = 0
 $Flag1 = "True"
 
 # variable to get auth.log copy content.
-$AuthLogCopyContent = Get-Content $AuthLogCopyLocation
+$AuthLogCopyContent = Get-Content "$RunningPath\02-LogModules\Auth.Log\01-LogCopy\Auth.Log.Parser.Copy.txt"
 
 # foreach loop to iterate through lines of the auth.log file.
 foreach ($SingleLine in $AuthLogCopyContent) {
@@ -67,9 +67,15 @@ $FullDuration = Write-Output "$($Duration.Days) Days $($Duration.Hours) Hours $(
 # the start of the report print out
 Write-Output "Auth.Log File Summary Report"
 Write-Output "+--------------------------+"
+if ($WasExtracted -eq "True") {
+Write-Output "Log Name:   $Log (Extracted From: $GZipName)"
+}
+else {
+Write-Output "Log Name:   $Log"
+}
 Write-Output "Hostname:   $Hostname"
-Write-Output "Line Count: $LineCount"
 Write-Output "Log Size:   $FileSizeInMB MB"
+Write-Output "Line Count: $LineCount"
 Write-Output "Start Time: $Start_Time"
 Write-Output "End Time:   $End_Time"
 Write-Output "Duration:   $FullDuration"

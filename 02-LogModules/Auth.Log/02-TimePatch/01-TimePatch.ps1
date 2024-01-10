@@ -1,8 +1,11 @@
 ﻿# get the location of where the script was executed from.
-$ScriptLocationPath = Get-Location
+$ScriptLocationPath = $RunningPath
+
+# get the location of the original auth.log file
+$AuthLogPath = "$RunningPath\01-Logs\$Log"
 
 # auth.log copy location
-$AuthLogCopyLocation = "$ScriptLocationPath\01-LogCopy\Auth.Log.Parser.Copy.txt"
+$AuthLogCopyLocation = "$ScriptLocationPath\02-LogModules\Auth.Log\01-LogCopy\Auth.Log.Parser.Copy.txt"
 
 # create a copy of the Auth.Log file
 Copy-Item -Path $AuthLogPath -Destination $AuthLogCopyLocation

@@ -1,5 +1,5 @@
-﻿# Variable to get auth.log copy content.
-$AuthLogCopyContent = Get-Content $AuthLogCopyLocation
+﻿# variable to get auth.log copy content.
+$AuthLogCopyContent = Get-Content "$RunningPath\02-LogModules\Auth.Log\01-LogCopy\Auth.Log.Parser.Copy.txt"
 
 # Hashtable for general activity
 $GeneralActivity_HT = @{
@@ -31,3 +31,6 @@ $GeneralActivity_HT["PowerButton"]
 else {
 $NotFoundHashTable['NoPowerButton'] = "[*] Not Found: Machine Shutdown By Power Button."
 }
+
+# reset
+$PowerButton_Count = $null
