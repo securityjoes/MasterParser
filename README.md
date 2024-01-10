@@ -45,7 +45,8 @@ Below is a comprehensive list of features that MasterParser can analyze within t
 - Machine Shutdown By Power Button
 
 ## Feature & Log Format Requests:
-If you wish to propose the addition of a new feature \ log format, kindly submit your request by creating an issue </br>
+If you wish to propose the addition of a new feature \ log format, </br>
+kindly submit your request by creating an issue </br>
 [Click here to create a request](https://github.com/YosfanEilay/MasterParser/issues/new)
 
 ## How To Use ?
