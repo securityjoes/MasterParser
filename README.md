@@ -70,7 +70,7 @@ PS C:\Users\user\Desktop\MasterParser-main> .\MasterParser.ps1 -O Menu
 # How to run MasterParser
 PS C:\Users\user\Desktop\MasterParser-main> .\MasterParser.ps1 -O Start
 ```
-6. For more information about how to use the tool, please visit [MasterParser Wiki page](https://github.com/YosfanEilay/MasterParser/wiki)
+6. That's it, enjoy the tool!
 
 ### How To Use - Video Guide
 https://github.com/YosfanEilay/MasterParser/assets/132997318/d26b4b3f-7816-42c3-be7f-7ee3946a2c70
