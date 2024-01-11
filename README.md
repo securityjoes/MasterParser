@@ -67,6 +67,7 @@ PS C:\Users\user\Desktop\MasterParser-main> .\MasterParser.ps1 -O Menu
 ```
 5. To run the tool, put all your /var/log/* logs in to the 01-Logs folder, and execute the tool like this:
 ```
+# How to run MasterParser
 PS C:\Users\user\Desktop\MasterParser-main> .\MasterParser.ps1 -O Start
 ```
 6. For more information about how to use the tool, please visit [MasterParser Wiki page](https://github.com/YosfanEilay/MasterParser/wiki)
