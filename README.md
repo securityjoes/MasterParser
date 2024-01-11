@@ -73,7 +73,7 @@ PS C:\Users\user\Desktop\MasterParser-main> .\MasterParser.ps1 -O Start
 6. For more information about how to use the tool, please visit [MasterParser Wiki page](https://github.com/YosfanEilay/MasterParser/wiki)
 
 ### How To Use - Video Guide
-https://github.com/YosfanEilay/AuthLogParser/assets/132997318/43649759-8f47-40c6-a340-69c74c8af536
+https://github.com/YosfanEilay/MasterParser/assets/132997318/d26b4b3f-7816-42c3-be7f-7ee3946a2c70
 
 ### Top AuthLogParser Social Media Posts
 |Social Media Posts|
