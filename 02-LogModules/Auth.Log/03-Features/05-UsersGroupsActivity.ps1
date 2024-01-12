@@ -36,20 +36,30 @@ foreach ($SingleLine in $AuthLogCopyContent) {
         $userdel_Count = $UsersGroupActivity_HT["userdel"].Count
     }
 
-    # Variable to find a pattern of password change action using "passwd".
-    $ChangePassword = $SingleLine | Select-String -Pattern ".*passwd\[[0-9]{0,15}\]\: .* password changed for.*"
-
-    # Variable to find a pattern of password change action using "usermod".
-    $ChangePassword = $SingleLine | Select-String -Pattern ".*usermod\[[0-9]{0,15}\]\: change user.*"
+    # List of regex to find pattern of password changes
+    $ChangePasswordFormats = @(
     
-    # Variable to find a pattern of password change action using "chpasswd".
-    $ChangePassword = $SingleLine | Select-String -Pattern ".*chpasswd\[[0-9]{0,15}\]\:.*password changed for.*"
+    # using "passwd"
+    ".*passwd\[[0-9]{0,15}\]\: .* password changed for.*",
+    
+    #using "passwd"
+    ".*usermod\[[0-9]{0,15}\]\: change user.*",
+
+    # using "chpasswd"
+    ".*chpasswd\[[0-9]{0,15}\]\:.*password changed for.*"
+    )
+    
+    foreach ($ChangePasswordFormat in $ChangePasswordFormats) {
+
+    # Variable to store the catches
+    $ChangePassword = $SingleLine | Select-String -Pattern $ChangePasswordFormats
     
     # Check if the line matches the first pattern
     if ($ChangePassword) {
         # Save the line to the array in the hashtable
         $UsersGroupActivity_HT["ChangePassword"] += $ChangePassword.Line
         $ChangePassword_Count = $UsersGroupActivity_HT["ChangePassword"].Count
+    }
     }
 
     # Variable to find a pattern of group creation action.
@@ -209,3 +219,4 @@ $groudel_Count = $null
 $AddUserToGroup_Count = $null
 $RemoveUserFromGroup_Count = $null
 $RootSession_Count = $null
+$ChangePassword = $null
