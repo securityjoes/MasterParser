@@ -40,7 +40,7 @@ foreach ($SingleLine in $AuthLogCopyContent) {
     $ChangePasswordFormats = @(
     
     # using "passwd"
-    ".*passwd\[[0-9]{0,15}\]\: .* password changed for.*",
+    ".* passwd\[[0-9]{0,15}\]\: .* password changed for.*",
     
     #using "passwd"
     ".*usermod\[[0-9]{0,15}\]\: change user.*",
@@ -52,7 +52,7 @@ foreach ($SingleLine in $AuthLogCopyContent) {
     foreach ($ChangePasswordFormat in $ChangePasswordFormats) {
 
     # Variable to store the catches
-    $ChangePassword = $SingleLine | Select-String -Pattern $ChangePasswordFormats
+    $ChangePassword = $SingleLine | Select-String -Pattern $ChangePasswordFormat
     
     # Check if the line matches the first pattern
     if ($ChangePassword) {
@@ -219,4 +219,3 @@ $groudel_Count = $null
 $AddUserToGroup_Count = $null
 $RemoveUserFromGroup_Count = $null
 $RootSession_Count = $null
-$ChangePassword = $null
