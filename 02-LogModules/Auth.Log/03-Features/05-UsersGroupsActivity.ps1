@@ -36,11 +36,14 @@ foreach ($SingleLine in $AuthLogCopyContent) {
         $userdel_Count = $UsersGroupActivity_HT["userdel"].Count
     }
 
-    # Variable to find a pattern of password chane action using "passwd".
+    # Variable to find a pattern of password change action using "passwd".
     $ChangePassword = $SingleLine | Select-String -Pattern ".*passwd\[[0-9]{0,15}\]\: .* password changed for.*"
 
-    # Variable to find a pattern of password chane action using "usermod".
+    # Variable to find a pattern of password change action using "usermod".
     $ChangePassword = $SingleLine | Select-String -Pattern ".*usermod\[[0-9]{0,15}\]\: change user.*"
+    
+    # Variable to find a pattern of password change action using "chpasswd".
+    $ChangePassword = $SingleLine | Select-String -Pattern ".*chpasswd\[[0-9]{0,15}\]\:.*password changed for.*"
     
     # Check if the line matches the first pattern
     if ($ChangePassword) {
