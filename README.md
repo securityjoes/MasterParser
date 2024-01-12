@@ -8,6 +8,8 @@ Specifically designed to expedite the investigative process for security inciden
 extract critical details including SSH logins, user creations, event names, IP addresses and much more. The tool's generated summary presents this information in a clear
 and concise format, enhancing efficiency and accessibility for Incident Responders. Beyond its immediate utility for DFIR teams, MasterParser proves invaluable to
 the broader InfoSec and IT community, contributing significantly to the swift and comprehensive assessment of security events on Linux platforms.
+</b>
+https://www.youtube.com/watch?v=3lb9vyEON7s
 
 ## Supported Logs Format
 This is the list of supported log formats within the var/log directory that MasterParser can analyze. </br>
