@@ -11,6 +11,7 @@ $UsersGroupActivity_HT = @{
     "AddUserToGroup" = @()
     "RemoveUserFromGroup" = @()
     "RootSession" = @()
+    "UserInformationChange" = @()
 }
 
 # Foreach loop to iterate through lines of the auth.log file.
@@ -46,7 +47,10 @@ foreach ($SingleLine in $AuthLogCopyContent) {
     ".*usermod\[[0-9]{0,15}\]\: change user.*",
 
     # using "chpasswd"
-    ".*chpasswd\[[0-9]{0,15}\]\:.*password changed for.*"
+    ".*chpasswd\[[0-9]{0,15}\]\:.*password changed for.*",
+
+    # using "chage"
+    ".*chage\[[0-9]{0,15}\]\: changed password expiry.*"
     )
     
     foreach ($ChangePasswordFormat in $ChangePasswordFormats) {
@@ -102,14 +106,14 @@ foreach ($SingleLine in $AuthLogCopyContent) {
         $RemoveUserFromGroup_Count = $UsersGroupActivity_HT["RemoveUserFromGroup"].Count
     }
 
-    # Variable to find a pattern of seesion opend for root.
-    $RootSession = $SingleLine | Select-String -Pattern ".*sudo\: pam_unix\(sudo\:session\)\: session opened for user root by.*"
+    # Variable to find a pattern of user information change.
+    $UserInformationChange = $SingleLine | Select-String -Pattern ".*chfn\[[0-9]{0,15}\]\: changed user .*.* information.*"
 
     # Check if the line matches the first pattern
-    if ($RootSession) {
+    if ($UserInformationChange) {
         # Save the line to the array in the hashtable
-        $UsersGroupActivity_HT["RootSession"] += $RootSession.Line
-        $RootSession_Count = $UsersGroupActivity_HT["RootSession"].Count
+        $UsersGroupActivity_HT["UserInformationChange"] += $UserInformationChange.Line
+        $UserInformationChange_Count = $UsersGroupActivity_HT["UserInformationChange"].Count
     }
 
 }
@@ -122,10 +126,6 @@ Write-Output "+------------------------+"
 $UsersGroupActivity_HT["useradd"]
 }
 
-else {
-$NotFoundHashTable['NoNewUserCreation'] = "[*] Not Found: User Creation Activity."
-}
-
 # print out the user deletion activity
 if ($userdel_Count -ge 1) {
 Write-Output ""
@@ -134,20 +134,12 @@ Write-Output "+--------------------+"
 $UsersGroupActivity_HT["userdel"]
 }
 
-else {
-$NotFoundHashTable['NoUserDeletion'] = "[*] Not Found: User Deletion Activity."
-}
-
-# print out the user creation
+# print out the user Password Change Activity
 if ($ChangePassword_Count -ge 1) {
 Write-Output ""
 Write-Output "User Password Change Activity"
 Write-Output "+---------------------------+"
 $UsersGroupActivity_HT["ChangePassword"]
-}
-
-else {
-$NotFoundHashTable['NoPasswordChange'] = "[*] Not Found: User Password Change Activity."
 }
 
 # print out the group creation
@@ -158,20 +150,12 @@ Write-Output "+-------------------------+"
 $UsersGroupActivity_HT["groupadd"]
 }
 
-else {
-$NotFoundHashTable['NoNewGroupCreation'] = "[*] Not Found: Group Creation Activity."
-}
-
 # print out the group deletion
 if ($groudel_Count -ge 1) {
 Write-Output ""
 Write-Output "Group Deletion Activity"
 Write-Output "+---------------------+"
 $UsersGroupActivity_HT["groudel"]
-}
-
-else {
-$NotFoundHashTable['NoGroupDeletion'] = "[*] Not Found: Group Deletion Activity."
 }
 
 # print out the add user to group activity
@@ -182,10 +166,6 @@ Write-Output "+----------------------------+"
 $UsersGroupActivity_HT["AddUserToGroup"]
 }
 
-else {
-$NotFoundHashTable['NoAddUserToGroup'] = "[*] Not Found: User Added To A Group Activity."
-}
-
 # print out the remove user from group activity
 if ($RemoveUserFromGroup_Count -ge 1) {
 Write-Output ""
@@ -194,20 +174,12 @@ Write-Output "+--------------------------------+"
 $UsersGroupActivity_HT["RemoveUserFromGroup"]
 }
 
-else {
-$NotFoundHashTable['NoRemoveUserFromGroup'] = "[*] Not Found: User Removed From A Group Activity."
-}
-
-# print out the remove user from group activity
-if ($RootSession_Count -ge 1) {
+# print out the user information change
+if ($UserInformationChange_Count -ge 1) {
 Write-Output ""
-Write-Output "Session Opened For User root "
-Write-Output "+---------------------------+"
-$UsersGroupActivity_HT["RootSession"]
-}
-
-else {
-$NotFoundHashTable['NoRootSession'] = "[*] Not Found: Session Opened For User root."
+Write-Output "User Information Change"
+Write-Output "+---------------------+"
+$UsersGroupActivity_HT["UserInformationChange"]
 }
 
 # reset
@@ -218,4 +190,3 @@ $groupadd_Count = $null
 $groudel_Count = $null
 $AddUserToGroup_Count = $null
 $RemoveUserFromGroup_Count = $null
-$RootSession_Count = $null

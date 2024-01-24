@@ -28,9 +28,5 @@ Write-Output "+------------------------------+"
 $GeneralActivity_HT["PowerButton"]
 }
 
-else {
-$NotFoundHashTable['NoPowerButton'] = "[*] Not Found: Machine Shutdown By Power Button."
-}
-
 # reset
 $PowerButton_Count = $null

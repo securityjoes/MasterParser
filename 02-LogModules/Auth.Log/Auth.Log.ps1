@@ -31,18 +31,17 @@ if ($CreateLogCopy_Flag -eq "True") {
 # Dot Sourcing -> 06-GeneralActivity.ps1
 . "$RunningPath\02-LogModules\Auth.Log\03-Features\06-GeneralActivity.ps1"
 
-if ($NotFoundHashTable.Values.Count -ge 1) {
-# Element That Does Not Exist in This auth.log File
-Write-Output ""
-Write-Output "Element That Does Not Exist in This auth.log File"
-Write-Output "+-----------------------------------------------+"
-$NotFoundHashTable.Values
+# Dot Sourcing -> 07-sudoActivity.ps1
+. "$RunningPath\02-LogModules\Auth.Log\03-Features\07-sudoActivity.ps1"
+
+# Dot Sourcing -> 08-FTPActivity.ps1
+. "$RunningPath\02-LogModules\Auth.Log\03-Features\08-FTP.ps1"
+
 Write-Output ""
 Write-Output ""
 Write-Output " - End of '$Log' Report -"
 Write-Output ""
 Write-Output ""
-}
 
 # delete the auth.log copty after using it.
 Start-Sleep -Seconds 1

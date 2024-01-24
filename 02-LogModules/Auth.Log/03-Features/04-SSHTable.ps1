@@ -85,23 +85,11 @@ Write-Output "+------------------------------------+"
 $Successful_SSH_HashTable["format_1"]
 }
 
-else {
-$NotFoundHashTable['NoSuccessfulSSHPasswordAuthentication'] = "[*] Not Found: Successful SSH Password Authentication."
-}
-
 if ($Format_2_Count -ge 1) {
 Write-Output ""
 Write-Output "Successful SSH Public key Authentication"
 Write-Output "+--------------------------------------+"
 $Successful_SSH_HashTable["format_2"]
-}
-
-else {
-$NotFoundHashTable['NoSuccessfulSSHPublicKeyAuthentication'] = "[*] Not Found: Successful SSH Public key Authentication."
-}
-
-if ($Failed_SSH_Login_HT_Fix.Username.Count -eq 0) {
-$NotFoundHashTable['NoFailedSSHLogins'] = "[*] Not Found: Failed SSH Authentication."
 }
 
 # reset 1

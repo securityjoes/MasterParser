@@ -13,7 +13,8 @@ Write-Output '  / /_/ / __ `/ ___/ ___/ _ \/ ___/'
 Write-Output " / ____/ /_/ / /  (__  )  __/ /"
 Write-Output "/_/    \__,_/_/  /____/\___/_/"
 Write-Output ""
-Write-Output "GitHub.com/YosfanEilay/MasterParser"
+Write-Output "GitHub.com/securityjoes/MasterParser"
+Write-Output "        Author: Eilay Yosfan"
 Write-Output ""
 
 if ($ConnectionFlag -eq "True") {

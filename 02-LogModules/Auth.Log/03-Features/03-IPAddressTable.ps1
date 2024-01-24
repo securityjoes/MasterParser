@@ -53,6 +53,3 @@ else {
 $IPHashTableFlag = "False"
 }
 
-if ($IPHashTableFlag -eq "False") {
-$NotFoundHashTable['NoIPAdress'] = "[*] Not Found: IP Addresses."
-}
