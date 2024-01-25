@@ -41,8 +41,14 @@ Below is a comprehensive list of features that MasterParser can analyze within t
 - User Added To A Group Activity
 - User Removed From A Group Activity
 - Session Opened For User root
+- User Personal Information Change Activity
 #### General Activity Events
 - Machine Shutdown By Power Button
+#### Elevated Activity
+- Elevated Sessions Opened
+- Elevated Commands Executions
+#### FTP Activity
+- Authentication Failure Activity
 
 ## Feature & Log Format Requests:
 If you wish to propose the addition of a new feature \ log format, </br>
