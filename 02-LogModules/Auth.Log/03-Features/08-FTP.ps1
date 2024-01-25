@@ -15,11 +15,14 @@ foreach ($SingleLine in $AuthLogCopyContent) {
     # List of regex to find pattern of authentication failures formats
     $AuthenticationFailureFormats = @(
     
-    # FTP authentication failure.
+    # FTP authentication failure - Format 1
     ".*vsftpd\: pam_unix\(vsftpd:auth\)\: authentication failure.*",
     
-    #
-    ".*vsftpd\: pam_unix\(vsftpd:auth\)\:.*user unknown.*"
+    # FTP authentication failure - Format 2
+    ".*vsftpd\: pam_unix\(vsftpd:auth\)\:.*user unknown.*",
+
+    # FTP authentication failure - Format 3
+    ".*vsftpd\: pam_.*.*\(vsftpd:auth\)\: Refused user.*"
 
     )
     
