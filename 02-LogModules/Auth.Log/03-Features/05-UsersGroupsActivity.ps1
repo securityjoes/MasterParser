@@ -190,3 +190,4 @@ $groupadd_Count = $null
 $groudel_Count = $null
 $AddUserToGroup_Count = $null
 $RemoveUserFromGroup_Count = $null
+$UserInformationChange_Count = $null
