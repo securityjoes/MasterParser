@@ -101,8 +101,15 @@ $Measure2_HT = $UsernameCounts2.GetEnumerator() | ForEach-Object {
     "| Event: User Refused           | User Name: $($UserName.PadRight($maxCharCount)) | Fail Count: $FailCount |"
 }
 
+if ($Measure2_HT.Length -eq 0) {
 # calc the character count of one of the measure hash table
+$CharacterCount = $Measure_HT.Length - 2
+}
+
+else {
 $CharacterCount = $Measure2_HT.Length - 2
+}
+
 $Hyphens = '-' * $CharacterCount
 
 # the end output
