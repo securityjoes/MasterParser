@@ -50,7 +50,7 @@ if ($AuthenticationFailure_Count -ge 1) {
     
   # title
   Write-Output ""
-  Write-Output "FTP Authentication Failure - Raw Table"
+  Write-Output "FTP Authentication Failure - Raw Events"
 
   # variable to cretae the amount of spaces needed for the table
   $maxLength = ($FTP_HT["AuthenticationFailure"] | Measure-Object Length -Maximum).Maximum
@@ -115,7 +115,8 @@ $Hyphens = '-' * $CharacterCount
 # the end output
 Write-Output "                  |"
 Write-Output "                  +--+"
-Write-Output "                     | FTP Authentication Failure - Statistics Table"
+Write-Output "                     |"
+Write-Output "                     V FTP Authentication Failure - Statistics Table"
 Write-Output "       +$Hyphens+"
 foreach ($OneEvent in ($Measure_HT + $Measure2_HT)) {
 Write-Output "       $OneEvent"
