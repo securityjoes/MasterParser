@@ -16,40 +16,6 @@ In future updates, MasterParser will support additional log formats for analysis
 | --- |
 | auth.log |
 
-## auth.log Analysis Features
-Below is a comprehensive list of features that MasterParser can analyze within the auth.log log file:
-#### Summary Report features
-- Hostname
-- Line Count
-- Log Size
-- Start Time
-- End Time
-- Duration
-#### Statistics Table
-- Event Names Table
-- IP Addresses Table
-- Failed SSH Table
-- Not Found Elements Table
-#### Users Groups Activity Events
-- Successful SSH Password Authentication
-- Successful SSH Public key Authentication
-- New User Creation Activity
-- User Deletion Activity
-- User Password Change Activity
-- New Group Creation Activity
-- Group Deletion Activity
-- User Added To A Group Activity
-- User Removed From A Group Activity
-- Session Opened For User root
-- User Personal Information Change Activity
-#### General Activity Events
-- Machine Shutdown By Power Button
-#### Elevated Activity
-- Elevated Sessions Opened
-- Elevated Commands Executions
-#### FTP Activity
-- Authentication Failure Activity
-
 ## Feature & Log Format Requests:
 If you wish to propose the addition of a new feature \ log format, </br>
 kindly submit your request by creating an issue </br>
