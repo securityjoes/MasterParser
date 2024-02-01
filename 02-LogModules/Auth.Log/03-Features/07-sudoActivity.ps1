@@ -124,13 +124,11 @@ foreach ($SingleEvent in $ElevatedActivitys_HT["ElevatedCommands"]) {
     $BorderHyphenForUser = '-' * $MaxCharCountForUser
 
     # the printing of the $NameTag plus the table
-    Write-Output "    |"
-    Write-Output "    +--+"
-    Write-Output "       |"
-    Write-Output "       V User Information:"
-    Write-Output "       +$BorderHyphenForUser+"
-    Write-Output "       $Key"
-    Write-Output "       +$BorderHyphenForUser+"
+    Write-Output ""
+    Write-Output "  User Information"
+    Write-Output "  +$BorderHyphenForUser+"
+    Write-Output "  $Key"
+    Write-Output "  +$BorderHyphenForUser+"
 
     # Find the maximum character count in $ElevatedCommandsHT[$Key] which is the commands 
     $MaxCharCount = ($ElevatedCommandsHT[$Key] | Measure-Object Length -Maximum).Maximum
@@ -142,14 +140,12 @@ foreach ($SingleEvent in $ElevatedActivitys_HT["ElevatedCommands"]) {
     $Commands = $ElevatedCommandsHT[$Key].PadRight($MaxCharCount)
 
     # the printing of the whole table with the commands
-    Write-Output "       |"
-    Write-Output "       +--+"
-    Write-Output "          |"
-    Write-Output "          V Total User Executions: $($ElevatedCommandsHT[$Key].Count)"
-    Write-Output "    +$BorderHyphen+"
+    Write-Output "  |"
+    Write-Output "  V User Command History (Total Executions:$($ElevatedCommandsHT[$Key].Count))"
+    Write-Output "  +$BorderHyphen+"
     foreach ($Command in $Commands) {
-    Write-Output "    |$Command|"
-    Write-Output "    +$BorderHyphen+"
+    Write-Output "  |$Command|"
+    Write-Output "  +$BorderHyphen+"
     }
     }
 

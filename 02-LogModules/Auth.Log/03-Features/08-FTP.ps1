@@ -113,15 +113,13 @@ $CharacterCount = $Measure2_HT.Length - 2
 $Hyphens = '-' * $CharacterCount
 
 # the end output
-Write-Output "                  |"
-Write-Output "                  +--+"
-Write-Output "                     |"
-Write-Output "                     V FTP Authentication Failure - Statistics Table"
-Write-Output "       +$Hyphens+"
+Write-Output "  |"
+Write-Output "  V FTP Authentication Failure - Statistics Table"
+Write-Output "  +$Hyphens+"
 foreach ($OneEvent in ($Measure_HT + $Measure2_HT)) {
-Write-Output "       $OneEvent"
+Write-Output "  $OneEvent"
 }
-Write-Output "       +$Hyphens+"
+Write-Output "  +$Hyphens+"
 
 }
 
