@@ -32,6 +32,9 @@ $MaxLength = ($GeneralActivity_HT["PowerButton"] | Measure-Object Length -Maximu
 $Border = '-' * $MaxLength
 
     foreach ($Event in $GeneralActivity_HT["PowerButton"]) {
+        
+        # add space to the right of each event iteration
+        $Event = $Event.PadRight($MaxLength)
 
         Write-Output "+$Border+"
         Write-Output "|$Event|"

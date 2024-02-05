@@ -80,16 +80,47 @@ elseif ($UsernameFlag -eq "False") {
 
 if ($Format_1_Count -ge 1) {
 Write-Output ""
-Write-Output "Successful SSH Password Authentication"
-Write-Output "+------------------------------------+"
-$Successful_SSH_HashTable["format_1"]
+Write-Output "Successful SSH Password Authentication - Raw Table"
+
+    # variable to cretae the amount of spaces needed for the table
+    $MaxLength = ($Successful_SSH_HashTable["format_1"] | Measure-Object Length -Maximum).Maximum
+
+    # variable to story the new amount of hyfens
+    $Border = '-' * $MaxLength
+
+        foreach ($Event in $Successful_SSH_HashTable["format_1"]) {
+        
+            # add space to the right of each event iteration
+            $Event = $Event.PadRight($MaxLength)
+
+            Write-Output "+$Border+"
+            Write-Output "|$Event|"
+    
+        }
+        Write-Output "+$Border+"
+
 }
 
 if ($Format_2_Count -ge 1) {
 Write-Output ""
-Write-Output "Successful SSH Public key Authentication"
-Write-Output "+--------------------------------------+"
-$Successful_SSH_HashTable["format_2"]
+Write-Output "Successful SSH Public key Authentication - Raw Table"
+
+    # variable to cretae the amount of spaces needed for the table
+    $MaxLength = ($Successful_SSH_HashTable["format_2"] | Measure-Object Length -Maximum).Maximum
+
+    # variable to story the new amount of hyfens
+    $Border = '-' * $MaxLength
+
+        foreach ($Event in $Successful_SSH_HashTable["format_2"]) {
+        
+            # add space to the right of each event iteration
+            $Event = $Event.PadRight($MaxLength)
+
+            Write-Output "+$Border+"
+            Write-Output "|$Event|"
+    
+        }
+        Write-Output "+$Border+"
 }
 
 # reset 1

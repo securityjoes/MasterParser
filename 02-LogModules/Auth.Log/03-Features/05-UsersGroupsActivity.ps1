@@ -121,68 +121,236 @@ foreach ($SingleLine in $AuthLogCopyContent) {
 # print out the user creation activity
 if ($useradd_Count -ge 1) {
 Write-Output ""
-Write-Output "New User Creation Activity"
-Write-Output "+------------------------+"
-$UsersGroupActivity_HT["useradd"]
+Write-Output "New User Creation Activity - Raw Events"
+
+    # variable to cretae the amount of spaces needed for the table
+    $MaxLength = ($UsersGroupActivity_HT["useradd"] | Measure-Object Length -Maximum).Maximum
+
+    # variable to stor the new amount of hyfens
+    $Border = '-' * $MaxLength
+
+    # foreach loop to iterate and past each event seperate from the hashtable
+    foreach ($Event in $UsersGroupActivity_HT["useradd"]) {
+
+        # add space to the right of each event iteration
+        $Event = $Event.PadRight($MaxLength)
+        
+        # print start\middle border
+        Write-Output "+$Border+"
+
+        # print each event
+        Write-Output "|$Event|"
+    
+    }
+
+    # print last border
+    Write-Output "+$Border+"
 }
 
 # print out the user deletion activity
 if ($userdel_Count -ge 1) {
 Write-Output ""
-Write-Output "User Deletion Activity"
-Write-Output "+--------------------+"
-$UsersGroupActivity_HT["userdel"]
+Write-Output "User Deletion Activity - Raw Events"
+
+    # variable to cretae the amount of spaces needed for the table
+    $MaxLength = ($UsersGroupActivity_HT["userdel"] | Measure-Object Length -Maximum).Maximum
+
+    # variable to stor the new amount of hyfens
+    $Border = '-' * $MaxLength
+
+    # foreach loop to iterate and past each event seperate from the hashtable
+    foreach ($Event in $UsersGroupActivity_HT["userdel"]) {
+
+        # add space to the right of each event iteration
+        $Event = $Event.PadRight($MaxLength)
+        
+        # print start\middle border
+        Write-Output "+$Border+"
+
+        # print each event
+        Write-Output "|$Event|"
+    
+    }
+
+    # print last border
+    Write-Output "+$Border+"
 }
 
 # print out the user Password Change Activity
 if ($ChangePassword_Count -ge 1) {
 Write-Output ""
-Write-Output "User Password Change Activity"
-Write-Output "+---------------------------+"
-$UsersGroupActivity_HT["ChangePassword"]
+Write-Output "User Password Change Activity - Raw Events"
+
+    # variable to cretae the amount of spaces needed for the table
+    $MaxLength = ($UsersGroupActivity_HT["ChangePassword"] | Measure-Object Length -Maximum).Maximum
+
+    # variable to stor the new amount of hyfens
+    $Border = '-' * $MaxLength
+
+    # foreach loop to iterate and past each event seperate from the hashtable
+    foreach ($Event in $UsersGroupActivity_HT["ChangePassword"]) {
+
+        # add space to the right of each event iteration
+        $Event = $Event.PadRight($MaxLength)
+        
+        # print start\middle border
+        Write-Output "+$Border+"
+
+        # print each event
+        Write-Output "|$Event|"
+    
+    }
+
+    # print last border
+    Write-Output "+$Border+"
 }
 
 # print out the group creation
 if ($groupadd_Count -ge 1) {
 Write-Output ""
-Write-Output "New Group Creation Activity"
-Write-Output "+-------------------------+"
-$UsersGroupActivity_HT["groupadd"]
+Write-Output "New Group Creation Activity - Raw Events"
+
+    # variable to cretae the amount of spaces needed for the table
+    $MaxLength = ($UsersGroupActivity_HT["groupadd"] | Measure-Object Length -Maximum).Maximum
+
+    # variable to stor the new amount of hyfens
+    $Border = '-' * $MaxLength
+
+    # foreach loop to iterate and past each event seperate from the hashtable
+    foreach ($Event in $UsersGroupActivity_HT["groupadd"]) {
+        
+        # add space to the right of each event iteration
+        $Event = $Event.PadRight($MaxLength)
+
+        # print start\middle border
+        Write-Output "+$Border+"
+
+        # print each event
+        Write-Output "|$Event|"
+    
+    }
+
+    # print last border
+    Write-Output "+$Border+"
 }
 
 # print out the group deletion
 if ($groudel_Count -ge 1) {
 Write-Output ""
-Write-Output "Group Deletion Activity"
-Write-Output "+---------------------+"
-$UsersGroupActivity_HT["groudel"]
+Write-Output "Group Deletion Activity - Raw Events"
+
+    # variable to cretae the amount of spaces needed for the table
+    $MaxLength = ($UsersGroupActivity_HT["groudel"] | Measure-Object Length -Maximum).Maximum
+
+    # variable to stor the new amount of hyfens
+    $Border = '-' * $MaxLength
+
+    # foreach loop to iterate and past each event seperate from the hashtable
+    foreach ($Event in $UsersGroupActivity_HT["groudel"]) {
+
+        # add space to the right of each event iteration
+        $Event = $Event.PadRight($MaxLength)
+        
+        # print start\middle border
+        Write-Output "+$Border+"
+
+        # print each event
+        Write-Output "|$Event|"
+    
+    }
+
+    # print last border
+    Write-Output "+$Border+"
 }
 
 # print out the add user to group activity
 if ($AddUserToGroup_Count -ge 1) {
 Write-Output ""
-Write-Output "User Added To A Group Activity"
-Write-Output "+----------------------------+"
-$UsersGroupActivity_HT["AddUserToGroup"]
+Write-Output "User Added To A Group Activity - Raw Events"
+
+    # variable to cretae the amount of spaces needed for the table
+    $MaxLength = ($UsersGroupActivity_HT["AddUserToGroup"] | Measure-Object Length -Maximum).Maximum
+
+    # variable to stor the new amount of hyfens
+    $Border = '-' * $MaxLength
+
+    # foreach loop to iterate and past each event seperate from the hashtable
+    foreach ($Event in $UsersGroupActivity_HT["AddUserToGroup"]) {
+
+        # add space to the right of each event iteration
+        $Event = $Event.PadRight($MaxLength)
+        
+        # print start\middle border
+        Write-Output "+$Border+"
+
+        # print each event
+        Write-Output "|$Event|"
+    
+    }
+
+    # print last border
+    Write-Output "+$Border+"
 }
 
 # print out the remove user from group activity
 if ($RemoveUserFromGroup_Count -ge 1) {
-Write-Output ""
-Write-Output "User Removed From A Group Activity"
-Write-Output "+--------------------------------+"
-$UsersGroupActivity_HT["RemoveUserFromGroup"]
+    Write-Output ""
+    Write-Output "User Removed From A Group Activity - Raw Events"
+
+    # variable to cretae the amount of spaces needed for the table
+    $MaxLength = ($UsersGroupActivity_HT["RemoveUserFromGroup"] | Measure-Object Length -Maximum).Maximum
+
+    # variable to stor the new amount of hyfens
+    $Border = '-' * $MaxLength
+
+    # foreach loop to iterate and past each event seperate from the hashtable
+    foreach ($Event in $UsersGroupActivity_HT["RemoveUserFromGroup"]) {
+
+        # add space to the right of each event iteration
+        $Event = $Event.PadRight($MaxLength)
+
+        # print start\middle border
+        Write-Output "+$Border+"
+
+        # print each event
+        Write-Output "|$Event|"
+    
+    }
+
+    # print last border
+    Write-Output "+$Border+"
 }
 
 # print out the user information change
 if ($UserInformationChange_Count -ge 1) {
 Write-Output ""
-Write-Output "User Information Change"
-Write-Output "+---------------------+"
-$UsersGroupActivity_HT["UserInformationChange"]
+Write-Output "User Information Change - Raw Events"
+
+# variable to cretae the amount of spaces needed for the table
+$MaxLength = ($UsersGroupActivity_HT["UserInformationChange"] | Measure-Object Length -Maximum).Maximum
+
+# variable to stor the new amount of hyfens
+$Border = '-' * $MaxLength
+    
+    # foreach loop to iterate and past each event seperate from the hashtable
+    foreach ($Event in $UsersGroupActivity_HT["UserInformationChange"]) {
+
+        # add space to the right of each event iteration
+        $Event = $Event.PadRight($MaxLength)
+        
+        # print start\middle border
+        Write-Output "+$Border+"
+
+        # print each event
+        Write-Output "|$Event|"
+    
+    }
+
+    # print last border
+    Write-Output "+$Border+"
 }
 
-# reset
+# reset variables
 $useradd_Count = $null
 $userdel_Count = $null
 $ChangePassword_Count = $null
