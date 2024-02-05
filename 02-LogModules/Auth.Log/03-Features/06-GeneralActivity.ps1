@@ -23,9 +23,21 @@ foreach ($SingleLine in $AuthLogCopyContent) {
 # print out the Power Button activity
 if ($PowerButton_Count -ge 1) {
 Write-Output ""
-Write-Output "Machine Shutdown By Power Button"
-Write-Output "+------------------------------+"
-$GeneralActivity_HT["PowerButton"]
+Write-Output "Machine Shutdown By Power Button - Raw Events"
+
+# variable to cretae the amount of spaces needed for the table
+$MaxLength = ($GeneralActivity_HT["PowerButton"] | Measure-Object Length -Maximum).Maximum
+
+# variable to story the new amount of hyfens
+$Border = '-' * $MaxLength
+
+    foreach ($Event in $GeneralActivity_HT["PowerButton"]) {
+
+        Write-Output "+$Border+"
+        Write-Output "|$Event|"
+    
+    }
+    Write-Output "+$Border+"
 }
 
 # reset
