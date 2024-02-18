@@ -45,9 +45,9 @@ $ActivateTableFlag = "False"
 
 # if statment to check if there is at least 1 event
 if ($AuthenticationFailure_Count -ge 1) {
-    
+
   $ActivateTableFlag = "True"
-    
+
   # title
   Write-Output ""
   Write-Output "FTP Authentication Failure - Raw Events"
@@ -64,7 +64,7 @@ if ($AuthenticationFailure_Count -ge 1) {
     $singleEventPlusSpace = $singleEvent.PadRight($maxLength)
     Write-Output "+$longBorderHyphen+"
     Write-Output "|$singleEventPlusSpace|"
-    
+
   }
   # end of the table line
   Write-Output "+$longBorderHyphen+"
@@ -75,51 +75,44 @@ $UsernameCounts2 = @{}
 
 if ($ActivateTableFlag -eq "True") {
 
-$FTP_HT["AuthenticationFailure"] | ForEach-Object {
+  $FTP_HT["AuthenticationFailure"] | ForEach-Object {
     if ($_ -match $AuthenticationFailureFormats[0]) {
-        $UserName = ($_ -replace '.*ruser=','') -replace ' rhost=.*',''
-        $UsernameCounts1[$UserName]++
+      $UserName = ($_ -replace '.*ruser=','') -replace ' rhost=.*',''
+      $UsernameCounts1[$UserName]++
     }
     elseif ($_ -match $AuthenticationFailureFormats[2]) {
-        $UserName = ($_ -replace '.* Refused user ','') -replace ' for service.*',''
-        $UsernameCounts2[$UserName]++
+      $UserName = ($_ -replace '.* Refused user ','') -replace ' for service.*',''
+      $UsernameCounts2[$UserName]++
     }
-}
+  }
 
-# Find the maximum character count in $UsernameCounts1 and $UsernameCounts2
-$maxCharCount1 = ($UsernameCounts1.Keys | Measure-Object Length -Maximum).Maximum
-$maxCharCount2 = ($UsernameCounts2.Keys | Measure-Object Length -Maximum).Maximum
-$maxCharCount = [Math]::Max($maxCharCount1, $maxCharCount2)
+  # Find the maximum character count in $UsernameCounts1 and $UsernameCounts2
+  $maxCharCount1 = ($UsernameCounts1.Keys | Measure-Object Length -Maximum).Maximum
+  $maxCharCount2 = ($UsernameCounts2.Keys | Measure-Object Length -Maximum).Maximum
+  $maxCharCount = [math]::Max($maxCharCount1,$maxCharCount2)
 
-$Measure_HT = $UsernameCounts1.GetEnumerator() | ForEach-Object {
-    $UserName, $FailCount = $_.Key, $_.Value
-    "| Event: Authentication Failure | User Name: $($UserName.PadRight($maxCharCount)) | Fail Count: $FailCount |"
-}
+  $Measure_HT = $UsernameCounts1.GetEnumerator() | ForEach-Object {
+    $UserName,$FailCount = $_.Key,$_.Value
+    "| Event: Authentication Failure | User Name: $($UserName.PadRight($maxCharCount)) | Fail Count: $($FailCount.ToString().PadLeft(2)) |"
+  }
 
-$Measure2_HT = $UsernameCounts2.GetEnumerator() | ForEach-Object {
-    $UserName, $FailCount = $_.Key, $_.Value
-    "| Event: User Refused           | User Name: $($UserName.PadRight($maxCharCount)) | Fail Count: $FailCount |"
-}
+  $Measure2_HT = $UsernameCounts2.GetEnumerator() | ForEach-Object {
+    $UserName,$FailCount = $_.Key,$_.Value
+    "| Event: User Refused           | User Name: $($UserName.PadRight($maxCharCount)) | Fail Count: $($FailCount.ToString().PadLeft(2)) |"
+  }
 
-if ($Measure2_HT.Length -eq 0) {
-# calc the character count of one of the measure hash table
-$CharacterCount = $Measure_HT.Length - 2
-}
+  $maxLineLength = ($Measure_HT + $Measure2_HT | Measure-Object -Property Length -Maximum).Maximum
+  $Hyphens = '-' * ($maxLineLength - 2)
 
-else {
-$CharacterCount = $Measure2_HT.Length - 2
-}
 
-$Hyphens = '-' * $CharacterCount
-
-# the end output
-Write-Output "  |"
-Write-Output "  V FTP Authentication Failure - Statistics Table"
-Write-Output "  +$Hyphens+"
-foreach ($OneEvent in ($Measure_HT + $Measure2_HT)) {
-Write-Output "  $OneEvent"
-}
-Write-Output "  +$Hyphens+"
+  # the end output
+  Write-Output "  |"
+  Write-Output "  V FTP Authentication Failure - Statistics Table"
+  Write-Output "  +$Hyphens+"
+  foreach ($OneEvent in ($Measure_HT + $Measure2_HT)) {
+    Write-Output "  $OneEvent"
+  }
+  Write-Output "  +$Hyphens+"
 
 }
 
