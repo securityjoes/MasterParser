@@ -47,7 +47,7 @@ PS C:\Users\user\Desktop\MasterParser-main> .\MasterParser.ps1 -O Start
 ### How To Use - Video Guide
 https://github.com/YosfanEilay/MasterParser/assets/132997318/d26b4b3f-7816-42c3-be7f-7ee3946a2c70
 
-### Top MasterParser Social Media Posts
+### MasterParser Social Media Publications
 |Social Media Posts|
 | --- |
 | 1. [First Tool Post](https://www.linkedin.com/feed/update/urn:li:activity:7144214785243492352/) |
