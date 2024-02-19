@@ -11,7 +11,7 @@ foreach ($SingleLine in $AuthLogCopyContent) {
   $Words = $SingleLine -split ' '
 
   # variable to clean IP from irrelevant characters
-  $IPs = $Words | Select-String -Pattern "\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}"
+  $IPs = $Words | Select-String -Pattern "^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$"
 
   # clean IP variable 
   $CleanIPs = $IPs -replace ".*\=|\(|.*\[|\)|\]|\:.*",""
