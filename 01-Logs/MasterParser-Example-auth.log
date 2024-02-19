@@ -1,0 +1,184 @@
+Dec 10 00:17:01 eilay-desktop CRON[75966]: pam_unix(cron:session): session opened for user root by (uid=0)
+# # # # Example-Description: Successful SSH
+Dec 10 14:11:49 eilay-desktop sshd[1074]: Accepted password for eilay from 192.168.2.10 port 65107 ssh2
+Dec 10 14:11:49 eilay-desktop sshd[1074]: Accepted password for eilay from 192.168.2.10 port 65107 ssh2
+Dec 10 14:11:49 eilay-desktop sshd[1074]: Accepted password for eilay from 192.168.2.10 port 65107 ssh2
+Dec 10 14:11:49 eilay-desktop sshd[1074]: Accepted password for Hacker from 192.168.2.10 port 65107 ssh2
+Dec 10 14:11:49 eilay-desktop sshd[1074]: Accepted password for Hacker from 192.168.2.10 port 65107 ssh2
+Dec 10 14:11:49 eilay-desktop sshd[1074]: Accepted password for Hacker from 192.168.2.10 port 65107 ssh2
+Dec 10 14:11:49 eilay-desktop sshd[1074]: Accepted password for Hacker from 192.168.2.10 port 65107 ssh2
+Dec 10 14:11:49 eilay-desktop sshd[1074]: Accepted password for Test from 192.168.2.10 port 65107 ssh2
+Dec 10 14:11:49 eilay-desktop sshd[1074]: Accepted password for Test from 192.168.2.10 port 65107 ssh2
+Dec 10 14:11:49 eilay-desktop sshd[1074]: Accepted password for Test from 192.168.2.10 port 65107 ssh2
+Dec 10 14:11:49 eilay-desktop sshd[1074]: Accepted password for Test from 192.168.2.10 port 65107 ssh2
+Dec 10 14:11:49 eilay-desktop sshd[1074]: Accepted password for Test from 192.168.2.10 port 65107 ssh2
+Dec 10 14:11:49 eilay-desktop sshd[1074]: Accepted password for VeryLongUserName from 192.168.2.10 port 65107 ssh2
+# # # # Example-Description: Successful publickey SSH
+Dec 10 14:11:49 eilay-desktop sshd[21670]: Accepted publickey for eilay from 192.168.2.14 port 61006 ssh2: RSA SHA256:Jfy3RVGpdSaSsNkUfrN589155so7C9KwDxTS12339EI
+Dec 10 14:11:49 eilay-desktop sshd[21670]: Accepted publickey for eilay from 192.168.2.14 port 61006 ssh2: RSA SHA256:Jfy3RVGpdSaSsNkUfrN589155so7C9KwDxTS12339EI
+Dec 10 14:11:49 eilay-desktop sshd[21670]: Accepted publickey for eilay from 192.168.2.14 port 61006 ssh2: RSA SHA256:Jfy3RVGpdSaSsNkUfrN589155so7C9KwDxTS12339EI
+Dec 10 14:11:49 eilay-desktop sshd[21670]: Accepted publickey for eilay from 192.168.2.14 port 61006 ssh2: RSA SHA256:Jfy3RVGpdSaSsNkUfrN589155so7C9KwDxTS12339EI
+Dec 10 14:11:49 eilay-desktop sshd[21670]: Accepted publickey for eilay from 192.168.2.14 port 61006 ssh2: RSA SHA256:Jfy3RVGpdSaSsNkUfrN589155so7C9KwDxTS12339EI
+Dec 10 14:11:49 eilay-desktop sshd[21670]: Accepted publickey for Hacker from 192.168.2.14 port 61006 ssh2: RSA SHA256:Jfy3RVGpdSaSsNkUfrN589155so7C9KwDxTS12339EI
+Dec 10 14:11:49 eilay-desktop sshd[21670]: Accepted publickey for Hacker from 192.168.2.14 port 61006 ssh2: RSA SHA256:Jfy3RVGpdSaSsNkUfrN589155so7C9KwDxTS12339EI
+Dec 10 14:11:49 eilay-desktop sshd[21670]: Accepted publickey for Hacker from 192.168.2.14 port 61006 ssh2: RSA SHA256:Jfy3RVGpdSaSsNkUfrN589155so7C9KwDxTS12339EI
+Dec 10 14:11:49 eilay-desktop sshd[21670]: Accepted publickey for Hacker from 192.168.2.14 port 61006 ssh2: RSA SHA256:Jfy3RVGpdSaSsNkUfrN589155so7C9KwDxTS12339EI
+Dec 10 14:11:49 eilay-desktop sshd[21670]: Accepted publickey for Hacker from 192.168.2.14 port 61006 ssh2: RSA SHA256:Jfy3RVGpdSaSsNkUfrN589155so7C9KwDxTS12339EI
+Dec 10 14:11:49 eilay-desktop sshd[21670]: Accepted publickey for VeryLongUserName from 192.168.2.14 port 61006 ssh2: RSA SHA256:Jfy3RVGpdSaSsNkUfrN589155so7C9KwDxTS12339EI
+Dec 10 14:11:49 eilay-desktop sshd[21670]: Accepted publickey for Test from 192.168.2.14 port 61006 ssh2: RSA SHA256:Jfy3RVGpdSaSsNkUfrN589155so7C9KwDxTS12339EI
+# # # # Example-Description: Failed SSH logins
+Dec 10 14:11:49 eilay-desktop sshd[1094]: Failed password for eilay from 192.168.2.10 port 64853 ssh2
+Dec 10 14:11:49 eilay-desktop sshd[1094]: Failed password for eilay from 192.168.2.10 port 64853 ssh2
+Dec 10 14:11:49 eilay-desktop sshd[1094]: Failed password for eilay from 192.168.2.10 port 64853 ssh2
+Dec 10 14:11:49 eilay-desktop sshd[1094]: Failed password for eilay from 192.168.2.10 port 64853 ssh2
+Dec 10 14:11:49 eilay-desktop sshd[1094]: Failed password for Hacker from 192.168.2.10 port 64853 ssh2
+Dec 10 14:11:49 eilay-desktop sshd[1094]: Failed password for Hacker from 192.168.2.10 port 64853 ssh2
+Dec 10 14:11:49 eilay-desktop sshd[1094]: Failed password for Hacker from 192.168.2.10 port 64853 ssh2
+Dec 10 14:11:49 eilay-desktop sshd[1094]: Failed password for VeryLongUserName from 192.168.2.10 port 64853 ssh2
+Dec 10 14:11:49 eilay-desktop sshd[1094]: Failed password for VeryLongUserName from 192.168.2.10 port 64853 ssh2
+Dec 10 14:11:49 eilay-desktop sshd[1094]: Failed password for VeryLongUserName from 192.168.2.10 port 64853 ssh2
+Dec 10 14:11:49 eilay-desktop sshd[1094]: Failed password for VeryLongUserName from 192.168.2.10 port 64853 ssh2
+Dec 10 14:11:49 eilay-desktop sshd[1094]: Failed password for Test from 192.168.2.10 port 64853 ssh2
+# # # # Example-Description: Adding a user to the system
+Dec 10 14:11:49 eilay-desktop useradd[2571]: new user: name=Max, UID=1001, GID=1001, home=/home/Max, shell=/bin/sh, from=/dev/pts/0
+Dec 10 14:11:49 eilay-desktop useradd[2571]: new user: name=Max, UID=1001, GID=1001, home=/home/Max, shell=/bin/sh, from=/dev/pts/0
+Dec 10 14:11:49 eilay-desktop useradd[2571]: new user: name=Max, UID=1001, GID=1001, home=/home/Max, shell=/bin/sh, from=/dev/pts/0
+Dec 10 14:11:49 eilay-desktop useradd[2571]: new user: name=Hacker, UID=1001, GID=1001, home=/home/Max, shell=/bin/sh, from=/dev/pts/0
+Dec 10 14:11:49 eilay-desktop useradd[2571]: new user: name=Hacker, UID=1001, GID=1001, home=/home/Max, shell=/bin/sh, from=/dev/pts/0
+Dec 10 14:11:49 eilay-desktop useradd[2571]: new user: name=Hacker, UID=1001, GID=1001, home=/home/Max, shell=/bin/sh, from=/dev/pts/0
+Dec 10 14:11:49 eilay-desktop useradd[2571]: new user: name=Test, UID=1001, GID=1001, home=/home/Max, shell=/bin/sh, from=/dev/pts/0
+Dec 10 14:11:49 eilay-desktop useradd[2571]: new user: name=Test, UID=1001, GID=1001, home=/home/Max, shell=/bin/sh, from=/dev/pts/0
+Dec 10 14:11:49 eilay-desktop useradd[2571]: new user: name=Test, UID=1001, GID=1001, home=/home/Max, shell=/bin/sh, from=/dev/pts/0
+Dec 10 14:11:49 eilay-desktop useradd[2571]: new user: name=VeryLongUserName, UID=1001, GID=1001, home=/home/Max, shell=/bin/sh, from=/dev/pts/0
+Dec 10 14:11:49 eilay-desktop useradd[2571]: new user: name=VeryLongUserName, UID=1001, GID=1001, home=/home/Max, shell=/bin/sh, from=/dev/pts/0
+Dec 10 14:11:49 eilay-desktop useradd[2571]: new user: name=VeryLongUserName, UID=1001, GID=1001, home=/home/Max, shell=/bin/sh, from=/dev/pts/0
+# # # # Example-Description: Deleting a user from the system
+Dec 10 14:11:49 eilay-desktop userdel[2531]: delete user 'Max'
+Dec 10 14:11:49 eilay-desktop userdel[2531]: delete user 'Max'
+Dec 10 14:11:49 eilay-desktop userdel[2531]: delete user 'Max'
+Dec 10 14:11:49 eilay-desktop userdel[2531]: delete user 'Hacker'
+Dec 10 14:11:49 eilay-desktop userdel[2531]: delete user 'Hacker'
+Dec 10 14:11:49 eilay-desktop userdel[2531]: delete user 'VeryLongUserName'
+# # # # Example-Description: User password changes
+Dec 10 14:11:49 eilay-desktop passwd[2639]: pam_unix(passwd:chauthtok): password changed for Max
+Dec 10 14:11:49 eilay-desktop passwd[2639]: pam_unix(passwd:chauthtok): password changed for Max
+Dec 10 14:11:49 eilay-desktop passwd[2639]: pam_unix(passwd:chauthtok): password changed for Hacker
+Dec 10 14:11:49 eilay-desktop passwd[2639]: pam_unix(passwd:chauthtok): password changed for Hacker
+Dec 10 14:11:49 eilay-desktop passwd[2639]: pam_unix(passwd:chauthtok): password changed for Test
+Dec 10 14:11:49 eilay-desktop passwd[2639]: pam_unix(passwd:chauthtok): password changed for Test
+Dec 10 14:11:49 eilay-desktop passwd[2639]: pam_unix(passwd:chauthtok): password changed for VeryLongUserName
+Dec 10 14:11:49 eilay-desktop usermod[2248]: change user 'Max' password
+Dec 10 14:11:49 eilay-desktop usermod[2248]: change user 'Hacker' password
+Dec 10 14:11:49 eilay-desktop usermod[2248]: change user 'Hacker' password
+Dec 10 14:11:49 eilay-desktop usermod[2248]: change user 'Test' password
+Dec 10 14:11:49 eilay-desktop usermod[2248]: change user 'VeryLongUserName' password
+Dec 10 14:11:49 eilay-desktop usermod[2248]: change user 'VeryLongUserName' password
+Dec 10 14:11:49 eilay-desktop chpasswd[2301]: pam_unix(chpasswd:chauthtok): password changed for Max
+Dec 10 14:11:49 eilay-desktop chpasswd[2301]: pam_unix(chpasswd:chauthtok): password changed for Max
+Dec 10 14:11:49 eilay-desktop chpasswd[2301]: pam_unix(chpasswd:chauthtok): password changed for Hacker
+Dec 10 14:11:49 eilay-desktop chpasswd[2301]: pam_unix(chpasswd:chauthtok): password changed for Hacker
+Dec 10 14:11:49 eilay-desktop chpasswd[2301]: pam_unix(chpasswd:chauthtok): password changed for Test
+Dec 10 14:11:49 eilay-desktop chpasswd[2301]: pam_unix(chpasswd:chauthtok): password changed for Test
+Dec 10 14:11:49 eilay-desktop chpasswd[2301]: pam_unix(chpasswd:chauthtok): password changed for VeryLongUserName
+Dec 10 14:11:49 eilay-desktop chpasswd[2301]: pam_unix(chpasswd:chauthtok): password changed for VeryLongUserName
+Dec 10 14:11:49 eilay-desktop chage[2329]: changed password expiry for Max
+Dec 10 14:11:49 eilay-desktop chage[2329]: changed password expiry for Hacker
+Dec 10 14:11:49 eilay-desktop chage[2329]: changed password expiry for Test
+Dec 10 14:11:49 eilay-desktop chage[2329]: changed password expiry for VeryLongUserName
+# # # # Example-Description: Group creation
+Dec 10 14:11:49 eilay-desktop groupadd[2711]: new group: name=TheHackers, GID=1002
+Dec 10 14:11:49 eilay-desktop groupadd[2711]: new group: name=APT-32, GID=1002
+Dec 10 14:11:49 eilay-desktop groupadd[2711]: new group: name=KARMA, GID=1002
+Dec 10 14:11:49 eilay-desktop groupadd[2711]: new group: name=DeadCow, GID=1002
+# # # # Example-Description: Group deletion
+Dec 10 14:11:49 eilay-desktop groupdel[2731]: group 'TheHackers' removed
+Dec 10 14:11:49 eilay-desktop groupdel[2731]: group 'APT-32' removed
+Dec 10 14:11:49 eilay-desktop groupdel[2731]: group 'KARMA' removed
+Dec 10 14:11:49 eilay-desktop groupdel[2731]: group 'DeadCow' removed
+# # # # Example-Description: User added to a group
+Dec 10 14:11:49 eilay-desktop usermod[2806]: add 'Hacker' to group 'TheHackers'
+Dec 10 14:11:49 eilay-desktop usermod[2806]: add 'JohnWick' to group 'APT-32'
+Dec 10 14:11:49 eilay-desktop usermod[2806]: add 'MikeTyson' to group 'KARMA'
+Dec 10 14:11:49 eilay-desktop usermod[2806]: add 'KevinMitnick' to group 'DeadCow'
+# # # # Example-Description: User removed from a group
+Dec 10 14:11:49 eilay-desktop gpasswd[2833]: user Hacker removed by root from group TheHackers
+Dec 10 14:11:49 eilay-desktop gpasswd[2833]: user JohnWick removed by root from group APT-32
+Dec 10 14:11:49 eilay-desktop gpasswd[2833]: user MikeTyson removed by root from group KARMA
+Dec 10 14:11:49 eilay-desktop gpasswd[2833]: user KevinMitnick removed by root from group DeadCow
+# # # # Example-Description: Changing user information
+Dec 10 14:11:49 eilay-desktop chfn[2374]: changed user 'Hacker' information
+Dec 10 14:11:49 eilay-desktop chfn[2374]: changed user 'Hacker' information
+Dec 10 14:11:49 eilay-desktop chfn[2374]: changed user 'MikeTyson' information
+Dec 10 14:11:49 eilay-desktop chfn[2374]: changed user 'KevinMitnick' information
+Dec 10 14:11:49 eilay-desktop chfn[2374]: changed user 'JohnWick' information
+Dec 10 14:11:49 eilay-desktop chfn[2374]: changed user 'eilay' information
+# # # # Example-Description: Power Button
+Dec 10 14:11:49 eilay-desktop systemd-logind[633]: Watching system buttons on /dev/input/event0 (Power Button)
+Dec 10 14:11:49 eilay-desktop systemd-logind[633]: Watching system buttons on /dev/input/event1 (Power Button)
+Dec 10 14:11:49 eilay-desktop systemd-logind[633]: Watching system buttons on /dev/input/event0 (Power Button)
+Dec 10 14:11:49 eilay-desktop systemd-logind[633]: Watching system buttons on /dev/input/event1 (Power Button)
+# # # # Example-Description: Session opened for user
+Dec 10 14:11:49 eilay-desktop sudo: pam_unix(sudo:session): session opened for user root by eilay(uid=0)
+Dec 10 14:11:49 eilay-desktop sudo: pam_unix(sudo:session): session opened for user root by eilay(uid=0)
+Dec 10 14:11:49 eilay-desktop sudo: pam_unix(sudo:session): session opened for user root by Hacker(uid=0)
+Dec 10 14:11:49 eilay-desktop sudo: pam_unix(sudo:session): session opened for user root by Hacker(uid=0)
+Dec 10 14:11:49 eilay-desktop sudo: pam_unix(sudo:session): session opened for user root by VeryLongUserName(uid=0)
+Dec 10 14:11:49 eilay-desktop sudo: pam_unix(sudo:session): session opened for user root by VeryLongUserName(uid=0)
+Dec 10 14:11:49 eilay-desktop sudo: pam_unix(sudo:session): session opened for user root by VeryLongUserName(uid=0)
+Dec 10 14:11:49 eilay-desktop sudo: pam_unix(sudo:session): session opened for user root by MikeTyson(uid=0)
+Dec 10 14:11:49 eilay-desktop sudo: pam_unix(sudo:session): session opened for user root by MikeTyson(uid=0)
+Dec 10 14:11:49 eilay-desktop sudo: pam_unix(sudo:session): session opened for user root by MikeTyson(uid=0)
+Dec 10 14:11:49 eilay-desktop sudo: pam_unix(sudo:session): session opened for user root by MikeTyson(uid=0)
+# # # # Example-Description: Elevated commands executions
+Dec 10 14:11:49 eilay-desktop sudo:    eilay : TTY=pts/0 ; PWD=/home/eilay ; USER=root ; COMMAND=/usr/bin/su
+Dec 10 14:11:49 eilay-desktop sudo:    eilay : TTY=pts/0 ; PWD=/home/eilay ; USER=root ; COMMAND=/dev/sda
+Dec 10 14:11:49 eilay-desktop sudo:    Hacker : TTY=pts/0 ; PWD=/home/eilay ; USER=root ; COMMAND=/usr/sbin/adduser
+Dec 10 14:11:49 eilay-desktop sudo:    eilay : TTY=pts/0 ; PWD=/home/eilay ; USER=root ; COMMAND=/usr/sbin/deluser
+Dec 10 14:11:49 eilay-desktop sudo:     root : TTY=pts/4 ; PWD=/ ; USER=root ; COMMAND=/usr/bin/nano /etc/vsftpd.conf
+Dec 10 14:11:49 eilay-desktop sudo:   root : TTY=pts/1 ; PWD=/home/eilay ; USER=root ; COMMAND=/usr/bin/nano /root/.bashrc   
+Dec 10 14:11:49 eilay-desktop sudo:  eilay : TTY=pts/0 ; PWD=/home/eilay ; USER=root ; COMMAND=/usr/bin/timedatectl set-timezone Asia/Jerusalem
+Dec 10 14:11:49 eilay-desktop sudo:   Hacker : TTY=pts/1 ; PWD=/home ; USER=root ; COMMAND=/usr/bin/ls /var/log/ufw*
+Dec 10 14:11:49 eilay-desktop sudo:   Hacker : TTY=pts/1 ; PWD=/home ; USER=root ; COMMAND=/usr/bin/systemctl restart rsyslog  
+Dec 10 14:11:49 eilay-desktop sudo:   MikeTyson : TTY=pts/4 ; PWD=/ ; USER=root ; COMMAND=/usr/bin/nano /etc/vsftpd.conf
+Dec 10 14:11:49 eilay-desktop sudo:   MikeTyson : TTY=pts/4 ; PWD=/ ; USER=root ; COMMAND=/usr/bin/systemctl restart vsftpd  
+Dec 10 14:11:49 eilay-desktop sudo:  VeryLongUserName : TTY=pts/0 ; PWD=/home/eilay ; USER=root ; COMMAND=/usr/sbin/usermod
+Dec 10 14:11:49 eilay-desktop sudo:  VeryLongUserName : TTY=pts/0 ; PWD=/home/eilay ; USER=root ; COMMAND=/usr/bin/su 
+Dec 10 14:11:49 eilay-desktop sudo:  VeryLongUserName : TTY=pts/0 ; PWD=/home/eilay ; USER=root ; COMMAND=/usr/bin/su
+# # # # Example-Description: FTP authentication failures formats
+Dec 10 14:11:49 eilay-desktop vsftpd: pam_unix(vsftpd:auth): authentication failure; logname= uid=0 euid=0 tty=ftp ruser=eilay rhost=::ffff:192.168.2.10  user=eilay
+Dec 10 14:11:49 eilay-desktop vsftpd: pam_unix(vsftpd:auth): authentication failure; logname= uid=0 euid=0 tty=ftp ruser=eilay rhost=::ffff:192.168.2.10  user=eilay
+Dec 10 14:11:49 eilay-desktop vsftpd: pam_unix(vsftpd:auth): authentication failure; logname= uid=0 euid=0 tty=ftp ruser=eilay rhost=::ffff:192.168.2.10  user=eilay
+Dec 10 14:11:49 eilay-desktop vsftpd: pam_unix(vsftpd:auth): authentication failure; logname= uid=0 euid=0 tty=ftp ruser=eilay rhost=::ffff:192.168.2.10  user=eilay
+Dec 10 14:11:49 eilay-desktop vsftpd: pam_unix(vsftpd:auth): authentication failure; logname= uid=0 euid=0 tty=ftp ruser=eilay rhost=::ffff:192.168.2.10  user=eilay
+Dec 10 14:11:49 eilay-desktop vsftpd: pam_unix(vsftpd:auth): authentication failure; logname= uid=0 euid=0 tty=ftp ruser=eilay rhost=::ffff:192.168.2.10  user=eilay
+Dec 10 14:11:49 eilay-desktop vsftpd: pam_unix(vsftpd:auth): authentication failure; logname= uid=0 euid=0 tty=ftp ruser=eilay rhost=::ffff:192.168.2.10  user=eilay
+Dec 10 14:11:49 eilay-desktop vsftpd: pam_unix(vsftpd:auth): authentication failure; logname= uid=0 euid=0 tty=ftp ruser=eilay rhost=::ffff:192.168.2.10  user=eilay
+Dec 10 14:11:49 eilay-desktop vsftpd: pam_unix(vsftpd:auth): authentication failure; logname= uid=0 euid=0 tty=ftp ruser=eilay rhost=::ffff:192.168.2.10  user=eilay
+Dec 10 14:11:49 eilay-desktop vsftpd: pam_unix(vsftpd:auth): authentication failure; logname= uid=0 euid=0 tty=ftp ruser=eilay rhost=::ffff:192.168.2.10  user=eilay
+Dec 10 14:11:49 eilay-desktop vsftpd: pam_unix(vsftpd:auth): authentication failure; logname= uid=0 euid=0 tty=ftp ruser=eilay rhost=::ffff:192.168.2.10  user=eilay
+Dec 10 14:11:49 eilay-desktop vsftpd: pam_unix(vsftpd:auth): authentication failure; logname= uid=0 euid=0 tty=ftp ruser=eilay rhost=::ffff:192.168.2.10  user=eilay
+Dec 10 14:11:49 eilay-desktop vsftpd: pam_unix(vsftpd:auth): authentication failure; logname= uid=0 euid=0 tty=ftp ruser=eilay rhost=::ffff:192.168.2.10  user=eilay
+Dec 10 14:11:49 eilay-desktop vsftpd: pam_unix(vsftpd:auth): authentication failure; logname= uid=0 euid=0 tty=ftp ruser=eilay rhost=::ffff:192.168.2.10  user=eilay
+Dec 10 14:11:49 eilay-desktop vsftpd: pam_unix(vsftpd:auth): authentication failure; logname= uid=0 euid=0 tty=ftp ruser=eilay rhost=::ffff:192.168.2.10  user=eilay
+Dec 10 14:11:49 eilay-desktop vsftpd: pam_unix(vsftpd:auth): authentication failure; logname= uid=0 euid=0 tty=ftp ruser=Hacker rhost=::ffff:192.168.2.10  user=Hacker
+Dec 10 14:11:49 eilay-desktop vsftpd: pam_unix(vsftpd:auth): authentication failure; logname= uid=0 euid=0 tty=ftp ruser=Hacker rhost=::ffff:192.168.2.10  user=Hacker
+Dec 10 14:11:49 eilay-desktop vsftpd: pam_unix(vsftpd:auth): authentication failure; logname= uid=0 euid=0 tty=ftp ruser=Hacker rhost=::ffff:192.168.2.10  user=Hacker
+Dec 10 14:11:49 eilay-desktop vsftpd: pam_unix(vsftpd:auth): authentication failure; logname= uid=0 euid=0 tty=ftp ruser=Hacker rhost=::ffff:192.168.2.10  user=Hacker
+Dec 10 14:11:49 eilay-desktop vsftpd: pam_unix(vsftpd:auth): authentication failure; logname= uid=0 euid=0 tty=ftp ruser=MikeTyson rhost=::ffff:192.168.2.10  user=MikeTyson
+Dec 10 14:11:49 eilay-desktop vsftpd: pam_unix(vsftpd:auth): authentication failure; logname= uid=0 euid=0 tty=ftp ruser=MikeTyson rhost=::ffff:192.168.2.10  user=MikeTyson
+Dec 10 14:11:49 eilay-desktop vsftpd: pam_unix(vsftpd:auth): authentication failure; logname= uid=0 euid=0 tty=ftp ruser=MikeTyson rhost=::ffff:192.168.2.10  user=MikeTyson
+Dec 10 14:11:49 eilay-desktop vsftpd: pam_unix(vsftpd:auth): authentication failure; logname= uid=0 euid=0 tty=ftp ruser=MikeTyson rhost=::ffff:192.168.2.10  user=MikeTyson
+Dec 10 14:11:49 eilay-desktop vsftpd: pam_unix(vsftpd:auth): authentication failure; logname= uid=0 euid=0 tty=ftp ruser=MikeTyson rhost=::ffff:192.168.2.10  user=MikeTyson
+Dec 10 14:11:49 eilay-desktop vsftpd: pam_unix(vsftpd:auth): authentication failure; logname= uid=0 euid=0 tty=ftp ruser=VeryLongUserName rhost=::ffff:192.168.2.10  user=VeryLongUserName
+Dec 10 14:11:49 eilay-desktop vsftpd: pam_unix(vsftpd:auth): authentication failure; logname= uid=0 euid=0 tty=ftp ruser=VeryLongUserName rhost=::ffff:192.168.2.10  user=VeryLongUserName
+Dec 10 14:11:49 eilay-desktop vsftpd: pam_unix(vsftpd:auth): authentication failure; logname= uid=0 euid=0 tty=ftp ruser=VeryLongUserName rhost=::ffff:192.168.2.10  user=VeryLongUserName
+Dec 10 14:11:49 eilay-desktop vsftpd: pam_listfile(vsftpd:auth): Refused user root for service vsftpd
+Dec 10 14:11:49 eilay-desktop vsftpd: pam_listfile(vsftpd:auth): Refused user root for service vsftpd
+Dec 10 14:11:49 eilay-desktop vsftpd: pam_listfile(vsftpd:auth): Refused user root for service vsftpd
+Dec 10 14:11:49 eilay-desktop vsftpd: pam_listfile(vsftpd:auth): Refused user root for service vsftpd
+Dec 10 14:11:49 eilay-desktop vsftpd: pam_listfile(vsftpd:auth): Refused user root for service vsftpd
+Dec 10 14:11:49 eilay-desktop Feb 18 22:55:16 UBUSRV01 vsftpd: pam_unix(vsftpd:auth): check pass; user unknown
+Dec 10 14:11:49 eilay-desktop Feb 18 22:55:16 UBUSRV01 vsftpd: pam_unix(vsftpd:auth): check pass; user unknown
+Dec 10 14:11:49 eilay-desktop Feb 18 22:55:16 UBUSRV01 vsftpd: pam_unix(vsftpd:auth): check pass; user unknown
+Dec 10 14:11:49 eilay-desktop Feb 18 22:55:16 UBUSRV01 vsftpd: pam_unix(vsftpd:auth): check pass; user unknown
+Dec 10 14:11:49 eilay-desktop Feb 18 22:55:16 UBUSRV01 vsftpd: pam_unix(vsftpd:auth): check pass; user unknown
