@@ -348,6 +348,60 @@ $Border = '-' * $MaxLength
 
     # print last border
     Write-Output "+$Border+"
+
+    # hashtable
+    $UserInformationChange = @{}
+
+    # foreach loop to iterate and past each event seperate from the hashtable
+    foreach ($Event in $UsersGroupActivity_HT["UserInformationChange"]) {
+        
+        # Getting the user name
+        $RemoveStart = $Event -replace ".*changed user '",""
+        $UserName = $RemoveStart -replace "' information.*",""
+
+         # check if $UserInformationChange hashtable contains $UserName key in it
+        if ($UserInformationChange.ContainsKey($UserName)) {
+            
+            # if key is contained increment the value of the key $UserName
+            $UserInformationChange[$UserName]++
+        }
+
+        # if the $UserInformationChange is not containing the $UserName key in it
+        else {
+            
+            # assign the integer "1" to the value of the key $UserName
+            $UserInformationChange[$UserName] = 1
+        }
+    }
+
+    # print out the title of the table
+    Write-Output "  |"
+    Write-Output "  V User Information Change - Statistics Table"
+    
+    # Find max lengths for the keys and the values of the hashtable
+    $MaxCharKey = ($UserInformationChange.Keys | Measure-Object Length -Maximum).Maximum
+    $MaxCharValue = ($UserInformationChange.Values | Measure-Object -Maximum).Maximum.ToString().Length
+
+    # iterate through all the keys in the hashtable in a foreach loop
+    foreach ($Key in $UserInformationChange.Keys) {
+        
+        # add the needed spaces for the keys and values of the hashtbale
+        $SpacedKey = $Key.PadRight($MaxCharKey)
+        $SpacedValue = $UserInformationChange[$Key].ToString().PadRight($MaxCharValue)
+
+        # how you want the result to print out
+        $Final = "| Event: User Information Changed | User: $SpacedKey | Change Count: $SpacedValue |"
+        
+        # calculate border
+        $Border = '-' * ($Final.Length - 2)
+        
+        # print the result in a table
+        Write-Output "  +$Border+"
+        Write-Output "  $Final"
+        }
+        # last board print outside of the foreach loop
+        Write-Output "  +$Border+"
+
 }
 
 # reset variables
