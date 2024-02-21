@@ -68,6 +68,9 @@ if ($Elevated_Sessions_Opened_Count -ge 1) {
     $MaxCharKey = ($Session_HT.Keys | Measure-Object Length -Maximum).Maximum
     $MaxCharValue = ($Session_HT.Values | Measure-Object -Maximum).Maximum.ToString().Length
 
+    # flag to stop $Border iteration after first iteration
+    $Flag = "Enable"
+
     # Output table
     foreach ($Key in $Session_HT.Keys) {
         $SpacedKey = $Key.PadRight($MaxCharKey)
@@ -76,7 +79,12 @@ if ($Elevated_Sessions_Opened_Count -ge 1) {
         $Final = "| Sessions opened for user $SpacedKey | Session Count: $SpacedValue |"
         $Border = '-' * ($Final.Length - 2)
 
+        # Print the boarder once
+        if ($Flag -match "Enable") {
         Write-Output "+$Border+"
+        $Flag = "Disable"
+        }
+
         Write-Output $Final
     }
 
@@ -154,10 +162,9 @@ if ($ElevatedCommands_Count -ge 1) {
 
     # the printing of the $NameTag plus the table
     Write-Output ""
-    Write-Output "  User Information"
-    Write-Output "  +$BorderHyphenForUser+"
-    Write-Output "  $Key"
-    Write-Output "  +$BorderHyphenForUser+"
+    Write-Output "User Command History Of:"
+    Write-Output "+$BorderHyphenForUser+"
+    Write-Output "$Key"
 
     # Find the maximum character count in $ElevatedCommandsHT[$Key] which is the commands 
     $MaxCharCount = ($ElevatedCommandsHT[$Key] | Measure-Object Length -Maximum).Maximum
@@ -169,15 +176,14 @@ if ($ElevatedCommands_Count -ge 1) {
     $Commands = $ElevatedCommandsHT[$Key].PadRight($MaxCharCount)
 
     # the printing of the whole table with the commands
-    Write-Output "  |"
-    Write-Output "  V User Command History (Total Executions:$($ElevatedCommandsHT[$Key].Count))"
-    Write-Output "  +$BorderHyphen+"
+    Write-Output "+$BorderHyphen+"
+    
     foreach ($Command in $Commands) {
-      Write-Output "  |$Command|"
-      Write-Output "  +$BorderHyphen+"
+      
+      Write-Output "|$Command|"
     }
+    Write-Output "+$BorderHyphen+"
   }
-
 }
 
 # reset

@@ -168,6 +168,9 @@ if ($useradd_Count -ge 1) {
   Write-Output "  |"
   Write-Output "  V User Creation Activity - Statistics Table"
 
+  # flag to stop $Border iteration after first iteration
+  $Flag = "Enable"
+
   # foreach loop to iterate and past each event separate from the hashtable
   foreach ($Event in $UsersGroupActivity_HT["useradd"]) {
 
@@ -181,12 +184,17 @@ if ($useradd_Count -ge 1) {
     $UserCreation = $UserCreation.PadRight($MaxChar_UserCreation)
 
     # Output the result for the current event
-    $Result = Write-Output "| Event: User Creation Activity | Time: $TimeAndDate | Created User Name: $UserCreation |"
+    $Result = Write-Output "| Time: $TimeAndDate | Event: User Creation Activity | Created User Name: $UserCreation |"
 
     # multiply $Result.Length with "-" hyfen symbol to get the boarder
     $Border = '-' * ($Result.Length - 2)
 
+    # print the result in a table
+    if ($Flag -match "Enable") {
     Write-Output "  +$Border+"
+    $Flag = "Disable"
+    }
+
     Write-Output "  $Result"
   }
 
@@ -243,6 +251,9 @@ if ($userdel_Count -ge 1) {
   Write-Output "  |"
   Write-Output "  V User Deletion Activity - Statistics Table"
 
+  # flag to stop $Border iteration after first iteration
+  $Flag = "Enable"
+
   # foreach loop to iterate and past each event separate from the hashtable
   foreach ($Event in $UsersGroupActivity_HT["userdel"]) {
 
@@ -256,12 +267,17 @@ if ($userdel_Count -ge 1) {
     $UserDeletion = $UserDeletion.PadRight($MaxChar_UserDeletion)
 
     # Output the result for the current event
-    $Result = Write-Output "| Event: User Deletion Activity | Time: $TimeAndDate | Deleted User Name: $UserDeletion |"
+    $Result = Write-Output "| Time: $TimeAndDate | Event: User Deletion Activity | Deleted User Name: $UserDeletion |"
 
     # multiply $Result.Length with "-" hyfen symbol to get the boarder
     $Border = '-' * ($Result.Length - 2)
 
+    # print the result in a table
+    if ($Flag -match "Enable") {
     Write-Output "  +$Border+"
+    $Flag = "Disable"
+    }
+
     Write-Output "  $Result"
   }
 
@@ -347,6 +363,9 @@ if ($groupadd_Count -ge 1) {
   Write-Output "  |"
   Write-Output "  V Group Creation Activity - Statistics Table"
 
+  # flag to stop $Border iteration after first iteration
+  $Flag = "Enable"
+
   # foreach loop to iterate and past each event separate from the hashtable
   foreach ($Event in $UsersGroupActivity_HT["groupadd"]) {
 
@@ -360,12 +379,17 @@ if ($groupadd_Count -ge 1) {
     $CreatedGroup = $CreatedGroup.PadRight($MaxChar_CreatedGroup)
 
     # Output the result for the current event
-    $Result = Write-Output "| Event: Group Creation Activity | Time: $TimeAndDate | Created Group: $CreatedGroup |"
+    $Result = Write-Output "| Time: $TimeAndDate | Event: Group Creation Activity | Created Group: $CreatedGroup |"
 
     # multiply $Result.Length with "-" hyfen symbol to get the boarder
     $Border = '-' * ($Result.Length - 2)
 
+    # print the result in a table
+    if ($Flag -match "Enable") {
     Write-Output "  +$Border+"
+    $Flag = "Disable"
+    }
+
     Write-Output "  $Result"
   }
 
@@ -422,6 +446,9 @@ if ($groudel_Count -ge 1) {
   Write-Output "  |"
   Write-Output "  V Group Deletion Activity - Statistics Table"
 
+  # flag to stop $Border iteration after first iteration
+  $Flag = "Enable"
+
   # foreach loop to iterate and past each event separate from the hashtable
   foreach ($Event in $UsersGroupActivity_HT["groudel"]) {
 
@@ -435,12 +462,17 @@ if ($groudel_Count -ge 1) {
     $DeletedGroup = $DeletedGroup.PadRight($MaxChar_DeletedGroup)
 
     # Output the result for the current event
-    $Result = Write-Output "| Event: Group Deletion Activity | Time: $TimeAndDate | Deleted Group: $DeletedGroup |"
+    $Result = Write-Output "| Time: $TimeAndDate | Event: Group Deletion Activity | Deleted Group: $DeletedGroup |"
 
     # multiply $Result.Length with "-" hyfen symbol to get the boarder
     $Border = '-' * ($Result.Length - 2)
 
+    # print the result in a table
+    if ($Flag -match "Enable") {
     Write-Output "  +$Border+"
+    $Flag = "Disable"
+    }
+
     Write-Output "  $Result"
   }
 
@@ -500,7 +532,10 @@ if ($AddUserToGroup_Count -ge 1) {
 
   # Strings for the top title of the Statistics Table
   Write-Output "  |"
-  Write-Output "  V User Removed From A Group Activity - Statistics Table"
+  Write-Output "  V User Added To A Group Activity - Statistics Table"
+
+  # flag to stop $Border iteration after first iteration
+  $Flag = "Enable"
 
   # foreach loop to iterate and past each event separate from the hashtable
   foreach ($Event in $UsersGroupActivity_HT["AddUserToGroup"]) {
@@ -519,12 +554,17 @@ if ($AddUserToGroup_Count -ge 1) {
     $ToGroup = $ToGroup.PadRight($MaxChar_ToGroup)
 
     # Output the result for the current event
-    $Result = Write-Output "| Event: User Added To A Group | Time: $TimeAndDate | The User: $AddedUser | To Group: $ToGroup |"
+    $Result = Write-Output "| Time: $TimeAndDate | Event: User Added To A Group | The User: $AddedUser | To Group: $ToGroup |"
 
     # multiply $Result.Length with "-" hyfen symbol to get the boarder
     $Border = '-' * ($Result.Length - 2)
 
+    # print the result in a table
+    if ($Flag -match "Enable") {
     Write-Output "  +$Border+"
+    $Flag = "Disable"
+    }
+
     Write-Output "  $Result"
   }
 
@@ -590,6 +630,9 @@ if ($RemoveUserFromGroup_Count -ge 1) {
   Write-Output "  |"
   Write-Output "  V User Removed From A Group Activity - Statistics Table"
 
+  # flag to stop $Border iteration after first iteration
+  $Flag = "Enable"
+
   # foreach loop to iterate and past each event separate from the hashtable
   foreach ($Event in $UsersGroupActivity_HT["RemoveUserFromGroup"]) {
 
@@ -610,21 +653,26 @@ if ($RemoveUserFromGroup_Count -ge 1) {
     $FromGroup = $FromGroup.PadRight($MaxChar_FromGroup)
 
     # Output the result for the current event
-    $Result = Write-Output "| Event: User Removed From Group | Time: $TimeAndDate | The User: $RemovedUser | Removed By: $RemovedBy | From Group: $FromGroup |"
+    $Result = Write-Output "| Time: $TimeAndDate | Event: User Removed From Group | The User: $RemovedUser | Removed By: $RemovedBy | From Group: $FromGroup |"
 
     # multiply $Result.Length with "-" hyfen symbol to get the boarder
     $Border = '-' * ($Result.Length - 2)
 
+    # print the result in a table
+    if ($Flag -match "Enable") {
     Write-Output "  +$Border+"
+    $Flag = "Disable"
+    }
+
     Write-Output "  $Result"
   }
 
   Write-Output "  +$Border+"
 }
 
-
 # print out the user information change
 if ($UserInformationChange_Count -ge 1) {
+    
   Write-Output ""
   Write-Output "User Information Change - Raw Events"
 
@@ -675,14 +723,15 @@ if ($UserInformationChange_Count -ge 1) {
       $UserInformationChange[$UserName] = 1
     }
   }
-
-  # print out the title of the table
   Write-Output "  |"
   Write-Output "  V User Information Change - Statistics Table"
 
   # Find max lengths for the keys and the values of the hashtable
   $MaxCharKey = ($UserInformationChange.Keys | Measure-Object Length -Maximum).Maximum
   $MaxCharValue = ($UserInformationChange.Values | Measure-Object -Maximum).Maximum.ToString().Length
+
+  # flag to stop $Border iteration after first iteration
+  $Flag = "Enable"
 
   # iterate through all the keys in the hashtable in a foreach loop
   foreach ($Key in $UserInformationChange.Keys) {
@@ -697,13 +746,17 @@ if ($UserInformationChange_Count -ge 1) {
     # calculate border
     $Border = '-' * ($Final.Length - 2)
 
-    # print the result in a table
+    # Print the boarder once
+    if ($Flag -match "Enable") {
     Write-Output "  +$Border+"
+    $Flag = "Disable"
+    }
+
     Write-Output "  $Final"
+
   }
   # last board print outside of the foreach loop
   Write-Output "  +$Border+"
-
 }
 
 # reset variables
