@@ -81,6 +81,7 @@ Dec 10 14:11:49 eilay-desktop chpasswd[2301]: pam_unix(chpasswd:chauthtok): pass
 Dec 10 14:11:49 eilay-desktop chpasswd[2301]: pam_unix(chpasswd:chauthtok): password changed for Test
 Dec 10 14:11:49 eilay-desktop chpasswd[2301]: pam_unix(chpasswd:chauthtok): password changed for VeryLongUserName
 Dec 10 14:11:49 eilay-desktop chpasswd[2301]: pam_unix(chpasswd:chauthtok): password changed for VeryLongUserName
+# # # # Example-Description: User password Expire
 Dec 10 14:11:49 eilay-desktop chage[2329]: changed password expiry for Max
 Dec 10 14:11:49 eilay-desktop chage[2329]: changed password expiry for Hacker
 Dec 10 14:11:49 eilay-desktop chage[2329]: changed password expiry for Test

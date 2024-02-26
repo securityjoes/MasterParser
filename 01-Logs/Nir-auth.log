@@ -1,0 +1,46 @@
+Nov  5 23:50:19 linux-lab-isr sudo: test-user : TTY=pts/0 ; PWD=/home/test-user ; USER=root ; COMMAND=/usr/bin/apt install net-tools
+Nov  5 23:50:19 linux-lab-isr sudo: pam_unix(sudo:session): session opened for user root by (uid=0)
+Nov  5 23:50:19 linux-lab-isr sudo: pam_unix(sudo:session): session closed for user root
+Nov  5 23:50:28 linux-lab-isr polkitd(authority=local): Unregistered Authentication Agent for unix-session:2 (system bus name :1.88, object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8) (disconnected from bus)
+Nov  5 23:50:28 linux-lab-isr gdm-password]: pam_unix(gdm-password:session): session closed for user test-user
+Nov  5 23:50:33 linux-lab-isr gdm-password]: pam_unix(gdm-password:session): session opened for user test-user by (uid=0)
+Nov  5 23:50:33 linux-lab-isr systemd-logind[403]: New session 4 of user test-user.
+Nov  5 23:50:38 linux-lab-isr polkitd(authority=local): Registered Authentication Agent for unix-session:4 (system bus name :1.215 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Nov  5 23:50:58 linux-lab-isr systemd-logind[403]: Delay lock is active (UID 0/root, PID 580/unattended-upgr) but inhibitor timeout is reached.
+Nov  5 23:50:58 linux-lab-isr systemd-logind[403]: System is rebooting.
+Nov  6 00:03:06 linux-lab-isr systemd-logind[420]: New seat seat0.
+Nov  6 00:03:06 linux-lab-isr systemd-logind[420]: Watching system buttons on /dev/input/event0 (Power Button)
+Nov  6 00:03:06 linux-lab-isr systemd-logind[420]: Watching system buttons on /dev/input/event1 (AT Translated Set 2 keyboard)
+Nov  6 00:03:10 linux-lab-isr gdm-launch-environment]: pam_unix(gdm-launch-environment:session): session opened for user gdm by (uid=0)
+Nov  6 00:03:10 linux-lab-isr systemd-logind[420]: New session c1 of user gdm.
+Nov  6 00:03:10 linux-lab-isr systemd: pam_unix(systemd-user:session): session opened for user gdm by (uid=0)
+Nov  6 00:03:15 linux-lab-isr polkitd(authority=local): Registered Authentication Agent for unix-session:c1 (system bus name :1.31 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Nov  6 00:03:21 linux-lab-isr gdm-password]: pam_unix(gdm-password:session): session opened for user test-user by (uid=0)
+Nov  6 00:03:21 linux-lab-isr systemd: pam_unix(systemd-user:session): session opened for user test-user by (uid=0)
+Nov  6 00:03:21 linux-lab-isr systemd-logind[420]: New session 2 of user test-user.
+Nov  6 00:03:26 linux-lab-isr polkitd(authority=local): Registered Authentication Agent for unix-session:2 (system bus name :1.84 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Nov  6 00:03:37 linux-lab-isr dbus-daemon[426]: [system] Failed to activate service 'org.bluez': timed out (service_start_timeout=25000ms)
+Nov  6 00:03:59 linux-lab-isr sudo: test-user : TTY=pts/0 ; PWD=/home/test-user ; USER=root ; COMMAND=/usr/bin/apt install net-tools
+Nov  6 00:03:59 linux-lab-isr sudo: pam_unix(sudo:session): session opened for user root by (uid=0)
+Nov  6 00:04:08 linux-lab-isr sudo: pam_unix(sudo:session): session closed for user root
+Nov  6 00:04:25 linux-lab-isr sudo: test-user : TTY=pts/0 ; PWD=/home/test-user ; USER=root ; COMMAND=/sbin/ifconfig ens33 down
+Nov  6 00:04:25 linux-lab-isr sudo: pam_unix(sudo:session): session opened for user root by (uid=0)
+Nov  6 00:04:25 linux-lab-isr sudo: pam_unix(sudo:session): session closed for user root
+Nov  6 00:04:28 linux-lab-isr pkexec: pam_unix(polkit-1:session): session opened for user root by (uid=1000)
+Nov  6 00:04:28 linux-lab-isr pkexec[2176]: test-user: Executing command [USER=root] [TTY=unknown] [CWD=/home/test-user] [COMMAND=/usr/lib/update-notifier/package-system-locked]
+Nov  6 00:17:01 linux-lab-isr CRON[2735]: pam_unix(cron:session): session opened for user root by (uid=0)
+Nov  6 00:17:02 linux-lab-isr CRON[2735]: pam_unix(cron:session): session closed for user root
+Dec  4 04:52:47 linux-lab-isr systemd-logind[467]: New seat seat0.
+Dec  4 04:52:47 linux-lab-isr systemd-logind[467]: Watching system buttons on /dev/input/event0 (Power Button)
+Dec  4 04:52:47 linux-lab-isr systemd-logind[467]: Watching system buttons on /dev/input/event1 (AT Translated Set 2 keyboard)
+Dec  4 04:52:51 linux-lab-isr gdm-launch-environment]: pam_unix(gdm-launch-environment:session): session opened for user gdm by (uid=0)
+Dec  4 04:52:51 linux-lab-isr systemd-logind[467]: New session c1 of user gdm.
+Dec  4 04:52:51 linux-lab-isr systemd: pam_unix(systemd-user:session): session opened for user gdm by (uid=0)
+Dec  4 04:53:00 linux-lab-isr polkitd(authority=local): Registered Authentication Agent for unix-session:c1 (system bus name :1.32 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Dec  4 04:53:07 linux-lab-isr gdm-password]: pam_unix(gdm-password:session): session opened for user test-user by (uid=0)
+Dec  4 04:53:07 linux-lab-isr systemd: pam_unix(systemd-user:session): session opened for user test-user by (uid=0)
+Dec  4 04:53:07 linux-lab-isr systemd-logind[467]: New session 2 of user test-user.
+Dec  4 04:53:14 linux-lab-isr polkitd(authority=local): Registered Authentication Agent for unix-session:2 (system bus name :1.88 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Dec  4 04:53:23 linux-lab-isr dbus-daemon[410]: [system] Failed to activate service 'org.bluez': timed out (service_start_timeout=25000ms)
+Dec  4 04:54:22 linux-lab-isr pkexec: pam_unix(polkit-1:session): session opened for user root by (uid=1000)
+Dec  4 04:54:22 linux-lab-isr pkexec[1955]: test-user: Executing command [USER=root] [TTY=unknown] [CWD=/home/test-user] [COMMAND=/usr/lib/update-notifier/package-system-locked]

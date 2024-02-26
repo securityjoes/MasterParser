@@ -47,8 +47,40 @@ foreach ($SingleLine in $AuthLogCopyContent) {
 }
 
 if ($Elevated_Sessions_Opened_Count -ge 1) {
+    
+    if ($TypeFlag -match "All" -or $TypeFlag -match "Raw") {
+    Write-Output ""
+    Write-Output "Elevated Sessions Opened For Users - Raw Table"
+
+    # variable to cretae the amount of spaces needed for the table
+    $MaxLength = ($ElevatedActivitys_HT["Session_Opened_For"] | Measure-Object Length -Maximum).Maximum
+
+    # variable to story the new amount of hyfens
+    $Border = '-' * $MaxLength
+
+    foreach ($Event in $ElevatedActivitys_HT["Session_Opened_For"]) {
+
+      # add space to the right of each event iteration
+      $Event = $Event.PadRight($MaxLength)
+
+      Write-Output "+$Border+"
+      Write-Output "|$Event|"
+
+    }
+    Write-Output "+$Border+"
+  }
+
+  if ($TypeFlag -match "All" -or $TypeFlag -match "Statistics") {
+    
+    if ($TypeFlag -match "All") {
+    Write-Output "|"
+    Write-Output "V"
+    Write-Output "Elevated Sessions Opened For Users - Statistics Table"
+    }
+    elseif ($TypeFlag -match "Statistics") {
     Write-Output ""
     Write-Output "Elevated Sessions Opened For Users - Statistics Table"
+    }
 
     $Session_HT = @{}
 
@@ -85,14 +117,17 @@ if ($Elevated_Sessions_Opened_Count -ge 1) {
         $Flag = "Disable"
         }
 
-        Write-Output $Final
+        Write-Output "$Final"
     }
 
     Write-Output "+$Border+"
 }
+}
 
 # print out the ElevatedCommands list
 if ($ElevatedCommands_Count -ge 1) {
+
+  if ($TypeFlag -match "All" -or $TypeFlag -match "Raw") {   
 
   # space
   Write-Output ""
@@ -114,6 +149,10 @@ if ($ElevatedCommands_Count -ge 1) {
 
   # closing border hyphen
   Write-Output "+$BorderHyphen+"
+
+  }
+
+  if ($TypeFlag -match "All" -or $TypeFlag -match "Statistics") { 
 
   # hashtable
   $ElevatedCommandsHT = @{}
@@ -148,6 +187,20 @@ if ($ElevatedCommands_Count -ge 1) {
     }
   }
 
+  if ($TypeFlag -match "All") {
+  # title for the Statistics table
+  Write-Output "|"
+  Write-Output "V"
+  Write-Output "Elevated Commands - Per User Statistics Table"
+  }
+  elseif ($TypeFlag -match "Statistics") {
+  Write-Output ""
+  Write-Output "Elevated Commands - Per User Statistics Table"
+  }
+
+  # flag for the space 
+  $NumberFlag = "False"
+
   # foreach loop to iterate all the keys insidde $ElevatedCommandsHT hashtable
   foreach ($Key in $ElevatedCommandsHT.Keys) {
 
@@ -161,10 +214,17 @@ if ($ElevatedCommands_Count -ge 1) {
     $BorderHyphenForUser = '-' * $MaxCharCountForUser
 
     # the printing of the $NameTag plus the table
+    if ($NumberFlag -match "True") {
     Write-Output ""
-    Write-Output "User Command History Of:"
+    }
+
+    # for the space in the output
+    $NumberFlag = "True"
+
     Write-Output "+$BorderHyphenForUser+"
     Write-Output "$Key"
+    Write-Output "+$BorderHyphenForUser+"
+    Write-Output "|"
 
     # Find the maximum character count in $ElevatedCommandsHT[$Key] which is the commands 
     $MaxCharCount = ($ElevatedCommandsHT[$Key] | Measure-Object Length -Maximum).Maximum
@@ -176,16 +236,18 @@ if ($ElevatedCommands_Count -ge 1) {
     $Commands = $ElevatedCommandsHT[$Key].PadRight($MaxCharCount)
 
     # the printing of the whole table with the commands
-    Write-Output "+$BorderHyphen+"
+    Write-Output "+--+$BorderHyphen+"
     
     foreach ($Command in $Commands) {
       
-      Write-Output "|$Command|"
+      Write-Output "   |$Command|"
     }
-    Write-Output "+$BorderHyphen+"
+    Write-Output "   +$BorderHyphen+"
   }
+}
 }
 
 # reset
 $Elevated_Sessions_Opened_Count = $null
 $ElevatedCommands_Count = $null
+$NumberTable = $null

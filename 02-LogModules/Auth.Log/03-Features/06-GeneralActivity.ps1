@@ -22,8 +22,8 @@ foreach ($SingleLine in $AuthLogCopyContent) {
 
 # print out the Power Button activity
 if ($PowerButton_Count -ge 1) {
-Write-Output ""
-Write-Output "Machine Shutdown By Power Button - Raw Events"
+#Write-Output ""
+#Write-Output "Machine Shutdown By Power Button - Raw Events"
 
 # variable to cretae the amount of spaces needed for the table
 $MaxLength = ($GeneralActivity_HT["PowerButton"] | Measure-Object Length -Maximum).Maximum
@@ -36,11 +36,11 @@ $Border = '-' * $MaxLength
         # add space to the right of each event iteration
         $Event = $Event.PadRight($MaxLength)
 
-        Write-Output "+$Border+"
-        Write-Output "|$Event|"
+        #Write-Output "+$Border+"
+        #Write-Output "|$Event|"
     
     }
-    Write-Output "+$Border+"
+    #Write-Output "+$Border+"
 }
 
 # reset

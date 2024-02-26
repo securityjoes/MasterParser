@@ -41,13 +41,11 @@ foreach ($SingleLine in $AuthLogCopyContent) {
   }
 }
 
-$ActivateTableFlag = "False"
-
 # if statment to check if there is at least 1 event
 if ($AuthenticationFailure_Count -ge 1) {
 
-  $ActivateTableFlag = "True"
-
+  if ($TypeFlag -match "All" -or $TypeFlag -match "Raw") {  
+    
   # title
   Write-Output ""
   Write-Output "FTP Authentication Failure - Raw Events"
@@ -68,12 +66,13 @@ if ($AuthenticationFailure_Count -ge 1) {
   }
   # end of the table line
   Write-Output "+$longBorderHyphen+"
-}
 
-$UsernameCounts1 = @{}
-$UsernameCounts2 = @{}
+  }
 
-if ($ActivateTableFlag -eq "True") {
+  if ($TypeFlag -match "All" -or $TypeFlag -match "Statistics") {  
+
+  $UsernameCounts1 = @{}
+  $UsernameCounts2 = @{}
 
   $FTP_HT["AuthenticationFailure"] | ForEach-Object {
     if ($_ -match $AuthenticationFailureFormats[0]) {
@@ -104,16 +103,23 @@ if ($ActivateTableFlag -eq "True") {
   $maxLineLength = ($Measure_HT + $Measure2_HT | Measure-Object -Property Length -Maximum).Maximum
   $Hyphens = '-' * ($maxLineLength - 2)
 
-
+  if ($TypeFlag -match "All") {
   # the end output
-  Write-Output "  |"
-  Write-Output "  V FTP Authentication Failure - Statistics Table"
-  Write-Output "  +$Hyphens+"
-  foreach ($OneEvent in ($Measure_HT + $Measure2_HT)) {
-    Write-Output "  $OneEvent"
+  Write-Output "|"
+  Write-Output "V"
+  Write-Output "FTP Authentication Failure - Statistics Table"
   }
-  Write-Output "  +$Hyphens+"
+  elseif ($TypeFlag -match "Statistics") {
+  Write-Output ""
+  Write-Output "FTP Authentication Failure - Statistics Table"
+  }
 
+  Write-Output "+$Hyphens+"
+  foreach ($OneEvent in ($Measure_HT + $Measure2_HT)) {
+    Write-Output "$OneEvent"
+  }
+  Write-Output "+$Hyphens+"
+}
 }
 
 # reset variables

@@ -47,10 +47,7 @@ foreach ($SingleLine in $AuthLogCopyContent) {
     ".*usermod\[[0-9]{0,15}\]\: change user.*",
 
     # using "chpasswd"
-    ".*chpasswd\[[0-9]{0,15}\]\:.*password changed for.*",
-
-    # using "chage"
-    ".*chage\[[0-9]{0,15}\]\: changed password expiry.*"
+    ".*chpasswd\[[0-9]{0,15}\]\:.*password changed for.*"
   )
 
   foreach ($ChangePasswordFormat in $ChangePasswordFormats) {
@@ -120,6 +117,9 @@ foreach ($SingleLine in $AuthLogCopyContent) {
 
 # print out the user creation activity
 if ($useradd_Count -ge 1) {
+
+  if ($TypeFlag -match "All" -or $TypeFlag -match "Raw") { 
+    
   Write-Output ""
   Write-Output "User Creation Activity - Raw Events"
 
@@ -145,10 +145,13 @@ if ($useradd_Count -ge 1) {
 
   # print last border
   Write-Output "+$Border+"
+  }
+
+  if ($TypeFlag -match "All" -or $TypeFlag -match "Statistics") { 
 
   # Initialize variables to store maximum lengths
   $MaxChar_TimeAndDate = 0
-  $MaxChar_UserCreation
+  $MaxChar_UserCreation = 0
 
   # foreach loop to iterate and past each event separate from the hashtable
   foreach ($Event in $UsersGroupActivity_HT["useradd"]) {
@@ -164,9 +167,16 @@ if ($useradd_Count -ge 1) {
     $MaxChar_UserCreation = [math]::Max($MaxChar_UserCreation,$UserCreation.Length)
   }
 
+  if ($TypeFlag -match "All") {
   # Strings for the top title of the Statistics Table
-  Write-Output "  |"
-  Write-Output "  V User Creation Activity - Statistics Table"
+  Write-Output "|"
+  Write-Output "V"
+  Write-Output "User Creation Activity - Statistics Table"
+  }
+  elseif ($TypeFlag -match "Statistics") {
+  Write-Output ""
+  Write-Output "User Creation Activity - Statistics Table"
+  }
 
   # flag to stop $Border iteration after first iteration
   $Flag = "Enable"
@@ -191,18 +201,22 @@ if ($useradd_Count -ge 1) {
 
     # print the result in a table
     if ($Flag -match "Enable") {
-    Write-Output "  +$Border+"
+    Write-Output "+$Border+"
     $Flag = "Disable"
     }
 
-    Write-Output "  $Result"
+    Write-Output "$Result"
   }
 
-  Write-Output "  +$Border+"
+  Write-Output "+$Border+"
+}
 }
 
 # print out the user deletion activity
 if ($userdel_Count -ge 1) {
+
+  if ($TypeFlag -match "All" -or $TypeFlag -match "Raw") { 
+    
   Write-Output ""
   Write-Output "User Deletion Activity - Raw Events"
 
@@ -229,6 +243,10 @@ if ($userdel_Count -ge 1) {
   # print last border
   Write-Output "+$Border+"
 
+  }
+
+  if ($TypeFlag -match "All" -or $TypeFlag -match "Statistics") { 
+
   # Initialize variables to store maximum lengths
   $MaxChar_TimeAndDate = 0
   $MaxChar_UserDeletion = 0
@@ -247,9 +265,16 @@ if ($userdel_Count -ge 1) {
     $MaxChar_UserDeletion = [math]::Max($MaxChar_UserDeletion,$UserDeletion.Length)
   }
 
+  if ($TypeFlag -match "All") {
   # Strings for the top title of the Statistics Table
-  Write-Output "  |"
-  Write-Output "  V User Deletion Activity - Statistics Table"
+  Write-Output "|"
+  Write-Output "V"
+  Write-Output "User Deletion Activity - Statistics Table"
+  }
+  elseif ($TypeFlag -match "Statistics") {
+  Write-Output ""
+  Write-Output "User Deletion Activity - Statistics Table"
+  }
 
   # flag to stop $Border iteration after first iteration
   $Flag = "Enable"
@@ -274,18 +299,22 @@ if ($userdel_Count -ge 1) {
 
     # print the result in a table
     if ($Flag -match "Enable") {
-    Write-Output "  +$Border+"
+    Write-Output "+$Border+"
     $Flag = "Disable"
     }
 
-    Write-Output "  $Result"
+    Write-Output "$Result"
   }
 
-  Write-Output "  +$Border+"
+  Write-Output "+$Border+"
+}
 }
 
 # print out the user Password Change Activity
 if ($ChangePassword_Count -ge 1) {
+
+  if ($TypeFlag -match "All" -or $TypeFlag -match "Raw") { 
+  
   Write-Output ""
   Write-Output "User Password Change Activity - Raw Events"
 
@@ -311,10 +340,107 @@ if ($ChangePassword_Count -ge 1) {
 
   # print last border
   Write-Output "+$Border+"
+
+  }
+
+  if ($TypeFlag -match "All" -or $TypeFlag -match "Statistics") { 
+
+  # Initialize variables to store maximum lengths
+  $MaxChar_TimeAndDate = 0
+  $MaxChar_Command = 0
+  $MaxChar_User = 0
+
+  # foreach loop to iterate and past each event separate from the hashtable
+  foreach ($Event in $UsersGroupActivity_HT["ChangePassword"]) {
+
+    # creating variable for the timestamp
+    $TimeAndDate = $Event -replace " $Hostname.*",""
+    # creating a variable for password change command
+    $RemoveStart = $Event -replace ".*$Hostname ",""
+    $Command = $RemoveStart -replace "\[.*\].*",""
+    
+    # choose the correct way to capture the username
+    if ($Command -match "passwd") {
+        $User = $Event -replace '.*password changed for ',''
+    }
+    elseif ($Command-match "usermod") {
+        $RemoveStart = $Event -replace ".*change user \'",""
+        $User = $RemoveStart -replace "\' password.*",""
+    }
+    elseif($Command-match "chpasswd"){
+        $User = $Event -replace '.*password changed for ',''
+    }
+
+    # Update max lengths if necessary
+    $MaxChar_TimeAndDate = [math]::Max($MaxChar_TimeAndDate,$TimeAndDate.Length)
+    $MaxChar_Command = [math]::Max($MaxChar_Command,$Command.Length)
+    $MaxChar_User = [math]::Max($MaxChar_User,$User.Length)
+  }
+
+  # Strings for the top title of the Statistics Table
+  if ($TypeFlag -match "All") {
+  Write-Output "|"
+  Write-Output "V"
+  Write-Output "User Password Change Activity - Statistics Table"
+  }
+
+  elseif ($TypeFlag -match "Statistics"){
+  Write-Output ""
+  Write-Output "User Password Change Activity - Statistics Table"
+  }
+
+  # flag to stop $Border iteration after first iteration
+  $Flag = "Enable"
+
+  # foreach loop to iterate and past each event separate from the hashtable
+  foreach ($Event in $UsersGroupActivity_HT["ChangePassword"]) {
+
+    # creating variable for the timestamp
+    $TimeAndDate = $Event -replace " $Hostname.*",""
+    # creating a variable for password change command
+    $RemoveStart = $Event -replace ".*$Hostname ",""
+    $Command = $RemoveStart -replace "\[.*\].*",""
+    
+    # choose the correct way to capture the username
+    if ($Command -match "passwd") {
+        $User = $Event -replace '.*password changed for ',''
+    }
+    elseif ($Command-match "usermod") {
+        $RemoveStart = $Event -replace ".*change user \'",""
+        $User = $RemoveStart -replace "\' password.*",""
+    }
+    elseif($Command-match "chpasswd"){
+        $User = $Event -replace '.*password changed for ',''
+    }
+
+    $TimeAndDate = $TimeAndDate.PadRight($MaxChar_TimeAndDate)
+    $Command = $Command.PadRight($MaxChar_Command)
+    $User = $User.PadRight($MaxChar_User)
+
+    # Output the result for the current event
+    $Result = Write-Output "| Time: $TimeAndDate | Event: Password Reset | Using The Command: $Command | User: $User |"
+
+    # multiply $Result.Length with "-" hyfen symbol to get the boarder
+    $Border = '-' * ($Result.Length - 2)
+
+    # print the result in a table
+    if ($Flag -match "Enable") {
+    Write-Output "+$Border+"
+    $Flag = "Disable"
+    }
+
+    Write-Output "$Result"
+  }
+
+  Write-Output "+$Border+"
+}
 }
 
 # print out the group creation
 if ($groupadd_Count -ge 1) {
+  
+  if ($TypeFlag -match "All" -or $TypeFlag -match "Raw") {   
+    
   Write-Output ""
   Write-Output "Group Creation Activity - Raw Events"
 
@@ -341,6 +467,10 @@ if ($groupadd_Count -ge 1) {
   # print last border
   Write-Output "+$Border+"
 
+  }
+
+  if ($TypeFlag -match "All" -or $TypeFlag -match "Statistics") { 
+
   # Initialize variables to store maximum lengths
   $MaxChar_TimeAndDate = 0
   $MaxChar_CreatedGroup = 0
@@ -359,9 +489,17 @@ if ($groupadd_Count -ge 1) {
     $MaxChar_CreatedGroup = [math]::Max($MaxChar_CreatedGroup,$CreatedGroup.Length)
   }
 
+  if ($TypeFlag -match "All") {
   # Strings for the top title of the Statistics Table
-  Write-Output "  |"
-  Write-Output "  V Group Creation Activity - Statistics Table"
+  Write-Output "|"
+  Write-Output "V"
+  Write-Output "Group Creation Activity - Statistics Table"
+  }
+
+  elseif ($TypeFlag -match "Statistics"){
+  Write-Output ""
+  Write-Output "Group Creation Activity - Statistics Table"
+  }
 
   # flag to stop $Border iteration after first iteration
   $Flag = "Enable"
@@ -386,18 +524,22 @@ if ($groupadd_Count -ge 1) {
 
     # print the result in a table
     if ($Flag -match "Enable") {
-    Write-Output "  +$Border+"
+    Write-Output "+$Border+"
     $Flag = "Disable"
     }
 
-    Write-Output "  $Result"
+    Write-Output "$Result"
   }
 
-  Write-Output "  +$Border+"
+  Write-Output "+$Border+"
+}
 }
 
 # print out the group deletion
 if ($groudel_Count -ge 1) {
+
+  if ($TypeFlag -match "All" -or $TypeFlag -match "Raw") {  
+
   Write-Output ""
   Write-Output "Group Deletion Activity - Raw Events"
 
@@ -423,6 +565,9 @@ if ($groudel_Count -ge 1) {
 
   # print last border
   Write-Output "+$Border+"
+  }
+
+  if ($TypeFlag -match "All" -or $TypeFlag -match "Statistics") {
 
   # Initialize variables to store maximum lengths
   $MaxChar_TimeAndDate = 0
@@ -442,9 +587,17 @@ if ($groudel_Count -ge 1) {
     $MaxChar_DeletedGroup = [math]::Max($MaxChar_DeletedGroup,$DeletedGroup.Length)
   }
 
+
+  if ($TypeFlag -match "All") {
   # Strings for the top title of the Statistics Table
-  Write-Output "  |"
-  Write-Output "  V Group Deletion Activity - Statistics Table"
+  Write-Output "|"
+  Write-Output "V"
+  Write-Output "Group Deletion Activity - Statistics Table"
+  }
+  elseif ($TypeFlag -match "Statistics") {
+  Write-Output ""
+  Write-Output "Group Deletion Activity - Statistics Table"
+  }
 
   # flag to stop $Border iteration after first iteration
   $Flag = "Enable"
@@ -469,18 +622,22 @@ if ($groudel_Count -ge 1) {
 
     # print the result in a table
     if ($Flag -match "Enable") {
-    Write-Output "  +$Border+"
+    Write-Output "+$Border+"
     $Flag = "Disable"
     }
 
-    Write-Output "  $Result"
+    Write-Output "$Result"
   }
 
-  Write-Output "  +$Border+"
+  Write-Output "+$Border+"
+}
 }
 
 # print out the add user to group activity
 if ($AddUserToGroup_Count -ge 1) {
+
+  if ($TypeFlag -match "All" -or $TypeFlag -match "Raw") {  
+
   Write-Output ""
   Write-Output "User Added To A Group Activity - Raw Events"
 
@@ -507,6 +664,10 @@ if ($AddUserToGroup_Count -ge 1) {
   # print last border
   Write-Output "+$Border+"
 
+  }
+
+  if ($TypeFlag -match "All" -or $TypeFlag -match "Statistics") {
+
   # Initialize variables to store maximum lengths
   $MaxChar_TimeAndDate = 0
   $MaxChar_AddedUser = 0
@@ -531,8 +692,16 @@ if ($AddUserToGroup_Count -ge 1) {
   }
 
   # Strings for the top title of the Statistics Table
-  Write-Output "  |"
-  Write-Output "  V User Added To A Group Activity - Statistics Table"
+  if ($TypeFlag -match "All") {
+  Write-Output "|"
+  Write-Output "V"
+  Write-Output "User Added To A Group Activity - Statistics Table"
+  }
+
+  elseif ($TypeFlag -match "Statistics"){
+  Write-Output ""
+  Write-Output "User Added To A Group Activity - Statistics Table"
+  }
 
   # flag to stop $Border iteration after first iteration
   $Flag = "Enable"
@@ -561,18 +730,22 @@ if ($AddUserToGroup_Count -ge 1) {
 
     # print the result in a table
     if ($Flag -match "Enable") {
-    Write-Output "  +$Border+"
+    Write-Output "+$Border+"
     $Flag = "Disable"
     }
 
-    Write-Output "  $Result"
+    Write-Output "$Result"
   }
 
-  Write-Output "  +$Border+"
+  Write-Output "+$Border+"
+}
 }
 
 # print out the remove user from group activity
 if ($RemoveUserFromGroup_Count -ge 1) {
+  
+  if ($TypeFlag -match "All" -or $TypeFlag -match "Raw") {
+    
   Write-Output ""
   Write-Output "User Removed From A Group Activity - Raw Events"
 
@@ -598,6 +771,10 @@ if ($RemoveUserFromGroup_Count -ge 1) {
 
   # print last border
   Write-Output "+$Border+"
+
+  }
+
+  if ($TypeFlag -match "All" -or $TypeFlag -match "Statistics") {
 
   # Initialize variables to store maximum lengths
   $MaxChar_TimeAndDate = 0
@@ -626,9 +803,16 @@ if ($RemoveUserFromGroup_Count -ge 1) {
     $MaxChar_FromGroup = [math]::Max($MaxChar_FromGroup,$FromGroup.Length)
   }
 
-  # Strings for the top title of the Statistics Table
-  Write-Output "  |"
-  Write-Output "  V User Removed From A Group Activity - Statistics Table"
+  if ($TypeFlag -match "All") {
+  Write-Output "|"
+  Write-Output "V"
+  Write-Output "User Removed From A Group Activity - Statistics Table"
+  }
+
+  elseif ($TypeFlag -match "Statistics") {
+  Write-Output ""
+  Write-Output "User Removed From A Group Activity - Statistics Table"
+  }
 
   # flag to stop $Border iteration after first iteration
   $Flag = "Enable"
@@ -660,19 +844,22 @@ if ($RemoveUserFromGroup_Count -ge 1) {
 
     # print the result in a table
     if ($Flag -match "Enable") {
-    Write-Output "  +$Border+"
+    Write-Output "+$Border+"
     $Flag = "Disable"
     }
 
-    Write-Output "  $Result"
+    Write-Output "$Result"
   }
 
-  Write-Output "  +$Border+"
+  Write-Output "+$Border+"
+}
 }
 
 # print out the user information change
 if ($UserInformationChange_Count -ge 1) {
-    
+
+  if ($TypeFlag -match "All" -or $TypeFlag -match "Raw") {
+
   Write-Output ""
   Write-Output "User Information Change - Raw Events"
 
@@ -698,6 +885,10 @@ if ($UserInformationChange_Count -ge 1) {
 
   # print last border
   Write-Output "+$Border+"
+  
+  }
+
+   if ($TypeFlag -match "All" -or $TypeFlag -match "Statistics") {
 
   # hashtable
   $UserInformationChange = @{}
@@ -723,8 +914,17 @@ if ($UserInformationChange_Count -ge 1) {
       $UserInformationChange[$UserName] = 1
     }
   }
-  Write-Output "  |"
-  Write-Output "  V User Information Change - Statistics Table"
+
+  if ($TypeFlag -match "All") {
+  Write-Output "|"
+  Write-Output "V"
+  Write-Output "User Information Change - Statistics Table"
+  }
+  
+  elseif ($TypeFlag -match "Statistics") {
+  Write-Output ""
+  Write-Output "User Information Change - Statistics Table"
+  }
 
   # Find max lengths for the keys and the values of the hashtable
   $MaxCharKey = ($UserInformationChange.Keys | Measure-Object Length -Maximum).Maximum
@@ -748,15 +948,16 @@ if ($UserInformationChange_Count -ge 1) {
 
     # Print the boarder once
     if ($Flag -match "Enable") {
-    Write-Output "  +$Border+"
+    Write-Output "+$Border+"
     $Flag = "Disable"
     }
 
-    Write-Output "  $Final"
+    Write-Output "$Final"
 
   }
   # last board print outside of the foreach loop
-  Write-Output "  +$Border+"
+  Write-Output "+$Border+"
+  }
 }
 
 # reset variables

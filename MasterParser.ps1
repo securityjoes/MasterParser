@@ -1,12 +1,44 @@
 ﻿param(
-  # Options
-  [Parameter(Mandatory = $false)]
-  [ValidateSet('Start','Menu','Update','Purge')]
-  [string]$O
+    # Options
+    [Parameter(Mandatory = $true)]
+    [ValidateSet('Start','Menu','Update','Purge')]
+    [string]$Option,
+
+    # Type
+    [Parameter(Mandatory = $false)]
+    [ValidateSet('All','Raw','Statistics')]
+    [string]$Type
 )
 
+if ($Option -eq 'Start' -and -not $Type) {
+    Write-Output ""
+    Write-Output "[!] You cannot run MasterParser without choosing a -Type option."
+    Write-Output ""
+    Write-Output "[!] This is your -Type value options: ( All / Raw / Statistics )"
+    Write-Output ""
+    Write-Output "[!] If you don't know what to choose, view the the MasterParser Menu."
+    Write-Output ""
+    Write-Output "[!] View the Menu like this: .\MasterParser.ps1 -Option Menu"
+    Write-Output ""
+    $Type = Read-Host "What -Type do you choose to run"
+
+    if ($Type -match "All" -or $Type -match "Raw" -or $Type -match "Statistics") {
+    
+    }
+    
+    else {
+    Write-Output "[!] You clearly don't know what you doing."
+    Write-Output ""
+    Write-Output "[!] Please view the Menu before executing MasterParser again."
+    Write-Output ""
+    Write-Output "[!] You can view the Menu like this: .\MasterParser.ps1 -Option Menu"
+    Write-Output ""
+    exit
+    }
+}
+
 # current script version
-$CurrentVersion = "v2.3.3"
+$CurrentVersion = "v2.4"
 
 # tool running path.
 $RunningPath = Get-Location
@@ -17,7 +49,23 @@ $RunningPath = Get-Location
 # space
 Write-Output ""
 
-switch ($O) {
+switch ($Type) {
+  
+  'All' {
+    $TypeFlag = "All"
+  }
+
+  'Raw' {
+    $TypeFlag = "Raw"
+  }
+
+  'Statistics' {
+    $TypeFlag = "Statistics"
+  }
+  
+  }
+
+switch ($Option) {
   'Start' {
 
     # HashTable to store all the $Log names that was analysed by the ParserMaster
