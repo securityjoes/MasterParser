@@ -74,6 +74,9 @@ switch ($Option) {
     # HashTable to store all the $Log names that are not supported by ParserMaster
     $UnsupportedLog = @{}
 
+    #List to contain all the $Log files that found a machtch
+    $VerifiedLogList = @()
+
     # Log Types HashTable.
     $LogTypeList = @{
       'Auth.Log' = 'Empty'
@@ -96,12 +99,15 @@ switch ($Option) {
 
       # foreach statment to iterate on each key under $LogTypeList hashtable.
       foreach ($Key in $LogTypeList.Keys) {
-
+        
         # clean this flag each iteration
         $WasExtracted = $null
 
         # statment to execute if a log file under 01-Logs was found uner $LogTypeList hashtable.
         if ($Log -match $Key) {
+    
+        # list for match found logs
+        $VerifiedLogList += $Log
 
           # execute this on .gz files.
           if ($Log -like "*.gz") {
@@ -137,12 +143,16 @@ switch ($Option) {
 
             # execute MasterParser on the GZip output file.
             $Log = $Log -replace '\.gz',''
+            
+            # list for match found logs
+            $VerifiedLogList += $Log
 
             . "$RunningPath\02-LogModules\$Key\$Key.ps1"
             $LogMatchFlag = "True"
+            
+            $Results = $Log+$RunningTime
+            $AnalysedLog[$Results] = $Result = "| Log Name: $Log | Archived From: $GZipName | Running Time: $RunningTime |"
 
-            # add log names to this hashtable list
-            $AnalysedLog[$Log] = "- $Log [Seconds: $($AuthLogTimeInSeconds)] (Extracted From: $GZipName)"
           }
 
           # execute this on non .gz files.
@@ -151,13 +161,15 @@ switch ($Option) {
             $LogMatchFlag = "True"
 
             # add log names to this hashtable list
-            $AnalysedLog[$Log] = "- $Log [Seconds: $($AuthLogTimeInSeconds)]"
+            $Results = $Log+$RunningTime
+            $AnalysedLog[$Results] = $Result = "| Log Name: $Log | Archived From: Not Archived | Running Time: $RunningTime |"
+            #$Results = $null
           }
         }
 
         # execute if the the $Log name is not found under $LogTypeList hashtable list
         else {
-          $UnsupportedLog[$Log] = "- $Log"
+            $UnsupportedLog[$Log] = "- $Log"
         }
 
       }
@@ -176,9 +188,72 @@ switch ($Option) {
     else {
       # print the hashtable of logs that been analyzed by MasterParser
       Write-Output "List of Successfully Analyzed Logs"
-      Write-Output "+--------------------------------+"
-      $AnalysedLog.Values
+
+      # Initialize variables to store maximum lengths
+      $MaxChar_LogNameCut = 0
+      $MaxChar_ArchiveCut = 0
+      $MaxChar_RunningTimeCut = 0
+
+      foreach ($Key in $AnalysedLog.Keys) {
+      
+      # Get the fiel name
+      $RemoveStart = $AnalysedLog[$Key] -replace '.*Log Name\: ',''
+      $LogNameCut = $RemoveStart -replace ' \| Archived From\:.*',''
+
+      # Get the archive status
+      $RemoveStart = $AnalysedLog[$Key] -replace '.*Archived From\: ',''
+      $ArchiveCut = $RemoveStart -replace ' \| Running Time\:.*',''
+    
+      # Get the running time
+      $RemoveStart = $AnalysedLog[$Key] -replace '.*Running Time\: ',''
+      $RunningTimeCut = $RemoveStart -replace ' \|.*',''
+
+      # Update max lengths if necessary
+      $MaxChar_LogNameCut = [math]::Max($MaxChar_LogNameCut,$LogNameCut.Length)
+      $MaxChar_ArchiveCut = [math]::Max($MaxChar_ArchiveCut,$ArchiveCut.Length)
+      $MaxChar_RunningTimeCut = [math]::Max($MaxChar_RunningTimeCut,$RunningTimeCut.Length)
+      }
+
+      # flag to stop $Border iteration after first iteration
+      $TheFlag = "Enable"
+
+      foreach ($Key in $AnalysedLog.Keys) {
+      
+      # Get the fiel name
+      $RemoveStart = $AnalysedLog[$Key] -replace '.*Log Name\: ',''
+      $LogNameCut = $RemoveStart -replace ' \| Archived From\:.*',''
+
+      # Get the archive status
+      $RemoveStart = $AnalysedLog[$Key] -replace '.*Archived From\: ',''
+      $ArchiveCut = $RemoveStart -replace ' \| Running Time\:.*',''
+    
+      # Get the running time
+      $RemoveStart = $AnalysedLog[$Key] -replace '.*Running Time\: ',''
+      $RunningTimeCut = $RemoveStart -replace ' \|.*',''
+
+      $LogNameCut = $LogNameCut.PadRight($MaxChar_LogNameCut)
+      $ArchiveCut = $ArchiveCut.PadRight($MaxChar_ArchiveCut)
+      $RunningTimeCut = $RunningTimeCut.PadRight($MaxChar_RunningTimeCut)
+
+      $TheResult = "| Log Name: $LogNameCut | Extracted From: $ArchiveCut | Running Time: $RunningTimeCut |"
+      
+      # multiply $Result.Length with "-" hyfen symbol to get the boarder
+      $Border = '-' * ($TheResult.Length - 2)
+
+      # print the result in a table
+      if ($TheFlag -match "Enable") {
+        Write-Output "+$Border+"
+        $TheFlag = "Disable"
+        }
+      $TheResult
+      }
+      Write-Output "+$Border+"
       Write-Output ""
+    }
+    
+    # iteration to remove all the logs that found at least 1 time from the $UnsupportedLog hashtable
+    foreach ($VLog in $VerifiedLogList) {
+        $UnsupportedLog.Remove($VLog)            
     }
 
     # statment to execute if a log file under 01-Logs NOT found uner $LogTypeList hashtable.
@@ -218,4 +293,3 @@ switch ($Option) {
     exit
   }
 }
-

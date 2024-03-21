@@ -1,70 +1,86 @@
-﻿# variable is 0
-$LineCount = 0
+﻿# starting variables
+#region
 
-# flag number 1
-$Flag1 = "True"
+$auth_log_path =  "$RunningPath\02-LogModules\Auth.Log\01-LogCopy\Auth.Log.Parser.Copy.txt"
 
-# variable to get auth.log copy content.
-$AuthLogCopyContent = Get-Content "$RunningPath\02-LogModules\Auth.Log\01-LogCopy\Auth.Log.Parser.Copy.txt"
+#endregion
 
-# foreach loop to iterate through lines of the auth.log file.
-foreach ($SingleLine in $AuthLogCopyContent) {
-  
-  # foreach time a line pass, $LineCount gets 1+
-  $LineCount++  
-  
-  # Split each line into words
-  $Words = $SingleLine -split ' '
+# hostname
+#region
 
-  # if statment with a $Flag1, if true execute this.
-  if ($Flag1 -eq "True") {
-    $Flag1 = "false"
+$temp_line = Get-Content -Head 1 -Path $auth_log_path
+$remove_start = $temp_line -replace '\b[a-zA-Z]{3}\s+\d{1,2}\s+\d{2}:\d{2}:\d{2}\b ',''
+$hostname = $remove_start -replace ' .*',''
 
-    # variable to save the start time of the auth.log
-    $Start_Time = $words[1] + "-" + $words[0] + "-" + $words[2]
+#endregion
 
-    # get the hostname from the auth.log file
-    $Hostname = $words[3]
-  }
+# file size
+#region
 
-  # variable to save the end time of the auth.log
-  $End_Time = $words[1] + "-" + $words[0] + "-" + $words[2]
+# Get the file size
+$fileSize = (Get-Item $auth_log_path).Length
 
+if ($fileSize -lt 1KB) {
+    $log_size = "$fileSize bytes"
 }
-
-# get file size in bytes
-$fileSizeInBytes = (Get-Item $AuthLogPath).length
-
-# convert bytes to megabytes and format the output
-$FileSizeInMB = "{0:N3}" -f ($fileSizeInBytes / 1MB)
-
-# if statment to check if the date days has 1 or 2 numbers
-# if there is 1 number
-if ($Start_Time[1] -eq "-") {
-  $StartTimeConverted = [datetime]::ParseExact($Start_Time,'d-MMM-HH:mm:ss',$null)
+elseif ($fileSize -lt 1MB) {
+    $fileSizeKB = [math]::Round($fileSize / 1KB, 2)
+    $log_size = "$fileSizeKB KB"
 }
-
-# if there is 2 number
+elseif ($fileSize -lt 1GB) {
+    $fileSizeMB = [math]::Round($fileSize / 1MB, 2)
+    $log_size = "$fileSizeMB MB"
+}
 else {
-  $StartTimeConverted = [datetime]::ParseExact($Start_Time,'dd-MMM-HH:mm:ss',$null)
+    $fileSizeGB = [math]::Round($fileSize / 1GB, 2)
+    $log_size = "$fileSizeGB GB"
 }
 
-# if statment to check if the date days has 1 or 2 numbers
-# if there is 1 number
-if ($End_Time[1] -eq "-") {
-  $EndTimeConverted = [datetime]::ParseExact($End_Time,'d-MMM-HH:mm:ss',$null)
+#endregion
+
+# start time
+#region
+
+$temp_line = Get-Content -Head 1 -Path $auth_log_path
+$start_time = $temp_line -replace " $hostname.*",""
+
+#endregion
+
+# end time
+#region
+
+$temp_line = Get-Content -Tail 1 -Path $auth_log_path
+$end_time = $temp_line -replace " $hostname.*",""
+
+#endregion
+
+# duration
+#region
+
+if ($start_time[1] -eq "-") {
+  $StartTimeConverted = [datetime]::ParseExact($start_time,'MMM d HH:mm:ss',$null)
 }
 
-# if there is 2 number
 else {
-  $EndTimeConverted = [datetime]::ParseExact($End_Time,'dd-MMM-HH:mm:ss',$null)
+  $StartTimeConverted = [datetime]::ParseExact($start_time,'MMM dd HH:mm:ss',$null)
 }
 
-# calculate the duration
+if ($end_time[1] -eq "-") {
+  $EndTimeConverted = [datetime]::ParseExact($end_time,'MMM d HH:mm:ss',$null)
+}
+
+else {
+  $EndTimeConverted = [datetime]::ParseExact($end_time,'MMM dd HH:mm:ss',$null)
+}
+
 $Duration = $EndTimeConverted - $StartTimeConverted
-$FullDuration = Write-Output "$($Duration.Days) Days $($Duration.Hours) Hours $($Duration.Minutes) Minutes $($Duration.Seconds) Seconds"
+$full_duration = Write-Output "$($Duration.Days) Days $($Duration.Hours) Hours $($Duration.Minutes) Minutes $($Duration.Seconds) Seconds"
 
-# the start of the report print out
+#endregion
+
+# file summary report tamplate
+#region
+
 Write-Output "Auth.Log File Summary Report"
 Write-Output "+--------------------------+"
 if ($WasExtracted -eq "True") {
@@ -73,9 +89,10 @@ Write-Output "Log Name:   $Log (Extracted From: $GZipName)"
 else {
 Write-Output "Log Name:   $Log"
 }
-Write-Output "Hostname:   $Hostname"
-Write-Output "Log Size:   $FileSizeInMB MB"
-Write-Output "Line Count: $LineCount"
-Write-Output "Start Time: $Start_Time"
-Write-Output "End Time:   $End_Time"
-Write-Output "Duration:   $FullDuration"
+Write-Output "Hostname:   $hostname"
+Write-Output "Log Size:   $log_size"
+Write-Output "Start Time: $start_time"
+Write-Output "End Time:   $end_time"
+Write-Output "Duration:   $full_duration"
+
+#endregion

@@ -1,5 +1,5 @@
-﻿# Start Time
-$AuthLogStartTime = Get-Date
+﻿# Start time
+$RunningStartTime = Get-Date
 
 # NotFoundHashTable
 $NotFoundHashTable = @{}
@@ -44,17 +44,23 @@ Write-Output ""
 Write-Output ""
 
 # delete the auth.log copty after using it.
-Start-Sleep -Seconds 1
 Remove-Item -Path $AuthLogCopyLocation
 
 # if the log file was extracted from a GZip file, remove it.
 if ($WasExtracted -eq "true") {
-Remove-Item -Path "$RunningPath\01-Logs\$Log"
+    Remove-Item -Path "$RunningPath\01-Logs\$Log"
 }
 
 # End Time
-$AuthLogEndTime = Get-Date
+$RunningEndTime = Get-Date
+$RunningTime = ($RunningEndTime - $RunningStartTime).TotalSeconds
 
-$AuthLogTime = $AuthLogEndTime - $AuthLogStartTime
-
-$AuthLogTimeInSeconds = $AuthLogTime.TotalSeconds.ToString("F3")
+# Calc if running was in seconds or minutes
+if ($RunningTime -le 60) {
+    $RunningTime = "{0:F1}" -f ($RunningEndTime - $RunningStartTime).TotalSeconds
+    $RunningTime = Write-Output "$RunningTime Seconds"
+}
+else {
+    $RunningTime = "{0:F0}" -f ($RunningEndTime - $RunningStartTime).TotalMinutes
+    $RunningTime = Write-Output "$RunningTime Minutes"
+}
