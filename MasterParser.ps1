@@ -38,7 +38,7 @@ if ($Option -eq 'Start' -and -not $Type) {
 }
 
 # current script version
-$CurrentVersion = "v2.4"
+$CurrentVersion = "v2.4.1"
 
 # tool running path.
 $RunningPath = Get-Location
