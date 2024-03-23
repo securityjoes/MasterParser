@@ -178,8 +178,8 @@ Dec 10 14:11:49 eilay-desktop vsftpd: pam_listfile(vsftpd:auth): Refused user ro
 Dec 10 14:11:49 eilay-desktop vsftpd: pam_listfile(vsftpd:auth): Refused user root for service vsftpd
 Dec 10 14:11:49 eilay-desktop vsftpd: pam_listfile(vsftpd:auth): Refused user root for service vsftpd
 Dec 10 14:11:49 eilay-desktop vsftpd: pam_listfile(vsftpd:auth): Refused user root for service vsftpd
-Dec 10 14:11:49 eilay-desktop Feb 18 22:55:16 UBUSRV01 vsftpd: pam_unix(vsftpd:auth): check pass; user unknown
-Dec 10 14:11:49 eilay-desktop Feb 18 22:55:16 UBUSRV01 vsftpd: pam_unix(vsftpd:auth): check pass; user unknown
-Dec 10 14:11:49 eilay-desktop Feb 18 22:55:16 UBUSRV01 vsftpd: pam_unix(vsftpd:auth): check pass; user unknown
-Dec 10 14:11:49 eilay-desktop Feb 18 22:55:16 UBUSRV01 vsftpd: pam_unix(vsftpd:auth): check pass; user unknown
-Dec 10 14:11:49 eilay-desktop Feb 18 22:55:16 UBUSRV01 vsftpd: pam_unix(vsftpd:auth): check pass; user unknown
+Dec 10 14:11:49 eilay-desktop vsftpd: pam_unix(vsftpd:auth): check pass; user unknown
+Dec 10 14:11:49 eilay-desktop vsftpd: pam_unix(vsftpd:auth): check pass; user unknown
+Dec 10 14:11:49 eilay-desktop vsftpd: pam_unix(vsftpd:auth): check pass; user unknown
+Dec 10 14:11:49 eilay-desktop vsftpd: pam_unix(vsftpd:auth): check pass; user unknown
+Dec 10 14:11:49 eilay-desktop vsftpd: pam_unix(vsftpd:auth): check pass; user unknown
