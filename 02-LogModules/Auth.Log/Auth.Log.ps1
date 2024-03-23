@@ -23,7 +23,7 @@ if ($CreateLogCopy_Flag -eq "True") {
 . "$RunningPath\02-LogModules\Auth.Log\03-Features\03-IPAddressTable.ps1"
 
 # Dot Sourcing -> 04-SSHTable.ps1
-. "$RunningPath\02-LogModules\Auth.Log\03-Features\04-SSHTable.ps1"
+. "$RunningPath\02-LogModules\Auth.Log\03-Features\04-SSH.ps1"
 
 # Dot Sourcing -> 05-UsersGroupsActivity.ps1
 . "$RunningPath\02-LogModules\Auth.Log\03-Features\05-UsersGroupsActivity.ps1"
@@ -55,12 +55,22 @@ if ($WasExtracted -eq "true") {
 $RunningEndTime = Get-Date
 $RunningTime = ($RunningEndTime - $RunningStartTime).TotalSeconds
 
-# Calc if running was in seconds or minutes
+# Calc if running was in seconds, minutes, or hours
 if ($RunningTime -le 60) {
-    $RunningTime = "{0:F1}" -f ($RunningEndTime - $RunningStartTime).TotalSeconds
+    $RunningTime = "{0:00}:{1:00}" -f 0, $RunningTime
     $RunningTime = Write-Output "$RunningTime Seconds"
 }
-else {
-    $RunningTime = "{0:F0}" -f ($RunningEndTime - $RunningStartTime).TotalMinutes
+elseif ($RunningTime -le 3600) {
+    $Minutes = [math]::Floor($RunningTime / 60)
+    $Seconds = $RunningTime % 60
+    $RunningTime = "{0:00}:{1:00}" -f $Minutes, $Seconds
     $RunningTime = Write-Output "$RunningTime Minutes"
 }
+else {
+    $Hours = [math]::Floor($RunningTime / 3600)
+    $Minutes = [math]::Floor(($RunningTime % 3600) / 60)
+    $Seconds = $RunningTime % 60
+    $RunningTime = "{0:00}:{1:00}:{2:00}" -f $Hours, $Minutes, $Seconds
+    $RunningTime = Write-Output "$RunningTime Hours"
+}
+

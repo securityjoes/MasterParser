@@ -1,4 +1,4 @@
-# Hashtable to store the cleaned IP addresses
+﻿# Hashtable to store the cleaned IP addresses
 $IPHashTable = @{}
 
 # Regular expression pattern to match both IPv4 and IPv6 addresses

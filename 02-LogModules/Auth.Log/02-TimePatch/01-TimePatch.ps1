@@ -7,6 +7,11 @@ $AuthLogPath = "$RunningPath\01-Logs\$Log"
 # auth.log copy location
 $AuthLogCopyLocation = "$ScriptLocationPath\02-LogModules\Auth.Log\01-LogCopy\Auth.Log.Parser.Copy.txt"
 
+# if $AuthLogCopyLocation is already exist, delete it
+if (Test-Path -Path $AuthLogCopyLocation) {
+    Remove-Item -Path $AuthLogCopyLocation -Force -ErrorAction SilentlyContinue | Out-Null
+}
+
 # create a copy of the Auth.Log file
 Copy-Item -Path $AuthLogPath -Destination $AuthLogCopyLocation
 

@@ -235,7 +235,7 @@ switch ($Option) {
       $ArchiveCut = $ArchiveCut.PadRight($MaxChar_ArchiveCut)
       $RunningTimeCut = $RunningTimeCut.PadRight($MaxChar_RunningTimeCut)
 
-      $TheResult = "| Log Name: $LogNameCut | Extracted From: $ArchiveCut | Running Time: $RunningTimeCut |"
+      $TheResult = "| Log Name: $LogNameCut | Extracted From: $ArchiveCut | Processing Time: $RunningTimeCut |"
       
       # multiply $Result.Length with "-" hyfen symbol to get the boarder
       $Border = '-' * ($TheResult.Length - 2)

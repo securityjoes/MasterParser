@@ -11,7 +11,6 @@ $auth_log_path =  "$RunningPath\02-LogModules\Auth.Log\01-LogCopy\Auth.Log.Parse
 $temp_line = Get-Content -Head 1 -Path $auth_log_path
 $remove_start = $temp_line -replace '\b[a-zA-Z]{3}\s+\d{1,2}\s+\d{2}:\d{2}:\d{2}\b ',''
 $hostname = $remove_start -replace ' .*',''
-
 #endregion
 
 # file size
@@ -43,6 +42,8 @@ else {
 
 $temp_line = Get-Content -Head 1 -Path $auth_log_path
 $start_time = $temp_line -replace " $hostname.*",""
+$start_time = $start_time -replace '  ',' '
+$start_time_split = $start_time -split " "
 
 #endregion
 
@@ -51,26 +52,25 @@ $start_time = $temp_line -replace " $hostname.*",""
 
 $temp_line = Get-Content -Tail 1 -Path $auth_log_path
 $end_time = $temp_line -replace " $hostname.*",""
+$end_time = $end_time -replace '  ',' '
+$end_time_split = $end_time -split " "
 
 #endregion
 
 # duration
 #region
-
-if ($start_time[1] -eq "-") {
-  $StartTimeConverted = [datetime]::ParseExact($start_time,'MMM d HH:mm:ss',$null)
+if ($start_time_split[1].Length -eq 1) {
+    $StartTimeConverted = [datetime]::ParseExact($start_time,'MMM d HH:mm:ss',$null)
+}
+elseif ($start_time_split[1].Length -eq 2) {
+    $StartTimeConverted = [datetime]::ParseExact($start_time,'MMM dd HH:mm:ss',$null)
 }
 
-else {
-  $StartTimeConverted = [datetime]::ParseExact($start_time,'MMM dd HH:mm:ss',$null)
+if ($end_time_split[1].Length -eq 1) {
+    $EndTimeConverted = [datetime]::ParseExact($end_time,'MMM d HH:mm:ss',$null)
 }
-
-if ($end_time[1] -eq "-") {
-  $EndTimeConverted = [datetime]::ParseExact($end_time,'MMM d HH:mm:ss',$null)
-}
-
-else {
-  $EndTimeConverted = [datetime]::ParseExact($end_time,'MMM dd HH:mm:ss',$null)
+elseif ($end_time_split[1].Length -eq 2) {
+    $EndTimeConverted = [datetime]::ParseExact($end_time,'MMM dd HH:mm:ss',$null)
 }
 
 $Duration = $EndTimeConverted - $StartTimeConverted
