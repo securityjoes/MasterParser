@@ -11,7 +11,7 @@
 )
 
 # current script version
-$CurrentVersion = "v2.4.1"
+$CurrentVersion = "v2.5"
 
 # tool running path.
 $RunningPath = Get-Location
