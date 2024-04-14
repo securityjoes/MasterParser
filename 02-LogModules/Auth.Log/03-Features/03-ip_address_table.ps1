@@ -1,4 +1,9 @@
-﻿# Hashtable to store the cleaned IP addresses
+﻿# start time
+if ($Mode -eq "Developer") {
+$ip_address_table_start_time = start_time
+}
+
+# Hashtable to store the cleaned IP addresses
 $IPHashTable = @{}
 
 # Regular expression pattern to match both IPv4 and IPv6 addresses
@@ -38,4 +43,10 @@ if ($IPHashTable.Count -ge 1) {
 } else {
     # If no IP addresses are found
     $IPHashTableFlag = "False"
+}
+
+# run time
+if ($Mode -eq "Developer") {
+$ip_address_table_run_time = stop_time -start_time $ip_address_table_start_time
+$ip_address_table_run_time
 }

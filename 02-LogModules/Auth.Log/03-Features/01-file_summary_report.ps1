@@ -1,4 +1,9 @@
-﻿# starting variables
+﻿# start time
+if ($Mode -eq "Developer") {
+$file_summary_report_start_time = start_time
+}
+
+# starting variables
 #region
 
 $auth_log_path =  "$RunningPath\02-LogModules\Auth.Log\01-LogCopy\Auth.Log.Parser.Copy.txt"
@@ -37,45 +42,19 @@ else {
 
 #endregion
 
-# start time
+# start and end time
 #region
 
 $temp_line = Get-Content -Head 1 -Path $auth_log_path
 $start_time = $temp_line -replace " $hostname.*",""
 $start_time = $start_time -replace '  ',' '
-$start_time_split = $start_time -split " "
-
-#endregion
-
-# end time
-#region
 
 $temp_line = Get-Content -Tail 1 -Path $auth_log_path
 $end_time = $temp_line -replace " $hostname.*",""
 $end_time = $end_time -replace '  ',' '
-$end_time_split = $end_time -split " "
 
-#endregion
-
-# duration
-#region
-if ($start_time_split[1].Length -eq 1) {
-    $StartTimeConverted = [datetime]::ParseExact($start_time,'MMM d HH:mm:ss',$null)
-}
-elseif ($start_time_split[1].Length -eq 2) {
-    $StartTimeConverted = [datetime]::ParseExact($start_time,'MMM dd HH:mm:ss',$null)
-}
-
-if ($end_time_split[1].Length -eq 1) {
-    $EndTimeConverted = [datetime]::ParseExact($end_time,'MMM d HH:mm:ss',$null)
-}
-elseif ($end_time_split[1].Length -eq 2) {
-    $EndTimeConverted = [datetime]::ParseExact($end_time,'MMM dd HH:mm:ss',$null)
-}
-
-$Duration = $EndTimeConverted - $StartTimeConverted
-$full_duration = Write-Output "$($Duration.Days) Days $($Duration.Hours) Hours $($Duration.Minutes) Minutes $($Duration.Seconds) Seconds"
-
+# execute duration function
+$full_duration_file_summary_report = duration_calc -start_time $start_time -end_time $end_time
 #endregion
 
 # file summary report tamplate
@@ -93,6 +72,12 @@ Write-Output "Hostname:   $hostname"
 Write-Output "Log Size:   $log_size"
 Write-Output "Start Time: $start_time"
 Write-Output "End Time:   $end_time"
-Write-Output "Duration:   $full_duration"
+Write-Output "Duration:   $full_duration_file_summary_report"
 
 #endregion
+
+# run time
+if ($Mode -eq "Developer") {
+$file_summary_report_run_time = stop_time -start_time $file_summary_report_start_time
+$file_summary_report_run_time
+}

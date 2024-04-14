@@ -2,70 +2,36 @@
     # Options
     [Parameter(Mandatory = $true)]
     [ValidateSet('Start','Menu','Update','Purge')]
-    [string]$Option,
+    [string]$O,
 
-    # Type
+    # Mode
     [Parameter(Mandatory = $false)]
-    [ValidateSet('All','Raw','Statistics')]
-    [string]$Type
+    [ValidateSet('Developer')]
+    [string]$Mode
 )
 
-if ($Option -eq 'Start' -and -not $Type) {
-    Write-Output ""
-    Write-Output "[!] You cannot run MasterParser without choosing a -Type option."
-    Write-Output ""
-    Write-Output "[!] This is your -Type value options: ( All / Raw / Statistics )"
-    Write-Output ""
-    Write-Output "[!] If you don't know what to choose, view the the MasterParser Menu."
-    Write-Output ""
-    Write-Output "[!] View the Menu like this: .\MasterParser.ps1 -Option Menu"
-    Write-Output ""
-    $Type = Read-Host "What -Type do you choose to run"
-
-    if ($Type -match "All" -or $Type -match "Raw" -or $Type -match "Statistics") {
-    
-    }
-    
-    else {
-    Write-Output "[!] You clearly don't know what you doing."
-    Write-Output ""
-    Write-Output "[!] Please view the Menu before executing MasterParser again."
-    Write-Output ""
-    Write-Output "[!] You can view the Menu like this: .\MasterParser.ps1 -Option Menu"
-    Write-Output ""
-    exit
-    }
-}
-
 # current script version
-$CurrentVersion = "v2.4.1"
+$CurrentVersion = "v2.5"
 
 # tool running path.
 $RunningPath = Get-Location
 
 # Dot Sourcing -> 00-Banner.ps1
-. "$RunningPath\03-Options\00-Banner.ps1"
+. "$RunningPath\03-Options\00-banner.ps1"
+
+# Dot Sourcing -> 05-functions.ps1
+. "$RunningPath\03-Options\05-functions.ps1"
 
 # space
 Write-Output ""
 
-switch ($Type) {
-  
-  'All' {
-    $TypeFlag = "All"
-  }
+switch ($Mode) {
+    'Developer' {
+        $Mode = "Developer"
+    }
+}
 
-  'Raw' {
-    $TypeFlag = "Raw"
-  }
-
-  'Statistics' {
-    $TypeFlag = "Statistics"
-  }
-  
-  }
-
-switch ($Option) {
+switch ($O) {
   'Start' {
 
     # HashTable to store all the $Log names that was analysed by the ParserMaster
@@ -235,7 +201,7 @@ switch ($Option) {
       $ArchiveCut = $ArchiveCut.PadRight($MaxChar_ArchiveCut)
       $RunningTimeCut = $RunningTimeCut.PadRight($MaxChar_RunningTimeCut)
 
-      $TheResult = "| Log Name: $LogNameCut | Extracted From: $ArchiveCut | Processing Time: $RunningTimeCut |"
+      $TheResult = "| Log Name: $LogNameCut | Extracted From: $ArchiveCut | Run Time: $auth_log_run_time |"
       
       # multiply $Result.Length with "-" hyfen symbol to get the boarder
       $Border = '-' * ($TheResult.Length - 2)
@@ -268,7 +234,7 @@ switch ($Option) {
   'Update' {
 
     # Dot Sourcing -> 01-Update.ps1
-    . "$RunningPath\03-Options\01-Update.ps1"
+    . "$RunningPath\03-Options\01-update.ps1"
 
     # stop the script here
     exit
@@ -278,7 +244,7 @@ switch ($Option) {
   'Menu' {
 
     # Dot Sourcing -> 03-Menu.ps1
-    . "$RunningPath\03-Options\03-Menu.ps1"
+    . "$RunningPath\03-Options\03-menu.ps1"
 
     # stop the script here
     exit
@@ -287,7 +253,7 @@ switch ($Option) {
   'Purge' {
 
     # Dot Sourcing -> 03-Menu.ps1
-    . "$RunningPath\03-Options\04-Purge.ps1"
+    . "$RunningPath\03-Options\04-purge.ps1"
 
     # stop the script here
     exit

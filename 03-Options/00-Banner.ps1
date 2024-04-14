@@ -1,5 +1,5 @@
 ﻿# Dot Sorcing -> 02-AutoUpdateCheck.ps1
-. "$RunningPath\03-Options\02-AutoUpdateCheck.ps1"
+. "$RunningPath\03-Options\02-auto_update_check.ps1"
 
 # ParserMaster Banner
 Write-Output "    __  ___           __"

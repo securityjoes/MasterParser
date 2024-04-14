@@ -1,5 +1,4 @@
-﻿# Start time
-$RunningStartTime = Get-Date
+﻿$auth_log_start_time = start_time
 
 # NotFoundHashTable
 $NotFoundHashTable = @{}
@@ -13,29 +12,26 @@ if ($CreateLogCopy_Flag -eq "True") {
 . "$RunningPath\02-LogModules\Auth.Log\01-LogCopy\CreateLogCopy.ps1"
 }
 
-# Dot Sourcing -> FileSummaryReport.ps1
-. "$RunningPath\02-LogModules\Auth.Log\03-Features\01-FileSummaryReport.ps1"
+# Dot Sourcing -> 01-file_summary_report.ps1
+. "$RunningPath\02-LogModules\Auth.Log\03-Features\01-file_summary_report.ps1"
 
-# Dot Sourcing -> 02-EventNameTable.ps1
-. "$RunningPath\02-LogModules\Auth.Log\03-Features\02-EventNameTable.ps1"
+# Dot Sourcing -> 02-event_name_table.ps1
+. "$RunningPath\02-LogModules\Auth.Log\03-Features\02-event_name_table.ps1"
 
-# Dot Sourcing -> 03-IPAddressTable.ps1
-. "$RunningPath\02-LogModules\Auth.Log\03-Features\03-IPAddressTable.ps1"
+# Dot Sourcing -> 03-ip_address_table.ps1
+. "$RunningPath\02-LogModules\Auth.Log\03-Features\03-ip_address_table.ps1"
 
-# Dot Sourcing -> 04-SSHTable.ps1
-. "$RunningPath\02-LogModules\Auth.Log\03-Features\04-SSH.ps1"
+# Dot Sourcing -> 04-regex_search_engine.ps1
+. "$RunningPath\02-LogModules\Auth.Log\03-Features\04-regex_search_engine.ps1"
 
-# Dot Sourcing -> 05-UsersGroupsActivity.ps1
-. "$RunningPath\02-LogModules\Auth.Log\03-Features\05-UsersGroupsActivity.ps1"
+# Dot Sourcing -> 05-system_login_calculation.ps1
+. "$RunningPath\02-LogModules\Auth.Log\03-Features\05-system_login_calculation.ps1"
 
-# Dot Sourcing -> 06-GeneralActivity.ps1
-. "$RunningPath\02-LogModules\Auth.Log\03-Features\06-GeneralActivity.ps1"
+# Dot Sourcing -> 06-ssh_login_calculation.ps1
+. "$RunningPath\02-LogModules\Auth.Log\03-Features\06-ssh_login_calculation.ps1"
 
-# Dot Sourcing -> 07-sudoActivity.ps1
-. "$RunningPath\02-LogModules\Auth.Log\03-Features\07-sudoActivity.ps1"
-
-# Dot Sourcing -> 08-FTPActivity.ps1
-. "$RunningPath\02-LogModules\Auth.Log\03-Features\08-FTP.ps1"
+# Dot Sourcing -> 09-final_output.ps1
+. "$RunningPath\02-LogModules\Auth.Log\03-Features\09-final_output.ps1"
 
 Write-Output ""
 Write-Output ""
@@ -51,26 +47,4 @@ if ($WasExtracted -eq "true") {
     Remove-Item -Path "$RunningPath\01-Logs\$Log"
 }
 
-# End Time
-$RunningEndTime = Get-Date
-$RunningTime = ($RunningEndTime - $RunningStartTime).TotalSeconds
-
-# Calc if running was in seconds, minutes, or hours
-if ($RunningTime -le 60) {
-    $RunningTime = "{0:00}:{1:00}" -f 0, $RunningTime
-    $RunningTime = Write-Output "$RunningTime Seconds"
-}
-elseif ($RunningTime -le 3600) {
-    $Minutes = [math]::Floor($RunningTime / 60)
-    $Seconds = $RunningTime % 60
-    $RunningTime = "{0:00}:{1:00}" -f $Minutes, $Seconds
-    $RunningTime = Write-Output "$RunningTime Minutes"
-}
-else {
-    $Hours = [math]::Floor($RunningTime / 3600)
-    $Minutes = [math]::Floor(($RunningTime % 3600) / 60)
-    $Seconds = $RunningTime % 60
-    $RunningTime = "{0:00}:{1:00}:{2:00}" -f $Hours, $Minutes, $Seconds
-    $RunningTime = Write-Output "$RunningTime Hours"
-}
-
+$auth_log_run_time = stop_time -start_time $auth_log_start_time
