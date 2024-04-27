@@ -10,9 +10,9 @@ and concise format, enhancing efficiency and accessibility for Incident Responde
 the broader InfoSec and IT community, contributing significantly to the swift and comprehensive assessment of security events on Linux platforms.
 
 ## MasterParser Backgrounds
-Love MasterParser as much as we do? 
-Dive into the fun and jazz up your screen with our exclusive MasterParser wallpaper!
-Click the link below and get ready to add a splash of excitement to your device!
+Love MasterParser as much as we do? </br>
+Dive into the fun and jazz up your screen with our exclusive MasterParser wallpaper! </br>
+Click the link below and get ready to add a splash of excitement to your device! </br>
 [Download Wallpaper](https://postimg.cc/gallery/70SrXcf)
 
 ## Supported Logs Format
