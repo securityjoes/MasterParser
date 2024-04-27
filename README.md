@@ -9,7 +9,7 @@ extract critical details including SSH logins, user creations, event names, IP a
 and concise format, enhancing efficiency and accessibility for Incident Responders. Beyond its immediate utility for DFIR teams, MasterParser proves invaluable to
 the broader InfoSec and IT community, contributing significantly to the swift and comprehensive assessment of security events on Linux platforms.
 
-## MasterParser Backgrounds
+## MasterParser Wallpapers
 Love MasterParser as much as we do? </br>
 Dive into the fun and jazz up your screen with our exclusive MasterParser wallpaper! </br>
 Click the link below and get ready to add a splash of excitement to your device! </br>
