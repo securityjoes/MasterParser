@@ -11,7 +11,7 @@ the broader InfoSec and IT community, contributing significantly to the swift an
 
 ## MasterParser Wallpapers
 Love MasterParser as much as we do? </br>
-Dive into the fun and jazz up your screen with our exclusive MasterParser wallpaper! </br>
+Dive into the fun and jazz up your screen with our exclusive MasterParser wallpapers! </br>
 Click the link below and get ready to add a splash of excitement to your device! </br>
 [Download Wallpaper](https://postimg.cc/gallery/70SrXcf)
 
