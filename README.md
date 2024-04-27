@@ -13,7 +13,7 @@ the broader InfoSec and IT community, contributing significantly to the swift an
 Love MasterParser as much as we do? 
 Dive into the fun and jazz up your screen with our exclusive MasterParser wallpaper!
 Click the link below and get ready to add a splash of excitement to your device!
-(Download Wallpaper!)https://postimg.cc/gallery/70SrXcf
+[Download Wallpaper](https://postimg.cc/gallery/70SrXcf)
 
 ## Supported Logs Format
 This is the list of supported log formats within the var/log directory that MasterParser can analyze. </br>
