@@ -60,3 +60,4 @@ https://github.com/YosfanEilay/MasterParser/assets/132997318/d26b4b3f-7816-42c3-
 | 2. [First Tool Story Publication By Help Net Security](https://www.helpnetsecurity.com/2024/01/08/authlogparser-open-source-analyzing-linux-authentication-logs/) |
 | 3. [Second Tool Story Publication By Forensic Focus](https://www.forensicfocus.com/interviews/eilay-yosfan-threat-researcher-security-joes/) |
 | 4. [MasterParser featured in Help Net Security: 20 Essential Open-Source Cybersecurity Tools That Save You Time](https://www.helpnetsecurity.com/2024/03/25/essential-open-source-cybersecurity-tools/) |
+| 5. [Tool Story Publication By endpointcave Newsletter](https://endpointcave.com/newsletter/newsletter-7-2024/0) |
