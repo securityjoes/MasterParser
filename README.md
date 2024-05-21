@@ -1,5 +1,6 @@
 # MasterParser v2.5
 #### Stop wasting time, let MasterParser do the work!
+#### Created & Maintained by: [Eilay Yosfan](https://github.com/YosfanEilay#-eilay-yosfan)
 ![MasterParserBanner](https://github.com/YosfanEilay/MasterParser/assets/132997318/c6cbcc3f-e966-4329-aec0-c6fe8bc80bb2)
 
 ## What is MasterParser ?
