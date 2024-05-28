@@ -234,7 +234,7 @@ switch ($O) {
   'Update' {
 
     # Dot Sourcing -> 01-Update.ps1
-    . "$RunningPath\03-Options\01-update.ps1"
+    . "$RunningPath\03-Options\01-Update.ps1"
 
     # stop the script here
     exit
@@ -244,7 +244,7 @@ switch ($O) {
   'Menu' {
 
     # Dot Sourcing -> 03-Menu.ps1
-    . "$RunningPath\03-Options\03-menu.ps1"
+    . "$RunningPath\03-Options\03-Menu.ps1"
 
     # stop the script here
     exit
@@ -252,8 +252,8 @@ switch ($O) {
 
   'Purge' {
 
-    # Dot Sourcing -> 03-Menu.ps1
-    . "$RunningPath\03-Options\04-purge.ps1"
+    # Dot Sourcing -> 04-Purge.ps1
+    . "$RunningPath\03-Options\04-Purge.ps1"
 
     # stop the script here
     exit
