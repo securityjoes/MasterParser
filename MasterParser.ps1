@@ -17,7 +17,7 @@ $CurrentVersion = "v2.5"
 $RunningPath = Get-Location
 
 # Dot Sourcing -> 00-Banner.ps1
-. "$RunningPath\03-Options\00-banner.ps1"
+. "$RunningPath\03-Options\00-Banner.ps1"
 
 # Dot Sourcing -> 05-functions.ps1
 . "$RunningPath\03-Options\05-functions.ps1"
