@@ -1,5 +1,9 @@
 ﻿# test conection to GitHub domain
-$ConnectionStatus = Test-Connection -ComputerName "GitHub.com" -Count 1 -ErrorAction SilentlyContinue
+try {
+	$ConnectionStatus = Test-Connection -ComputerName "GitHub.com" -Count 1 -ErrorAction SilentlyContinue
+} catch {
+	$ConnectionStatus = $false
+}
 
 # statment to check if the there is connection to GitHub or not
 if ($ConnectionStatus) {
