@@ -1,0 +1,37 @@
+May  9 12:46:09 UBUSRV01 sshd[709]: Server listening on 0.0.0.0 port 22.
+May  9 12:46:09 UBUSRV01 sshd[709]: Server listening on :: port 22.
+May  9 12:46:09 UBUSRV01 systemd-logind[664]: New seat seat0.
+May  9 12:46:09 UBUSRV01 systemd-logind[664]: Watching system buttons on /dev/input/event0 (Power Button)
+May  9 12:46:09 UBUSRV01 systemd-logind[664]: Watching system buttons on /dev/input/event1 (Sleep Button)
+May  9 12:46:09 UBUSRV01 systemd-logind[664]: Watching system buttons on /dev/input/event2 (AT Translated Set 2 keyboard)
+May  9 12:47:24 UBUSRV01 sshd[1080]: Accepted password for eilay from 192.168.2.1 port 56742 ssh2
+May  9 12:47:24 UBUSRV01 sshd[1080]: pam_unix(sshd:session): session opened for user eilay(uid=1000) by (uid=0)
+May  9 12:47:24 UBUSRV01 systemd-logind[664]: New session 1 of user eilay.
+May  9 12:47:24 UBUSRV01 systemd: pam_unix(systemd-user:session): session opened for user eilay(uid=1000) by (uid=0)
+May  9 12:49:08 UBUSRV01 vsftpd: pam_unix(vsftpd:auth): check pass; user unknown
+May  9 12:49:08 UBUSRV01 vsftpd: pam_unix(vsftpd:auth): authentication failure; logname= uid=0 euid=0 tty=ftp ruser=admin rhost=::ffff:192.168.2.14 
+May  9 12:49:08 UBUSRV01 vsftpd: pam_unix(vsftpd:auth): check pass; user unknown
+May  9 12:49:08 UBUSRV01 vsftpd: pam_unix(vsftpd:auth): authentication failure; logname= uid=0 euid=0 tty=ftp ruser=admin rhost=::ffff:192.168.2.14 
+May  9 12:49:08 UBUSRV01 vsftpd: pam_unix(vsftpd:auth): check pass; user unknown
+May  9 12:49:08 UBUSRV01 vsftpd: pam_unix(vsftpd:auth): check pass; user unknown
+May  9 12:49:08 UBUSRV01 vsftpd: pam_unix(vsftpd:auth): authentication failure; logname= uid=0 euid=0 tty=ftp ruser=administrator rhost=::ffff:192.168.2.14 
+May  9 12:49:08 UBUSRV01 vsftpd: pam_unix(vsftpd:auth): authentication failure; logname= uid=0 euid=0 tty=ftp ruser=master rhost=::ffff:192.168.2.14 
+May  9 12:49:08 UBUSRV01 vsftpd: pam_unix(vsftpd:auth): check pass; user unknown
+May  9 12:49:08 UBUSRV01 vsftpd: pam_unix(vsftpd:auth): authentication failure; logname= uid=0 euid=0 tty=ftp ruser=admin rhost=::ffff:192.168.2.14 
+May  9 12:49:08 UBUSRV01 vsftpd: pam_unix(vsftpd:auth): check pass; user unknown
+May  9 12:49:08 UBUSRV01 vsftpd: pam_unix(vsftpd:auth): check pass; user unknown
+May  9 12:49:08 UBUSRV01 vsftpd: pam_unix(vsftpd:auth): authentication failure; logname= uid=0 euid=0 tty=ftp ruser=administrator rhost=::ffff:192.168.2.14 
+May  9 12:49:08 UBUSRV01 vsftpd: pam_unix(vsftpd:auth): check pass; user unknown
+May  9 12:49:08 UBUSRV01 vsftpd: pam_unix(vsftpd:auth): authentication failure; logname= uid=0 euid=0 tty=ftp ruser=master rhost=::ffff:192.168.2.14 
+May  9 12:49:08 UBUSRV01 vsftpd: pam_unix(vsftpd:auth): check pass; user unknown
+May  9 12:49:08 UBUSRV01 vsftpd: pam_unix(vsftpd:auth): authentication failure; logname= uid=0 euid=0 tty=ftp ruser=administrator rhost=::ffff:192.168.2.14 
+May  9 12:49:08 UBUSRV01 vsftpd: pam_unix(vsftpd:auth): authentication failure; logname= uid=0 euid=0 tty=ftp ruser=master rhost=::ffff:192.168.2.14 
+May  9 12:49:31 UBUSRV01 sshd[1188]: Received disconnect from 192.168.2.1 port 56742:11: disconnected by user
+May  9 12:49:31 UBUSRV01 sshd[1188]: Disconnected from user eilay 192.168.2.1 port 56742
+May  9 12:49:31 UBUSRV01 sshd[1080]: pam_unix(sshd:session): session closed for user eilay
+May  9 12:49:31 UBUSRV01 systemd-logind[664]: Session 1 logged out. Waiting for processes to exit.
+May  9 12:49:31 UBUSRV01 systemd-logind[664]: Removed session 1.
+May  9 12:50:07 UBUSRV01 sshd[1231]: Accepted password for eilay from 192.168.2.1 port 56754 ssh2
+May  9 12:50:07 UBUSRV01 sshd[1231]: pam_unix(sshd:session): session opened for user eilay(uid=1000) by (uid=0)
+May  9 12:50:07 UBUSRV01 systemd-logind[664]: New session 3 of user eilay.
+May  9 12:50:07 UBUSRV01 systemd: pam_unix(systemd-user:session): session opened for user eilay(uid=1000) by (uid=0)

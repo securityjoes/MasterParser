@@ -1,0 +1,71 @@
+May  9 14:03:44 UBUSRV01 sshd[715]: Server listening on 0.0.0.0 port 22.
+May  9 14:03:44 UBUSRV01 sshd[715]: Server listening on :: port 22.
+May  9 14:03:44 UBUSRV01 systemd-logind[668]: New seat seat0.
+May  9 14:03:44 UBUSRV01 systemd-logind[668]: Watching system buttons on /dev/input/event0 (Power Button)
+May  9 14:03:44 UBUSRV01 systemd-logind[668]: Watching system buttons on /dev/input/event1 (Sleep Button)
+May  9 14:03:44 UBUSRV01 systemd-logind[668]: Watching system buttons on /dev/input/event2 (AT Translated Set 2 keyboard)
+May  9 14:03:58 UBUSRV01 sshd[1081]: Accepted password for eilay from 192.168.2.1 port 57399 ssh2
+May  9 14:03:58 UBUSRV01 sshd[1081]: pam_unix(sshd:session): session opened for user eilay(uid=1000) by (uid=0)
+May  9 14:03:58 UBUSRV01 systemd-logind[668]: New session 1 of user eilay.
+May  9 14:03:58 UBUSRV01 systemd: pam_unix(systemd-user:session): session opened for user eilay(uid=1000) by (uid=0)
+May  9 14:04:14 UBUSRV01 sudo:    eilay : TTY=pts/0 ; PWD=/home/eilay ; USER=root ; COMMAND=/usr/bin/whoami
+May  9 14:04:14 UBUSRV01 sudo: pam_unix(sudo:session): session opened for user root(uid=0) by eilay(uid=1000)
+May  9 14:04:14 UBUSRV01 sudo: pam_unix(sudo:session): session closed for user root
+May  9 14:04:25 UBUSRV01 sudo:    eilay : TTY=pts/0 ; PWD=/home/eilay ; USER=root ; COMMAND=/usr/bin/ps aux
+May  9 14:04:25 UBUSRV01 sudo: pam_unix(sudo:session): session opened for user root(uid=0) by eilay(uid=1000)
+May  9 14:04:25 UBUSRV01 sudo: pam_unix(sudo:session): session closed for user root
+May  9 14:04:32 UBUSRV01 sudo:    eilay : TTY=pts/0 ; PWD=/home/eilay ; USER=root ; COMMAND=/usr/bin/grep root /etc/crontab
+May  9 14:04:32 UBUSRV01 sudo: pam_unix(sudo:session): session opened for user root(uid=0) by eilay(uid=1000)
+May  9 14:04:32 UBUSRV01 sudo: pam_unix(sudo:session): session closed for user root
+May  9 14:05:31 UBUSRV01 sudo:    eilay : TTY=pts/0 ; PWD=/home/eilay ; USER=root ; COMMAND=/bin/bash --version
+May  9 14:05:31 UBUSRV01 sudo: pam_unix(sudo:session): session opened for user root(uid=0) by eilay(uid=1000)
+May  9 14:05:31 UBUSRV01 sudo: pam_unix(sudo:session): session closed for user root
+May  9 14:05:45 UBUSRV01 sudo:    eilay : TTY=pts/0 ; PWD=/home/eilay ; USER=root ; COMMAND=/usr/bin/uname --all
+May  9 14:05:45 UBUSRV01 sudo: pam_unix(sudo:session): session opened for user root(uid=0) by eilay(uid=1000)
+May  9 14:05:45 UBUSRV01 sudo: pam_unix(sudo:session): session closed for user root
+May  9 14:05:48 UBUSRV01 sudo:    eilay : TTY=pts/0 ; PWD=/home/eilay ; USER=root ; COMMAND=/usr/sbin/useradd Max
+May  9 14:05:48 UBUSRV01 sudo: pam_unix(sudo:session): session opened for user root(uid=0) by eilay(uid=1000)
+May  9 14:05:48 UBUSRV01 useradd[1235]: new group: name=Max, GID=1001
+May  9 14:05:48 UBUSRV01 useradd[1235]: new user: name=Max, UID=1001, GID=1001, home=/home/Max, shell=/bin/sh, from=/dev/pts/1
+May  9 14:05:48 UBUSRV01 sudo: pam_unix(sudo:session): session closed for user root
+May  9 14:05:53 UBUSRV01 sudo:    eilay : TTY=pts/0 ; PWD=/home/eilay ; USER=root ; COMMAND=/usr/bin/passwd root
+May  9 14:05:53 UBUSRV01 sudo: pam_unix(sudo:session): session opened for user root(uid=0) by eilay(uid=1000)
+May  9 14:05:57 UBUSRV01 passwd[1244]: pam_unix(passwd:chauthtok): password changed for root
+May  9 14:05:57 UBUSRV01 sudo: pam_unix(sudo:session): session closed for user root
+May  9 14:06:20 UBUSRV01 sudo:    eilay : TTY=pts/0 ; PWD=/home/eilay ; USER=root ; COMMAND=/usr/bin/cat /etc/sudoers
+May  9 14:06:20 UBUSRV01 sudo: pam_unix(sudo:session): session opened for user root(uid=0) by eilay(uid=1000)
+May  9 14:06:20 UBUSRV01 sudo: pam_unix(sudo:session): session closed for user root
+May  9 14:06:24 UBUSRV01 sudo:    eilay : TTY=pts/0 ; PWD=/home/eilay ; USER=root ; COMMAND=/usr/bin/cat /etc/shadow
+May  9 14:06:24 UBUSRV01 sudo: pam_unix(sudo:session): session opened for user root(uid=0) by eilay(uid=1000)
+May  9 14:06:24 UBUSRV01 sudo: pam_unix(sudo:session): session closed for user root
+May  9 14:06:33 UBUSRV01 sudo:    eilay : TTY=pts/0 ; PWD=/home/eilay ; USER=root ; COMMAND=/usr/bin/cut -d : -f 1 /etc/passwd
+May  9 14:06:33 UBUSRV01 sudo: pam_unix(sudo:session): session opened for user root(uid=0) by eilay(uid=1000)
+May  9 14:06:33 UBUSRV01 sudo: pam_unix(sudo:session): session closed for user root
+May  9 14:06:46 UBUSRV01 sudo:    eilay : TTY=pts/0 ; PWD=/home/eilay ; USER=root ; COMMAND=/usr/bin/wget http://www.openwall.com/john/g/john-1.7.9-jumbo-7.tar.gz
+May  9 14:06:46 UBUSRV01 sudo: pam_unix(sudo:session): session opened for user root(uid=0) by eilay(uid=1000)
+May  9 14:07:06 UBUSRV01 sudo: pam_unix(sudo:session): session closed for user root
+May  9 14:07:09 UBUSRV01 sudo:    eilay : TTY=pts/0 ; PWD=/home/eilay ; USER=root ; COMMAND=/usr/sbin/groupadd Barium
+May  9 14:07:09 UBUSRV01 sudo: pam_unix(sudo:session): session opened for user root(uid=0) by eilay(uid=1000)
+May  9 14:07:09 UBUSRV01 groupadd[1259]: group added to /etc/group: name=Barium, GID=1002
+May  9 14:07:09 UBUSRV01 groupadd[1259]: group added to /etc/gshadow: name=Barium
+May  9 14:07:09 UBUSRV01 groupadd[1259]: new group: name=Barium, GID=1002
+May  9 14:07:09 UBUSRV01 sudo: pam_unix(sudo:session): session closed for user root
+May  9 14:07:44 UBUSRV01 sudo:    eilay : TTY=pts/0 ; PWD=/home/eilay ; USER=root ; COMMAND=/usr/sbin/groupadd Barium
+May  9 14:07:44 UBUSRV01 sudo: pam_unix(sudo:session): session opened for user root(uid=0) by eilay(uid=1000)
+May  9 14:07:44 UBUSRV01 sudo: pam_unix(sudo:session): session closed for user root
+May  9 14:08:39 UBUSRV01 sudo:    eilay : TTY=pts/0 ; PWD=/home/eilay ; USER=root ; COMMAND=/usr/bin/passwd root
+May  9 14:08:39 UBUSRV01 sudo: pam_unix(sudo:session): session opened for user root(uid=0) by eilay(uid=1000)
+May  9 14:08:42 UBUSRV01 passwd[1278]: pam_unix(passwd:chauthtok): password changed for root
+May  9 14:08:42 UBUSRV01 sudo: pam_unix(sudo:session): session closed for user root
+May  9 14:09:13 UBUSRV01 sshd[1279]: Connection closed by 192.168.2.1 port 57441 [preauth]
+May  9 14:09:20 UBUSRV01 sshd[1281]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.2.1  user=root
+May  9 14:09:22 UBUSRV01 sshd[1281]: Failed password for root from 192.168.2.1 port 57442 ssh2
+May  9 14:09:24 UBUSRV01 sshd[1281]: Connection closed by authenticating user root 192.168.2.1 port 57442 [preauth]
+May  9 14:09:40 UBUSRV01 sshd[1284]: Accepted password for eilay from 192.168.2.1 port 57444 ssh2
+May  9 14:09:40 UBUSRV01 sshd[1284]: pam_unix(sshd:session): session opened for user eilay(uid=1000) by (uid=0)
+May  9 14:09:40 UBUSRV01 systemd-logind[668]: New session 3 of user eilay.
+May  9 14:09:48 UBUSRV01 sshd[1190]: Received disconnect from 192.168.2.1 port 57399:11: disconnected by user
+May  9 14:09:48 UBUSRV01 sshd[1190]: Disconnected from user eilay 192.168.2.1 port 57399
+May  9 14:09:48 UBUSRV01 sshd[1081]: pam_unix(sshd:session): session closed for user eilay
+May  9 14:09:48 UBUSRV01 systemd-logind[668]: Session 1 logged out. Waiting for processes to exit.
+May  9 14:09:48 UBUSRV01 systemd-logind[668]: Removed session 1.

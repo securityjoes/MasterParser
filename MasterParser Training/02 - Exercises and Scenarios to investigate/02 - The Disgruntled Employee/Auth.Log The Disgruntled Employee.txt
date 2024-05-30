@@ -1,0 +1,59 @@
+May  8 12:08:02 UBUSRV01 sshd[703]: Server listening on 0.0.0.0 port 22.
+May  8 12:08:02 UBUSRV01 sshd[703]: Server listening on :: port 22.
+May  8 12:08:02 UBUSRV01 systemd-logind[665]: New seat seat0.
+May  8 12:08:02 UBUSRV01 systemd-logind[665]: Watching system buttons on /dev/input/event0 (Power Button)
+May  8 12:08:02 UBUSRV01 systemd-logind[665]: Watching system buttons on /dev/input/event1 (Sleep Button)
+May  8 12:08:02 UBUSRV01 systemd-logind[665]: Watching system buttons on /dev/input/event2 (AT Translated Set 2 keyboard)
+May  8 12:08:53 UBUSRV01 sshd[1074]: Accepted password for Employee-17 from 192.168.2.1 port 52749 ssh2
+May  8 12:08:53 UBUSRV01 sshd[1074]: pam_unix(sshd:session): session opened for user Employee-17(uid=1000) by (uid=0)
+May  8 12:08:53 UBUSRV01 systemd-logind[665]: New session 1 of user Employee-17.
+May  8 12:08:53 UBUSRV01 systemd: pam_unix(systemd-user:session): session opened for user Employee-17(uid=1000) by (uid=0)
+May  8 12:11:46 UBUSRV01 sudo:    Employee-17 : TTY=pts/0 ; PWD=/home/Employee-17 ; USER=root ; COMMAND=/usr/bin/whoami
+May  8 12:11:46 UBUSRV01 sudo: pam_unix(sudo:session): session opened for user root(uid=0) by Employee-17(uid=1000)
+May  8 12:11:46 UBUSRV01 sudo: pam_unix(sudo:session): session closed for user root
+May  8 12:12:51 UBUSRV01 sudo:    Employee-17 : TTY=pts/0 ; PWD=/home/Employee-17 ; USER=root ; COMMAND=/usr/bin/cat /etc/passwd
+May  8 12:12:51 UBUSRV01 sudo: pam_unix(sudo:session): session opened for user root(uid=0) by Employee-17(uid=1000)
+May  8 12:12:51 UBUSRV01 sudo: pam_unix(sudo:session): session closed for user root
+May  8 12:13:05 UBUSRV01 sudo:    Employee-17 : TTY=pts/0 ; PWD=/home/Employee-17 ; USER=root ; COMMAND=/usr/bin/cat /var/log/auth.log
+May  8 12:13:05 UBUSRV01 sudo: pam_unix(sudo:session): session opened for user root(uid=0) by Employee-17(uid=1000)
+May  8 12:13:05 UBUSRV01 sudo: pam_unix(sudo:session): session closed for user root
+May  8 12:14:05 UBUSRV01 sudo:    Employee-17 : TTY=pts/0 ; PWD=/home/Employee-17 ; USER=root ; COMMAND=/usr/bin/systemctl status syslog
+May  8 12:14:05 UBUSRV01 sudo: pam_unix(sudo:session): session opened for user root(uid=0) by Employee-17(uid=1000)
+May  8 12:14:05 UBUSRV01 sudo: pam_unix(sudo:session): session closed for user root
+May  8 12:14:30 UBUSRV01 sudo:    Employee-17 : TTY=pts/0 ; PWD=/home/Employee-17 ; USER=root ; COMMAND=/usr/bin/systemctl stop syslog
+May  8 12:14:30 UBUSRV01 sudo: pam_unix(sudo:session): session opened for user root(uid=0) by Employee-17(uid=1000)
+May  8 12:14:30 UBUSRV01 sudo: pam_unix(sudo:session): session closed for user root
+May  8 12:14:40 UBUSRV01 sudo:    Employee-17 : TTY=pts/0 ; PWD=/home/Employee-17 ; USER=root ; COMMAND=/usr/bin/systemctl status syslog
+May  8 12:14:40 UBUSRV01 sudo: pam_unix(sudo:session): session opened for user root(uid=0) by Employee-17(uid=1000)
+May  8 12:14:40 UBUSRV01 sudo: pam_unix(sudo:session): session closed for user root
+May  8 12:14:56 UBUSRV01 sudo:    Employee-17 : TTY=pts/0 ; PWD=/home/Employee-17 ; USER=root ; COMMAND=/usr/bin/nano /var/log/auth.log
+May  8 12:14:56 UBUSRV01 sudo: pam_unix(sudo:session): session opened for user root(uid=0) by Employee-17(uid=1000)
+May  8 12:15:01 UBUSRV01 sudo: pam_unix(sudo:session): session closed for user root
+May  8 12:15:27 UBUSRV01 sshd[1190]: Received disconnect from 192.168.2.1 port 52749:11: disconnected by user
+May  8 12:15:27 UBUSRV01 sshd[1190]: Disconnected from user Employee-17 192.168.2.1 port 52749
+May  8 12:15:27 UBUSRV01 sshd[1074]: pam_unix(sshd:session): session closed for user Employee-17
+May  8 12:15:27 UBUSRV01 systemd-logind[665]: Session 1 logged out. Waiting for processes to exit.
+May  8 12:15:27 UBUSRV01 systemd-logind[665]: Removed session 1.
+May  8 12:15:31 UBUSRV01 sshd[1297]: Accepted password for Employee-17 from 192.168.2.1 port 52809 ssh2
+May  8 12:15:31 UBUSRV01 sshd[1297]: pam_unix(sshd:session): session opened for user Employee-17(uid=1000) by (uid=0)
+May  8 12:15:31 UBUSRV01 systemd-logind[665]: New session 3 of user Employee-17.
+May  8 12:15:42 UBUSRV01 sudo: pam_unix(sudo:auth): authentication failure; logname=Employee-17 uid=1000 euid=0 tty=/dev/pts/0 ruser=Employee-17 rhost=  user=Employee-17
+May  8 12:15:46 UBUSRV01 sudo:    Employee-17 : TTY=pts/0 ; PWD=/home/Employee-17 ; USER=root ; COMMAND=/usr/bin/systemctl stop syslog
+May  8 12:15:46 UBUSRV01 sudo: pam_unix(sudo:session): session opened for user root(uid=0) by Employee-17(uid=1000)
+May  8 12:15:46 UBUSRV01 sudo: pam_unix(sudo:session): session closed for user root
+May  8 12:15:50 UBUSRV01 sudo:    Employee-17 : TTY=pts/0 ; PWD=/home/Employee-17 ; USER=root ; COMMAND=/usr/bin/systemctl stop syslog.socket
+May  8 12:15:50 UBUSRV01 sudo: pam_unix(sudo:session): session opened for user root(uid=0) by Employee-17(uid=1000)
+May  8 14:03:23 UBUSRV01 sudo:    Employee-17 : TTY=pts/0 ; PWD=/var/log ; USER=root ; COMMAND=/usr/bin/systemctl start syslog
+May  8 14:03:23 UBUSRV01 sudo: pam_unix(sudo:session): session opened for user root(uid=0) by Employee-17(uid=1000)
+May  8 14:03:23 UBUSRV01 sudo: pam_unix(sudo:session): session closed for user root
+May  8 14:04:20 UBUSRV01 sudo:    Employee-17 : TTY=pts/0 ; PWD=/var/log ; USER=root ; COMMAND=/usr/bin/systemctl restart syslog
+May  8 14:04:20 UBUSRV01 sudo: pam_unix(sudo:session): session opened for user root(uid=0) by Employee-17(uid=1000)
+May  8 14:04:20 UBUSRV01 sudo: pam_unix(sudo:session): session closed for user root
+May  8 14:06:32 UBUSRV01 sudo:    Employee-17 : TTY=pts/0 ; PWD=/var/log ; USER=root ; COMMAND=/usr/bin/ps aux
+May  8 14:06:32 UBUSRV01 sudo: pam_unix(sudo:session): session opened for user root(uid=0) by Employee-17(uid=1000)
+May  8 14:06:32 UBUSRV01 sudo: pam_unix(sudo:session): session closed for user root
+May  8 14:08:01 UBUSRV01 sshd[1190]: Received disconnect from 192.168.2.1 port 52809:11: disconnected by user
+May  8 14:08:01 UBUSRV01 sshd[1190]: Disconnected from user Employee-17 192.168.2.1 port 52809
+May  8 14:08:01 UBUSRV01 sshd[1074]: pam_unix(sshd:session): session closed for user Employee-17
+May  8 14:08:01 UBUSRV01 systemd-logind[665]: Session 3 logged out. Waiting for processes to exit.
+May  8 14:08:01 UBUSRV01 systemd-logind[665]: Removed session 3.
