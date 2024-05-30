@@ -10,6 +10,17 @@ extract critical details including SSH logins, user creations, event names, IP a
 and concise format, enhancing efficiency and accessibility for Incident Responders. Beyond its immediate utility for DFIR teams, MasterParser proves invaluable to
 the broader InfoSec and IT community, contributing significantly to the swift and comprehensive assessment of security events on Linux platforms.
 
+## MasterParser Training Materials
+We have developed a comprehensive set of training materials to help you get the most out of MasterParser. These resources are designed to provide practical, real-world scenarios
+that you might encounter, such as brute force attacks, reconnaissance activities, and more. By training with these materials, you'll gain hands-on experience and deeper insights
+into how MasterParser can be utilized effectively.
+
+In addition to practical scenarios, we have also created a comprehensive PDF presentation, this presentation covers everything you need to know before using MasterParser.
+All these resources are conveniently organized in a folder called "MasterParser Training" within the repository. Whether you are new to MasterParser or looking to deepen
+your expertise, these materials will provide valuable guidance and support.
+
+[MasterParser Training](https://github.com/securityjoes/MasterParser/tree/main/MasterParser%20Training)
+
 ## MasterParser Wallpapers
 Love MasterParser as much as we do? </br>
 Dive into the fun and jazz up your screen with our exclusive MasterParser wallpapers! </br>
