@@ -11,9 +11,9 @@ and concise format, enhancing efficiency and accessibility for Incident Responde
 the broader InfoSec and IT community, contributing significantly to the swift and comprehensive assessment of security events on Linux platforms.
 
 ## MasterParser Training Materials
-We have developed a comprehensive set of training materials to help you get the most out of MasterParser. These resources are designed to provide practical, real-world scenarios
-that you might encounter, such as brute force attacks, reconnaissance activities, and more. By training with these materials, you'll gain hands-on experience and deeper insights
-into how MasterParser can be utilized effectively.
+We have developed a comprehensive set of [training materials](https://github.com/securityjoes/MasterParser/tree/main/MasterParser%20Training/02%20-%20Exercises%20and%20Scenarios%20to%20investigate)
+to help you get the most out of MasterParser. These resources are designed to provide practical, real-world scenarios that you might encounter, such as brute force attacks,
+reconnaissance activities, and more. By training with these materials, you'll gain hands-on experience and deeper insights into how MasterParser can be utilized effectively.
 
 In addition to practical scenarios, we have also created a comprehensive [PDF presentation](https://github.com/securityjoes/MasterParser/tree/main/MasterParser%20Training/01%20-%20MasterParser%20Presentation)
 ,this presentation covers everything you need to know before using MasterParser. All these resources are conveniently organized in a folder called [MasterParser Training](https://github.com/securityjoes/MasterParser/tree/main/MasterParser%20Training) within the repository. Whether you are new to MasterParser or looking to deepen your expertise, these materials will provide valuable guidance and support.
