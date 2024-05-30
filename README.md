@@ -16,10 +16,8 @@ that you might encounter, such as brute force attacks, reconnaissance activities
 into how MasterParser can be utilized effectively.
 
 In addition to practical scenarios, we have also created a comprehensive PDF presentation, this presentation covers everything you need to know before using MasterParser.
-All these resources are conveniently organized in a folder called "MasterParser Training" within the repository. Whether you are new to MasterParser or looking to deepen
-your expertise, these materials will provide valuable guidance and support.
-
-[MasterParser Training](https://github.com/securityjoes/MasterParser/tree/main/MasterParser%20Training)
+All these resources are conveniently organized in a folder called [MasterParser Training](https://github.com/securityjoes/MasterParser/tree/main/MasterParser%20Training)
+within the repository. Whether you are new to MasterParser or looking to deepen your expertise, these materials will provide valuable guidance and support.
 
 ## MasterParser Wallpapers
 Love MasterParser as much as we do? </br>
